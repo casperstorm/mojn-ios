@@ -12,6 +12,7 @@
 		68538233221C329C00DBA0FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68538231221C329C00DBA0FB /* Main.storyboard */; };
 		68538235221C329E00DBA0FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68538234221C329E00DBA0FB /* Assets.xcassets */; };
 		68538238221C329E00DBA0FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68538236221C329E00DBA0FB /* LaunchScreen.storyboard */; };
+		68618F57221C3E84004590B5 /* Layoutless.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68618F56221C3E83004590B5 /* Layoutless.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		68538234221C329E00DBA0FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68538237221C329E00DBA0FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		68538239221C329E00DBA0FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		68618F56221C3E83004590B5 /* Layoutless.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Layoutless.framework; path = Carthage/Build/iOS/Layoutless.framework; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68618F57221C3E84004590B5 /* Layoutless.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -39,6 +42,7 @@
 			isa = PBXGroup;
 			children = (
 				6853822C221C329C00DBA0FB /* mojn */,
+				68618F55221C3E58004590B5 /* Frameworks */,
 				6853822B221C329C00DBA0FB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -64,6 +68,15 @@
 			path = mojn;
 			sourceTree = "<group>";
 		};
+		68618F55221C3E58004590B5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				68618F56221C3E83004590B5 /* Layoutless.framework */,
+			);
+			name = Frameworks;
+			path = mojn/Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,6 +87,7 @@
 				68538226221C329C00DBA0FB /* Sources */,
 				68538227221C329C00DBA0FB /* Frameworks */,
 				68538228221C329C00DBA0FB /* Resources */,
+				68618F58221C3EB2004590B5 /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -129,6 +143,29 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		68618F58221C3EB2004590B5 /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Layoutless.framework",
+			);
+			name = Carthage;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Layoutless.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		68538226221C329C00DBA0FB /* Sources */ = {
@@ -284,6 +321,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = mojn/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -303,6 +344,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = mojn/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
