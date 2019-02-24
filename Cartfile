@@ -1,1 +1,3 @@
 github "DeclarativeHub/Layoutless"
+github "bustoutsolutions/siesta" ~> 1.0
+github "Square/Valet"
