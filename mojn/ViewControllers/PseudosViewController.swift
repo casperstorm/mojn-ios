@@ -31,6 +31,7 @@ class PseudosViewController: ViewController {
     }()
     
     private var statusOverlay = ResourceStatusOverlay()
+    private let refreshControl = UIRefreshControl()
     var data: [Pseudo] = []
     
     override var subviewsLayout: AnyLayout {
@@ -38,17 +39,28 @@ class PseudosViewController: ViewController {
             .addingLayout(
                 collectionView.fillingParent()
             ).addingLayout(
-                statusOverlay.centeringInParent()
+                statusOverlay.fillingParent()
             ).fillingParent()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.pseudoResource = MojnAPI.sharedInstance.pseudos()
+        self.fetchData()
         
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
+        self.collectionView.refreshControl = self.refreshControl
+        
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+    }
+    
+    func fetchData() {
+        self.pseudoResource = MojnAPI.sharedInstance.pseudos()
+    }
+    
+    @objc func refreshData() {
+        self.pseudoResource?.load()
     }
 }
 
@@ -90,5 +102,6 @@ extension PseudosViewController: ResourceObserver {
         
         self.data = pseudos
         self.collectionView.reloadData()
+        self.collectionView.refreshControl?.endRefreshing()
     }
 }
