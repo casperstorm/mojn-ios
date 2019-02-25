@@ -8,28 +8,51 @@
 
 import UIKit
 import Layoutless
+import Siesta
+import SiestaUI
 
 class PseudosViewController: ViewController {
-    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-    var data: [Int] = Array(0..<4)
+    var pseudoResource: Resource? {
+        didSet {
+            oldValue?.removeObservers(ownedBy: self)
+            pseudoResource?
+                .addObserver(self)
+                .addObserver(statusOverlay, owner: self)
+                .loadIfNeeded()
+        }
+    }
+    
+    let collectionView: UICollectionView = {
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        cv.register(PseudoCell.self, forCellWithReuseIdentifier: PseudoCell.identifier)
+        cv.alwaysBounceVertical = true
+        cv.backgroundColor = .white
+        return cv
+    }()
+    
+    private var statusOverlay = ResourceStatusOverlay()
+    var data: [Pseudo] = []
     
     override var subviewsLayout: AnyLayout {
-        return collectionView.fillingParent()
+        return View()
+            .addingLayout(
+                collectionView.fillingParent()
+            ).addingLayout(
+                statusOverlay.centeringInParent()
+            ).fillingParent()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.collectionView.dataSource = self
+        self.pseudoResource = MojnAPI.sharedInstance.pseudos()
+        
         self.collectionView.delegate = self
-        self.collectionView.register(PseudoCell.self, forCellWithReuseIdentifier: PseudoCell.identifier)
-        self.collectionView.alwaysBounceVertical = true
-        self.collectionView.backgroundColor = .white
+        self.collectionView.dataSource = self
     }
 }
 
 extension PseudosViewController: UICollectionViewDataSource {
-    
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
         return self.data.count
@@ -40,37 +63,32 @@ extension PseudosViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PseudoCell.identifier, for: indexPath) as! PseudoCell
         let data = self.data[indexPath.item]
         
-        cell.titleLabel.text = "Social"
-        cell.nameLabel.text = "Nina Jensen"
-        cell.phoneLabel.text = String(data)
+        cell.titleLabel.text = data.description
+        cell.nameLabel.text = data.firstName + " " + data.lastName
+        cell.phoneLabel.text = data.phoneNumber
         return cell
     }
 }
 
 extension PseudosViewController: UICollectionViewDelegate {
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
     }
 }
 
 extension PseudosViewController: UICollectionViewDelegateFlowLayout {
-    
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.bounds.width, height: 150)
     }
+}
 
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+extension PseudosViewController: ResourceObserver {
+    func resourceChanged(_ resource: Resource, event: ResourceEvent) {
+        guard let pseudos: [Pseudo] = resource.typedContent() else { return }
+        
+        self.data = pseudos
+        self.collectionView.reloadData()
     }
 }

@@ -27,14 +27,19 @@ class MojnAPI {
         SiestaLog.Category.enabled = [.network, .pipeline]
         
         service.configure("**") {
-            guard let token = self.token else { return }
-            $0.headers["Authorization"] = "Bearer " + token
+//            guard let token = self.token else { return }
+//            $0.headers["Authorization"] = "Bearer " + token
+            $0.headers["Authorization"] = "Bearer " + "88a1473f415361f8a1d9bc83aa2808f1c3712707"
             $0.headers["Accept"] = "application/json"
         }
         
         let jsonDecoder = JSONDecoder()
         service.configureTransformer("/user") {
             try jsonDecoder.decode(User.self, from: $0.content)
+        }
+        
+        service.configureTransformer("/pseudos") {
+            try jsonDecoder.decode([Pseudo].self, from: $0.content)
         }
         
         service.configureTransformer("/login") {
@@ -63,5 +68,12 @@ extension MojnAPI {
 extension MojnAPI {
     func user() -> Resource {
         return service.resource("/user")
+    }
+}
+
+// MARK: - Pseudo
+extension MojnAPI {
+    func pseudos() -> Resource {
+        return service.resource("/pseudos")
     }
 }
