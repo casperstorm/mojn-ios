@@ -7,24 +7,14 @@
 //
 
 import UIKit
+import Layoutless
 
-class PseudosViewController: UIViewController {
-    weak var collectionView: UICollectionView!
+class PseudosViewController: ViewController {
+    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     var data: [Int] = Array(0..<4)
     
-    override func loadView() {
-        super.loadView()
-        
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(collectionView)
-        NSLayoutConstraint.activate([
-            self.view.topAnchor.constraint(equalTo: collectionView.topAnchor),
-            self.view.bottomAnchor.constraint(equalTo: collectionView.bottomAnchor),
-            self.view.leadingAnchor.constraint(equalTo: collectionView.leadingAnchor),
-            self.view.trailingAnchor.constraint(equalTo: collectionView.trailingAnchor),
-            ])
-        self.collectionView = collectionView
+    override var subviewsLayout: AnyLayout {
+        return collectionView.fillingParent()
     }
     
     override func viewDidLoad() {
@@ -36,7 +26,6 @@ class PseudosViewController: UIViewController {
         self.collectionView.alwaysBounceVertical = true
         self.collectionView.backgroundColor = .white
     }
-    
 }
 
 extension PseudosViewController: UICollectionViewDataSource {
@@ -50,8 +39,9 @@ extension PseudosViewController: UICollectionViewDataSource {
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PseudoCell.identifier, for: indexPath) as! PseudoCell
         let data = self.data[indexPath.item]
-//        cell.textLabel.text = String(data)
-        cell.nameLabel.text = "Casper"
+        
+        cell.titleLabel.text = "Social"
+        cell.nameLabel.text = "Nina Jensen"
         cell.phoneLabel.text = String(data)
         return cell
     }

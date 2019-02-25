@@ -12,33 +12,53 @@ import Layoutless
 
 class PseudoCell: CollectionViewCell {
     static var identifier: String = "PseudoCell"
-    let nameLabel = UILabel(style: Stylesheet.name)
-    let phoneLabel = UILabel()
+    let titleLabel = Label(style: Stylesheet.title)
+    let nameLabel = Label(style: Stylesheet.name)
+    let phoneLabel = Label(style: Stylesheet.phone)
+    let containerView = View(style: Stylesheet.container)
+    
+    override var subviewsLayout: AnyLayout {
+        return containerView.addingLayout(
+            stack(.vertical)(
+                titleLabel,
+                nameLabel,
+                phoneLabel
+                )
+                .centeringHorizontallyInParent()
+                .centeringVerticallyInParent()
+            )
+            .fillingParent(insets: 8)
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        self.contentView.backgroundColor = .brown
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    override var subviewsLayout: AnyLayout {
-        return stack(.vertical)(
-            nameLabel.fillingParent(insets: 16),
-            phoneLabel
-        ).fillingParent()
-    }
 }
 
 extension PseudoCell {
     enum Stylesheet {
+        static let container = Style<UIView> {
+            $0.backgroundColor = UIColor(hexString: "#282828")
+            $0.layer.cornerRadius = 8
+        }
         static let name = Style<UILabel> {
             $0.font = .systemFont(ofSize: 14)
-            $0.textColor = .blue
-            $0.backgroundColor = .red
+            $0.textAlignment = .center
+            $0.textColor = .white
+        }
+        static let phone = Style<UILabel> {
+            $0.font = .systemFont(ofSize: 14)
+            $0.textAlignment = .center
+            $0.textColor = .white
+        }
+        static let title = Style<UILabel> {
+            $0.font = .boldSystemFont(ofSize: 28)
+            $0.textAlignment = .center
+            $0.textColor = .white
         }
     }
 }
