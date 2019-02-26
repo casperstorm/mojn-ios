@@ -26,6 +26,7 @@
 		687B40482225585800304B88 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687B40472225585800304B88 /* Message.swift */; };
 		687B404A22255C1600304B88 /* MojnInputBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687B404922255C1600304B88 /* MojnInputBar.swift */; };
 		687B404C22255D2200304B88 /* MessageInputBar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 687B404B22255D2200304B88 /* MessageInputBar.framework */; };
+		687B404E22256BF400304B88 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 687B404D22256BF400304B88 /* SwiftyJSON.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		687B40472225585800304B88 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		687B404922255C1600304B88 /* MojnInputBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MojnInputBar.swift; sourceTree = "<group>"; };
 		687B404B22255D2200304B88 /* MessageInputBar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageInputBar.framework; path = Carthage/Build/iOS/MessageInputBar.framework; sourceTree = SOURCE_ROOT; };
+		687B404D22256BF400304B88 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				684BB512221ED86000C46642 /* Siesta.framework in Frameworks */,
 				684BB511221ED86000C46642 /* SiestaUI.framework in Frameworks */,
 				687B404C22255D2200304B88 /* MessageInputBar.framework in Frameworks */,
+				687B404E22256BF400304B88 /* SwiftyJSON.framework in Frameworks */,
 				684BB51E221F35A000C46642 /* Valet.framework in Frameworks */,
 				687B4044222557C800304B88 /* MessageKit.framework in Frameworks */,
 			);
@@ -150,6 +153,7 @@
 		68618F55221C3E58004590B5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				687B404D22256BF400304B88 /* SwiftyJSON.framework */,
 				687B404B22255D2200304B88 /* MessageInputBar.framework */,
 				687B4043222557C800304B88 /* MessageKit.framework */,
 				684BB51D221F35A000C46642 /* Valet.framework */,
@@ -250,6 +254,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Valet.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/MessageKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/MessageInputBar.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 			);
 			name = Carthage;
 			outputFileListPaths = (
@@ -261,6 +266,7 @@
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Valvet.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/MessageKit.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/MessageInputBar.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

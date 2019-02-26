@@ -8,6 +8,7 @@
 
 import Foundation
 import Siesta
+import SwiftyJSON
 
 class MojnAPI {
     static let sharedInstance = MojnAPI()
@@ -45,22 +46,12 @@ class MojnAPI {
         service.configureTransformer("/login") {
             try jsonDecoder.decode([String: String].self, from: $0.content)
         }
-    }
-}
-
-// MARK: - Auth
-extension MojnAPI {
-    func login(username: String, password: String) -> Request {
-        return service
-            .resource("/login")
-            .request(.post, json: ["username": username, "password": password])
-            .onSuccess({ [weak self] response in
-                guard let self = self else { return }
-                guard let dictionary: [String: String] = response.typedContent() else { return }
-                guard let token = dictionary["sessionToken"] else { return }
-
-                self.token = token
+        
+        service.configureTransformer("/message") {
+            try JSON(data: $0.content).arrayValue.map({ (json) -> Message? in
+                return Message(json: json)
             })
+        }
     }
 }
 
@@ -75,5 +66,28 @@ extension MojnAPI {
 extension MojnAPI {
     func pseudos() -> Resource {
         return service.resource("/pseudos")
+    }
+}
+
+// MARK: - Messages
+extension MojnAPI {
+    func message() -> Resource {
+        return service.resource("/message")
+    }
+}
+
+// MARK: - Auth
+extension MojnAPI {
+    func login(username: String, password: String) -> Request {
+        return service
+            .resource("/login")
+            .request(.post, json: ["username": username, "password": password])
+            .onSuccess({ [weak self] response in
+                guard let self = self else { return }
+                guard let dictionary: [String: String] = response.typedContent() else { return }
+                guard let token = dictionary["sessionToken"] else { return }
+                
+                self.token = token
+            })
     }
 }
