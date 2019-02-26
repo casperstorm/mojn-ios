@@ -21,6 +21,11 @@
 		68538238221C329E00DBA0FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68538236221C329E00DBA0FB /* LaunchScreen.storyboard */; };
 		68618F57221C3E84004590B5 /* Layoutless.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68618F56221C3E83004590B5 /* Layoutless.framework */; };
 		686FABD022240A5300341D19 /* UIColor+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686FABCF22240A5300341D19 /* UIColor+Color.swift */; };
+		687B4044222557C800304B88 /* MessageKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 687B4043222557C800304B88 /* MessageKit.framework */; };
+		687B4046222557FC00304B88 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687B4045222557FC00304B88 /* MessageViewController.swift */; };
+		687B40482225585800304B88 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687B40472225585800304B88 /* Message.swift */; };
+		687B404A22255C1600304B88 /* MojnInputBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687B404922255C1600304B88 /* MojnInputBar.swift */; };
+		687B404C22255D2200304B88 /* MessageInputBar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 687B404B22255D2200304B88 /* MessageInputBar.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +45,11 @@
 		68538239221C329E00DBA0FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		68618F56221C3E83004590B5 /* Layoutless.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Layoutless.framework; path = Carthage/Build/iOS/Layoutless.framework; sourceTree = SOURCE_ROOT; };
 		686FABCF22240A5300341D19 /* UIColor+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Color.swift"; sourceTree = "<group>"; };
+		687B4043222557C800304B88 /* MessageKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageKit.framework; path = Carthage/Build/iOS/MessageKit.framework; sourceTree = SOURCE_ROOT; };
+		687B4045222557FC00304B88 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		687B40472225585800304B88 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		687B404922255C1600304B88 /* MojnInputBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MojnInputBar.swift; sourceTree = "<group>"; };
+		687B404B22255D2200304B88 /* MessageInputBar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageInputBar.framework; path = Carthage/Build/iOS/MessageInputBar.framework; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,7 +60,9 @@
 				68618F57221C3E84004590B5 /* Layoutless.framework in Frameworks */,
 				684BB512221ED86000C46642 /* Siesta.framework in Frameworks */,
 				684BB511221ED86000C46642 /* SiestaUI.framework in Frameworks */,
+				687B404C22255D2200304B88 /* MessageInputBar.framework in Frameworks */,
 				684BB51E221F35A000C46642 /* Valet.framework in Frameworks */,
+				687B4044222557C800304B88 /* MessageKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +93,7 @@
 			children = (
 				6804516B22242B640080BE3D /* Pseudo.swift */,
 				684BB518221EF40B00C46642 /* User.swift */,
+				687B40472225585800304B88 /* Message.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -90,6 +103,7 @@
 			children = (
 				684E95FB22231DE9005B14CF /* PseudosViewController.swift */,
 				6804516922242B4E0080BE3D /* RootViewController.swift */,
+				687B4045222557FC00304B88 /* MessageViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -98,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				684E95FE22232096005B14CF /* PseudoCell.swift */,
+				687B404922255C1600304B88 /* MojnInputBar.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -135,6 +150,8 @@
 		68618F55221C3E58004590B5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				687B404B22255D2200304B88 /* MessageInputBar.framework */,
+				687B4043222557C800304B88 /* MessageKit.framework */,
 				684BB51D221F35A000C46642 /* Valet.framework */,
 				684BB510221ED86000C46642 /* Siesta.framework */,
 				684BB50F221ED86000C46642 /* SiestaUI.framework */,
@@ -231,6 +248,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Siesta.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SiestaUI.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Valet.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/MessageKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/MessageInputBar.framework",
 			);
 			name = Carthage;
 			outputFileListPaths = (
@@ -240,6 +259,8 @@
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Siesta.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SiestaUI.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Valvet.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/MessageKit.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/MessageInputBar.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -253,11 +274,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				686FABD022240A5300341D19 /* UIColor+Color.swift in Sources */,
+				687B4046222557FC00304B88 /* MessageViewController.swift in Sources */,
 				684BB519221EF40B00C46642 /* User.swift in Sources */,
 				684E95FC22231DE9005B14CF /* PseudosViewController.swift in Sources */,
 				684E95FF22232096005B14CF /* PseudoCell.swift in Sources */,
 				684BB516221EDC0200C46642 /* MojnAPI.swift in Sources */,
 				6804516A22242B4E0080BE3D /* RootViewController.swift in Sources */,
+				687B40482225585800304B88 /* Message.swift in Sources */,
+				687B404A22255C1600304B88 /* MojnInputBar.swift in Sources */,
 				6853822E221C329C00DBA0FB /* AppDelegate.swift in Sources */,
 				6804516C22242B640080BE3D /* Pseudo.swift in Sources */,
 			);
