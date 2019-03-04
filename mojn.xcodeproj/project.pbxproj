@@ -15,6 +15,8 @@
 		1C825B132227DA5D0075E3FB /* LoginRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C825B122227DA5D0075E3FB /* LoginRootView.swift */; };
 		6804516A22242B4E0080BE3D /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6804516922242B4E0080BE3D /* RootViewController.swift */; };
 		6804516C22242B640080BE3D /* Pseudo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6804516B22242B640080BE3D /* Pseudo.swift */; };
+		682754A7222D3DA800C6326D /* PseudosRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682754A6222D3DA800C6326D /* PseudosRootView.swift */; };
+		682754A9222D3E2700C6326D /* PseudosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682754A8222D3E2700C6326D /* PseudosViewModel.swift */; };
 		684BB511221ED86000C46642 /* SiestaUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 684BB50F221ED86000C46642 /* SiestaUI.framework */; };
 		684BB512221ED86000C46642 /* Siesta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 684BB510221ED86000C46642 /* Siesta.framework */; };
 		684BB516221EDC0200C46642 /* MojnAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684BB515221EDC0200C46642 /* MojnAPI.swift */; };
@@ -44,6 +46,8 @@
 		1C825B122227DA5D0075E3FB /* LoginRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRootView.swift; sourceTree = "<group>"; };
 		6804516922242B4E0080BE3D /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		6804516B22242B640080BE3D /* Pseudo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pseudo.swift; sourceTree = "<group>"; };
+		682754A6222D3DA800C6326D /* PseudosRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PseudosRootView.swift; sourceTree = "<group>"; };
+		682754A8222D3E2700C6326D /* PseudosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PseudosViewModel.swift; sourceTree = "<group>"; };
 		684BB50F221ED86000C46642 /* SiestaUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SiestaUI.framework; path = Carthage/Build/iOS/SiestaUI.framework; sourceTree = SOURCE_ROOT; };
 		684BB510221ED86000C46642 /* Siesta.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Siesta.framework; path = Carthage/Build/iOS/Siesta.framework; sourceTree = SOURCE_ROOT; };
 		684BB515221EDC0200C46642 /* MojnAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MojnAPI.swift; sourceTree = "<group>"; };
@@ -98,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				1C825B0D2226D91B0075E3FB /* LoginViewModel.swift */,
+				682754A8222D3E2700C6326D /* PseudosViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -106,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				1C825B122227DA5D0075E3FB /* LoginRootView.swift */,
+				682754A6222D3DA800C6326D /* PseudosRootView.swift */,
 			);
 			path = "Root Views";
 			sourceTree = "<group>";
@@ -321,8 +327,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				682754A9222D3E2700C6326D /* PseudosViewModel.swift in Sources */,
 				686FABD022240A5300341D19 /* UIColor+Color.swift in Sources */,
 				687B4046222557FC00304B88 /* MessageViewController.swift in Sources */,
+				682754A7222D3DA800C6326D /* PseudosRootView.swift in Sources */,
 				1C825B072226CAF30075E3FB /* GenericViewController.swift in Sources */,
 				684BB519221EF40B00C46642 /* User.swift in Sources */,
 				1C825B0B2226D5D40075E3FB /* RootView.swift in Sources */,
