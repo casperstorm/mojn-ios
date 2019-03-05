@@ -38,7 +38,7 @@ class PseudosViewController: GenericViewController<PseudosViewModel, PseudosRoot
 
         cell.titleLabel.text = data.description
         cell.nameLabel.text = data.firstName + " " + data.lastName
-        cell.emojiLabel.text = "🍎"
+        cell.emojiLabel.text = data.emoji
         cell.phoneLabel.text = data.phoneNumber
         return cell
     }

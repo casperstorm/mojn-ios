@@ -30,7 +30,7 @@ class MojnAPI {
         service.configure("**") {
 //            guard let token = self.token else { return }
 //            $0.headers["Authorization"] = "Bearer " + token
-            $0.headers["Authorization"] = "Bearer " + "0f93fe4f1cb08b5cf1e3d5fece7e094ef4901c74"
+            $0.headers["Authorization"] = "Bearer " + "a5f2e0bb441f8a382188231f628dbe62077d30c8"
             $0.headers["Accept"] = "application/json"
         }
         

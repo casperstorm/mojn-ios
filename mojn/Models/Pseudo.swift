@@ -7,7 +7,7 @@
 //
 
 struct Pseudo: Codable {
-    let id, firstName, lastName, description, phoneNumber: String
+    let id, firstName, lastName, description, phoneNumber, emoji: String
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -15,5 +15,6 @@ struct Pseudo: Codable {
         case lastName
         case description
         case phoneNumber
+        case emoji
     }
 }
