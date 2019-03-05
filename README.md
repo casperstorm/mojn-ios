@@ -1,6 +1,6 @@
 <img src="/docs/logo.png"/>
 
-# mojn-api 
+# mojn-ios 
 *Meaning: Mojn [ˈmʌjn] means both hello and goodbye. It can be used at all times of a day.*
 
 ## Preliminary
