@@ -9,11 +9,17 @@
 import UIKit
 import Layoutless
 
-class PseudosViewController: GenericViewController<PseudosViewModel, PseudosRootView>, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class PseudosViewController: GenericViewController<PseudosViewModel, PseudosRootView>, UICollectionViewDelegate, UICollectionViewDataSource {
     override func viewDidLoad() {
         self.viewModel.delegate = self
         self.rootView.collectionView.delegate = self
         self.rootView.collectionView.dataSource = self
+        
+        if let layout = rootView.collectionView.collectionViewLayout as? PseudoLayout {
+            layout.delegate = self
+        }
+        
+        
         
         self.viewModel.loadData()
     }
@@ -28,29 +34,27 @@ class PseudosViewController: GenericViewController<PseudosViewModel, PseudosRoot
     
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        return viewModel.data.count
+        if (viewModel.data.count == 0) { return 0 }
+        return viewModel.data.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PseudoCell.identifier, for: indexPath) as! PseudoCell
-        let data = viewModel.data[indexPath.item]
-
-        cell.titleLabel.text = data.description
-        cell.nameLabel.text = data.firstName + " " + data.lastName
-        cell.emojiLabel.text = data.emoji
-        cell.phoneLabel.text = data.phoneNumber
-        return cell
-    }
-    
-    // MARK: - UICollectionViewDelegateFlowLayout
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let inset: CGFloat = 12 + 12 + 12
-        return CGSize(width: (collectionView.bounds.width - inset) / 2, height: 220)
+        if (indexPath.item == 0) {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PseudoAddCell.identifier, for: indexPath) as! PseudoAddCell
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PseudoCell.identifier, for: indexPath) as! PseudoCell
+            let data = viewModel.data[indexPath.item - 1]
+            
+            cell.titleLabel.text = data.description
+            cell.nameLabel.text = data.firstName + " " + data.lastName
+            cell.emojiLabel.text = data.emoji
+            cell.phoneLabel.text = data.phoneNumber
+            
+            return cell
+        }
     }
 }
 
@@ -59,5 +63,14 @@ class PseudosViewController: GenericViewController<PseudosViewModel, PseudosRoot
 extension PseudosViewController: PseudosViewModelDelegate {
     func pseudosViewModel(_ viewModel: PseudosViewModel, didChangeData data: [Pseudo]) {
         rootView.collectionView.reloadData()
+    }
+}
+
+extension PseudosViewController: PseudoLayoutDelegate {
+    func collectionView(_ collectionView: UICollectionView, heightForCellAtIndexPath indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 0 {
+            return 88
+        }
+        return 220
     }
 }

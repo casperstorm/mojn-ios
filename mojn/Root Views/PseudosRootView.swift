@@ -13,8 +13,9 @@ import Siesta
 
 public class PseudosRootView: View, RootView {
     lazy var collectionView: UICollectionView = {
-        let cv = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: PseudoLayout())
         cv.register(PseudoCell.self, forCellWithReuseIdentifier: PseudoCell.identifier)
+        cv.register(PseudoAddCell.self, forCellWithReuseIdentifier: PseudoAddCell.identifier)
         cv.apply(Stylesheet.collectionView)
         return cv
     }()
