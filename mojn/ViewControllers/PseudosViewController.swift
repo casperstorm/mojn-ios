@@ -9,7 +9,7 @@
 import UIKit
 import Layoutless
 
-class PseudosViewController: GenericViewController<PseudosViewModel, PseudosRootView>, UICollectionViewDelegate, UICollectionViewDataSource {
+class PseudosViewController: GenericViewController<PseudosViewModel, PseudosRootView>, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     override func viewDidLoad() {
         self.viewModel.delegate = self
         self.rootView.collectionView.delegate = self
@@ -21,13 +21,7 @@ class PseudosViewController: GenericViewController<PseudosViewModel, PseudosRoot
     // MARK: - UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.width, height: 150)
+        print("tapped!")
     }
     
     // MARK: - UICollectionViewDataSource
@@ -44,8 +38,19 @@ class PseudosViewController: GenericViewController<PseudosViewModel, PseudosRoot
 
         cell.titleLabel.text = data.description
         cell.nameLabel.text = data.firstName + " " + data.lastName
+        cell.emojiLabel.text = "🍎"
         cell.phoneLabel.text = data.phoneNumber
         return cell
+    }
+    
+    // MARK: - UICollectionViewDelegateFlowLayout
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let inset: CGFloat = 12 + 12 + 12
+        return CGSize(width: (collectionView.bounds.width - inset) / 2, height: 220)
     }
 }
 

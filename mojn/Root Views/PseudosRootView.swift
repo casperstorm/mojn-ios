@@ -29,6 +29,7 @@ public extension PseudosRootView {
         static let collectionView = Style<UICollectionView> {
             $0.backgroundColor = UIColor(hexString: "#f3ebea")
             $0.alwaysBounceVertical = true
+            $0.contentInset = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
         }
     }
 }

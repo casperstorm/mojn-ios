@@ -35,6 +35,11 @@
 		687B404A22255C1600304B88 /* MojnInputBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687B404922255C1600304B88 /* MojnInputBar.swift */; };
 		687B404C22255D2200304B88 /* MessageInputBar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 687B404B22255D2200304B88 /* MessageInputBar.framework */; };
 		687B404E22256BF400304B88 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 687B404D22256BF400304B88 /* SwiftyJSON.framework */; };
+		68D30EDE222E86A700DEEAA1 /* OverpassMono-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 68D30EDD222E859200DEEAA1 /* OverpassMono-Bold.ttf */; };
+		68D30EDF222E86A700DEEAA1 /* OverpassMono-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 68D30EDB222E859200DEEAA1 /* OverpassMono-Light.ttf */; };
+		68D30EE0222E86A700DEEAA1 /* OverpassMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 68D30EDA222E859200DEEAA1 /* OverpassMono-Regular.ttf */; };
+		68D30EE1222E86A700DEEAA1 /* OverpassMono-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 68D30EDC222E859200DEEAA1 /* OverpassMono-SemiBold.ttf */; };
+		68D30EE2222E86A700DEEAA1 /* PatuaOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 68D30ED9222E859100DEEAA1 /* PatuaOne-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +73,11 @@
 		687B404922255C1600304B88 /* MojnInputBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MojnInputBar.swift; sourceTree = "<group>"; };
 		687B404B22255D2200304B88 /* MessageInputBar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageInputBar.framework; path = Carthage/Build/iOS/MessageInputBar.framework; sourceTree = SOURCE_ROOT; };
 		687B404D22256BF400304B88 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = SOURCE_ROOT; };
+		68D30ED9222E859100DEEAA1 /* PatuaOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "PatuaOne-Regular.ttf"; path = "Fonts/PatuaOne-Regular.ttf"; sourceTree = "<group>"; };
+		68D30EDA222E859200DEEAA1 /* OverpassMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OverpassMono-Regular.ttf"; path = "Fonts/OverpassMono-Regular.ttf"; sourceTree = "<group>"; };
+		68D30EDB222E859200DEEAA1 /* OverpassMono-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OverpassMono-Light.ttf"; path = "Fonts/OverpassMono-Light.ttf"; sourceTree = "<group>"; };
+		68D30EDC222E859200DEEAA1 /* OverpassMono-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OverpassMono-SemiBold.ttf"; path = "Fonts/OverpassMono-SemiBold.ttf"; sourceTree = "<group>"; };
+		68D30EDD222E859200DEEAA1 /* OverpassMono-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OverpassMono-Bold.ttf"; path = "Fonts/OverpassMono-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +129,7 @@
 		6804516D22242B770080BE3D /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
+				68D30ED8222E858100DEEAA1 /* Fonts */,
 				6853822D221C329C00DBA0FB /* AppDelegate.swift */,
 				68538234221C329E00DBA0FB /* Assets.xcassets */,
 				68538236221C329E00DBA0FB /* LaunchScreen.storyboard */,
@@ -221,6 +232,18 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		68D30ED8222E858100DEEAA1 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				68D30EDD222E859200DEEAA1 /* OverpassMono-Bold.ttf */,
+				68D30EDB222E859200DEEAA1 /* OverpassMono-Light.ttf */,
+				68D30EDA222E859200DEEAA1 /* OverpassMono-Regular.ttf */,
+				68D30EDC222E859200DEEAA1 /* OverpassMono-SemiBold.ttf */,
+				68D30ED9222E859100DEEAA1 /* PatuaOne-Regular.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -280,8 +303,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68D30EE2222E86A700DEEAA1 /* PatuaOne-Regular.ttf in Resources */,
+				68D30EE0222E86A700DEEAA1 /* OverpassMono-Regular.ttf in Resources */,
+				68D30EDE222E86A700DEEAA1 /* OverpassMono-Bold.ttf in Resources */,
 				68538238221C329E00DBA0FB /* LaunchScreen.storyboard in Resources */,
+				68D30EE1222E86A700DEEAA1 /* OverpassMono-SemiBold.ttf in Resources */,
 				68538235221C329E00DBA0FB /* Assets.xcassets in Resources */,
+				68D30EDF222E86A700DEEAA1 /* OverpassMono-Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
