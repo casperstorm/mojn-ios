@@ -20,10 +20,11 @@ class RootViewController: ViewController {
     }
     
     func createTabBarController() {
-        let vc1 = PseudosViewController()
+//        let vc1 = PseudosViewController()
+        let vc1 = PseudosViewController(viewModel: PseudosViewModel())
         vc1.tabBarItem = UITabBarItem.init(tabBarSystemItem: .bookmarks, tag: 0)
         
-        let vc2 = UIViewController()
+        let vc2 = MessageViewController()
         vc2.tabBarItem = UITabBarItem.init(tabBarSystemItem: .featured, tag: 0)
 
         tabBarCnt.viewControllers = [vc1, vc2].map{ UINavigationController.init(rootViewController: $0)}

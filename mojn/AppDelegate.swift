@@ -18,7 +18,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.makeKeyAndVisible()
         
-        self.window?.rootViewController = RootViewController()
+//        let loginViewController = LoginViewController(viewModel: LoginViewModel())
+        
+        let rootViewController = UINavigationController(rootViewController: RootViewController())
+        
+        self.window?.rootViewController = rootViewController
+        
+//        for family in UIFont.familyNames.sorted() {
+//            let names = UIFont.fontNames(forFamilyName: family)
+//            print("Family: \(family) Font names: \(names)")
+//        }
                 
         return true
     }

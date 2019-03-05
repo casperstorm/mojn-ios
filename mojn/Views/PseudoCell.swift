@@ -12,22 +12,25 @@ import Layoutless
 
 class PseudoCell: CollectionViewCell {
     static var identifier: String = "PseudoCell"
-    let titleLabel = Label(style: Stylesheet.title)
-    let nameLabel = Label(style: Stylesheet.name)
-    let phoneLabel = Label(style: Stylesheet.phone)
-    let containerView = View(style: Stylesheet.container)
-    
+    lazy var containerView: View = View(style: Stylesheet.container)
+    lazy var emojiContainer: View = View(style: Stylesheet.emojiContainer)
+    lazy var titleLabel: Label = Label(style: Stylesheet.title)
+    lazy var nameLabel: Label = Label(style: Stylesheet.name)
+    lazy var phoneLabel: Label = Label(style: Stylesheet.phone)
+    lazy var emojiLabel: Label = Label(style: Stylesheet.emoji)
+
     override var subviewsLayout: AnyLayout {
         return containerView.addingLayout(
-            stack(.vertical)(
+            stack(.vertical, alignment: .center)(
+                emojiContainer.sizing(toWidth: 86, height: 86)
+                    .addingLayout(emojiLabel.centeringInParent()),
+                verticalSpacing(10),
                 titleLabel,
                 nameLabel,
                 phoneLabel
-                )
-                .centeringHorizontallyInParent()
-                .centeringVerticallyInParent()
+                ).centeringInParent()
             )
-            .fillingParent(insets: 8)
+        .fillingParent()
     }
     
     override init(frame: CGRect) {
@@ -42,23 +45,31 @@ class PseudoCell: CollectionViewCell {
 extension PseudoCell {
     enum Stylesheet {
         static let container = Style<UIView> {
-            $0.backgroundColor = UIColor(hexString: "#282828")
-            $0.layer.cornerRadius = 8
+            $0.backgroundColor = .white
+            $0.layer.cornerRadius = 12
         }
         static let name = Style<UILabel> {
-            $0.font = .systemFont(ofSize: 14)
+            $0.font = UIFont(name: "OverpassMono-Light", size: 12)
             $0.textAlignment = .center
-            $0.textColor = .white
+            $0.textColor = UIColor(hexString: "#8c759b")
         }
         static let phone = Style<UILabel> {
-            $0.font = .systemFont(ofSize: 14)
+            $0.font = UIFont(name: "OverpassMono-Light", size: 12)
             $0.textAlignment = .center
-            $0.textColor = .white
+            $0.textColor = UIColor(hexString: "#8c759b")
         }
         static let title = Style<UILabel> {
-            $0.font = .boldSystemFont(ofSize: 28)
+            $0.font = UIFont(name: "PatuaOne-Regular", size: 24)
             $0.textAlignment = .center
-            $0.textColor = .white
+            $0.textColor = UIColor(hexString: "#370957")
+        }
+        static let emoji = Style<UILabel> {
+            $0.font = .boldSystemFont(ofSize: 40)
+            $0.textAlignment = .center
+        }
+        static let emojiContainer = Style<UIView> {
+            $0.backgroundColor = UIColor(hexString: "#f3ecec")
+            $0.layer.cornerRadius = 43
         }
     }
 }

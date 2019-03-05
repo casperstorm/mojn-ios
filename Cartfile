@@ -1,3 +1,12 @@
-github "DeclarativeHub/Layoutless"
+# Layout
+github "DeclarativeHub/Layoutless" ~> 0.2
+
+# Network
 github "bustoutsolutions/siesta" ~> 1.0
-github "Square/Valet"
+
+# Message
+github "MessageKit/MessageKit" ~> 2.0
+
+# Utilities
+github "Square/Valet" ~> 3.2
+github "SwiftyJSON/SwiftyJSON" ~> 4.0
