@@ -16,11 +16,6 @@ class PseudosViewController: GenericViewController<PseudosViewModel, PseudosRoot
         self.rootView.collectionView.dataSource = self
         
         self.viewModel.loadData()
-        
-
-        
-//        self.rootView.collectionView.refreshControl = self.refreshControl
-//        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
     }
 
     // MARK: - UICollectionViewDelegate
@@ -39,49 +34,25 @@ class PseudosViewController: GenericViewController<PseudosViewModel, PseudosRoot
     
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return viewModel.data.count
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PseudoCell.identifier, for: indexPath) as! PseudoCell
-//        let data = self.data[indexPath.item]
-//
-//        cell.titleLabel.text = data.description
-//        cell.nameLabel.text = data.firstName + " " + data.lastName
-//        cell.phoneLabel.text = data.phoneNumber
+        let data = viewModel.data[indexPath.item]
+
+        cell.titleLabel.text = data.description
+        cell.nameLabel.text = data.firstName + " " + data.lastName
+        cell.phoneLabel.text = data.phoneNumber
         return cell
     }
 }
 
+// MARK: - PseudosViewModelDelegate
+
 extension PseudosViewController: PseudosViewModelDelegate {
     func pseudosViewModel(_ viewModel: PseudosViewModel, didChangeData data: [Pseudo]) {
-        print(data)
+        rootView.collectionView.reloadData()
     }
 }
-
-//
-//    private var statusOverlay = ResourceStatusOverlay()
-//    private let refreshControl = UIRefreshControl()
-//    var data: [Pseudo] = []
-//
-//    override var subviewsLayout: AnyLayout {
-//        return View()
-//            .addingLayout(
-//                collectionView.fillingParent()
-//            ).addingLayout(
-//                statusOverlay.fillingParent()
-//            ).fillingParent()
-//    }
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//        self.fetchData()
-//
-//        self.collectionView.delegate = self
-//        self.collectionView.dataSource = self
-//        self.collectionView.refreshControl = self.refreshControl
-//
-//        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
-//    }

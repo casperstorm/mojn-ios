@@ -20,10 +20,7 @@ public class PseudosRootView: View, RootView {
     }()
     
     override public var subviewsLayout: AnyLayout {
-        return View()
-            .addingLayout(
-                collectionView.fillingParent()
-            ).fillingParent()
+        return collectionView.fillingParent()
     }
 }
 
@@ -35,13 +32,3 @@ public extension PseudosRootView {
         }
     }
 }
-//
-//extension PseudosViewModel: ResourceObserver {
-//    func resourceChanged(_ resource: Resource, event: ResourceEvent) {
-////        guard let pseudos: [Pseudo] = resource.typedContent() else { return }
-//
-////        self.data = pseudos
-////        self.collectionView.reloadData()
-////        self.collectionView.refreshControl?.endRefreshing()
-//    }
-//}

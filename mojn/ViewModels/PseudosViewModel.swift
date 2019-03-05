@@ -17,11 +17,9 @@ class PseudosViewModel: ViewModel {
     weak var delegate: PseudosViewModelDelegate?
     var data: [Pseudo] = [] {
         didSet {
-//            onDataChange?(data)
             delegate?.pseudosViewModel(self, didChangeData: data)
         }
     }
-    var onDataChange: (([Pseudo]) -> Void)?
     var pseudoResource: Resource? {
         didSet {
             oldValue?.removeObservers(ownedBy: self)
