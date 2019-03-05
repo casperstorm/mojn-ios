@@ -13,7 +13,6 @@
 		1C825B0E2226D91B0075E3FB /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C825B0D2226D91B0075E3FB /* LoginViewModel.swift */; };
 		1C825B102227D9D90075E3FB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C825B0F2227D9D90075E3FB /* LoginViewController.swift */; };
 		1C825B132227DA5D0075E3FB /* LoginRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C825B122227DA5D0075E3FB /* LoginRootView.swift */; };
-		6804516A22242B4E0080BE3D /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6804516922242B4E0080BE3D /* RootViewController.swift */; };
 		6804516C22242B640080BE3D /* Pseudo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6804516B22242B640080BE3D /* Pseudo.swift */; };
 		682754A7222D3DA800C6326D /* PseudosRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682754A6222D3DA800C6326D /* PseudosRootView.swift */; };
 		682754A9222D3E2700C6326D /* PseudosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682754A8222D3E2700C6326D /* PseudosViewModel.swift */; };
@@ -49,7 +48,6 @@
 		1C825B0D2226D91B0075E3FB /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		1C825B0F2227D9D90075E3FB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1C825B122227DA5D0075E3FB /* LoginRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRootView.swift; sourceTree = "<group>"; };
-		6804516922242B4E0080BE3D /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		6804516B22242B640080BE3D /* Pseudo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pseudo.swift; sourceTree = "<group>"; };
 		682754A6222D3DA800C6326D /* PseudosRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PseudosRootView.swift; sourceTree = "<group>"; };
 		682754A8222D3E2700C6326D /* PseudosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PseudosViewModel.swift; sourceTree = "<group>"; };
@@ -160,7 +158,6 @@
 			isa = PBXGroup;
 			children = (
 				684E95FB22231DE9005B14CF /* PseudosViewController.swift */,
-				6804516922242B4E0080BE3D /* RootViewController.swift */,
 				687B4045222557FC00304B88 /* MessageViewController.swift */,
 				1C825B0F2227D9D90075E3FB /* LoginViewController.swift */,
 			);
@@ -367,7 +364,6 @@
 				684E95FF22232096005B14CF /* PseudoCell.swift in Sources */,
 				1C825B0E2226D91B0075E3FB /* LoginViewModel.swift in Sources */,
 				684BB516221EDC0200C46642 /* MojnAPI.swift in Sources */,
-				6804516A22242B4E0080BE3D /* RootViewController.swift in Sources */,
 				1C825B132227DA5D0075E3FB /* LoginRootView.swift in Sources */,
 				687B40482225585800304B88 /* Message.swift in Sources */,
 				1C825B102227D9D90075E3FB /* LoginViewController.swift in Sources */,
