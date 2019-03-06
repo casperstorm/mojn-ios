@@ -16,6 +16,7 @@ public class PseudosRootView: View, RootView {
         let cv = UICollectionView(frame: .zero, collectionViewLayout: PseudoLayout())
         cv.register(PseudoCell.self, forCellWithReuseIdentifier: PseudoCell.identifier)
         cv.register(PseudoAddCell.self, forCellWithReuseIdentifier: PseudoAddCell.identifier)
+        cv.register(PseudoCountCell.self, forCellWithReuseIdentifier: PseudoCountCell.identifier)
         cv.apply(Stylesheet.collectionView)
         return cv
     }()

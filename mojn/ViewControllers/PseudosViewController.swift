@@ -19,8 +19,6 @@ class PseudosViewController: GenericViewController<PseudosViewModel, PseudosRoot
             layout.delegate = self
         }
         
-        
-        
         self.viewModel.loadData()
     }
 
@@ -32,45 +30,60 @@ class PseudosViewController: GenericViewController<PseudosViewModel, PseudosRoot
     
     // MARK: - UICollectionViewDataSource
     
-    func collectionView(_ collectionView: UICollectionView,
-                        numberOfItemsInSection section: Int) -> Int {
-        if (viewModel.data.count == 0) { return 0 }
-        return viewModel.data.count + 1
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return viewModel.cellViewModels.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.cellViewModels[section].count
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let section = viewModel.cellViewModels[indexPath.section]
+        let item = section[indexPath.row]
         
-        if (indexPath.item == 0) {
+        if item is AddItemViewModel {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PseudoAddCell.identifier, for: indexPath) as! PseudoAddCell
             return cell
-        } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PseudoCell.identifier, for: indexPath) as! PseudoCell
-            let data = viewModel.data[indexPath.item - 1]
-            
-            cell.titleLabel.text = data.description
-            cell.nameLabel.text = data.firstName + " " + data.lastName
-            cell.emojiLabel.text = data.emoji
-            cell.phoneLabel.text = data.phoneNumber
-            
+        }
+        
+        if item is CountItemViewModel {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PseudoCountCell.identifier, for: indexPath) as! PseudoCountCell
             return cell
         }
+        
+        if item is PseudoItemViewModel {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PseudoCell.identifier, for: indexPath) as! PseudoCell
+            guard let item = item as? PseudoItemViewModel else { return UICollectionViewCell() }
+            cell.descriptionLabel.text = item.description
+            cell.nameLabel.text = item.name()
+            cell.phoneLabel.text = item.phoneNumber
+            cell.emojiLabel.text = item.emoji
+            return cell
+        }
+        
+        return UICollectionViewCell()
     }
 }
 
 // MARK: - PseudosViewModelDelegate
 
 extension PseudosViewController: PseudosViewModelDelegate {
-    func pseudosViewModel(_ viewModel: PseudosViewModel, didChangeData data: [Pseudo]) {
+    func pseudosViewModel(_ viewModel: PseudosViewModel, didChangeData data: [[ViewModel]]) {
         rootView.collectionView.reloadData()
     }
 }
 
 extension PseudosViewController: PseudoLayoutDelegate {
     func collectionView(_ collectionView: UICollectionView, heightForCellAtIndexPath indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 {
-            return 88
+        let section = viewModel.cellViewModels[indexPath.section]
+        let item = section[indexPath.row]
+        
+        if let item = item as? CellViewModelSizable {
+            return item.height()
         }
-        return 220
+        
+        return 0
     }
 }

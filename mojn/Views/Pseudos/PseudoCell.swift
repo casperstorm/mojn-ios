@@ -14,7 +14,7 @@ class PseudoCell: CollectionViewCell {
     static var identifier: String = "PseudoCell"
     lazy var containerView: View = View(style: Stylesheet.container)
     lazy var emojiContainer: View = View(style: Stylesheet.emojiContainer)
-    lazy var titleLabel: Label = Label(style: Stylesheet.title)
+    lazy var descriptionLabel: Label = Label(style: Stylesheet.description)
     lazy var nameLabel: Label = Label(style: Stylesheet.name)
     lazy var phoneLabel: Label = Label(style: Stylesheet.phone)
     lazy var emojiLabel: Label = Label(style: Stylesheet.emoji)
@@ -25,7 +25,7 @@ class PseudoCell: CollectionViewCell {
                 emojiContainer.sizing(toWidth: 86, height: 86)
                     .addingLayout(emojiLabel.centeringInParent()),
                 verticalSpacing(10),
-                titleLabel,
+                descriptionLabel,
                 nameLabel,
                 phoneLabel
                 ).centeringInParent()
@@ -58,7 +58,7 @@ extension PseudoCell {
             $0.textAlignment = .center
             $0.textColor = UIColor(hexString: "#8c759b")
         }
-        static let title = Style<UILabel> {
+        static let description = Style<UILabel> {
             $0.font = UIFont(name: "PatuaOne-Regular", size: 24)
             $0.textAlignment = .center
             $0.textColor = UIColor(hexString: "#370957")

@@ -7,5 +7,10 @@
 //
 
 import Foundation
+import UIKit
 
 public protocol ViewModel { }
+
+public protocol CellViewModelSizable: ViewModel {
+    func height() -> CGFloat
+}
