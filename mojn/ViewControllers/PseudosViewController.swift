@@ -10,6 +10,7 @@ import UIKit
 import Layoutless
 
 class PseudosViewController: GenericViewController<PseudosViewModel, PseudosRootView>, UICollectionViewDelegate, UICollectionViewDataSource {
+    let configurator = PseudoCollectionViewCellConfigurator()
     override func viewDidLoad() {
         self.viewModel.delegate = self
         self.rootView.collectionView.delegate = self
@@ -41,25 +42,29 @@ class PseudosViewController: GenericViewController<PseudosViewModel, PseudosRoot
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let section = viewModel.cellViewModels[indexPath.section]
-        let item = section[indexPath.row]
+        let cellViewModel = section[indexPath.row]
         
-        if item is AddItemViewModel {
+        if cellViewModel is AddItemViewModel {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PseudoAddCell.identifier, for: indexPath) as! PseudoAddCell
+            if let cellViewModel = cellViewModel as? AddItemViewModel {
+                configurator.configure(cell, with: cellViewModel)
+            }
             return cell
         }
         
-        if item is CountItemViewModel {
+        if cellViewModel is CountItemViewModel {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PseudoCountCell.identifier, for: indexPath) as! PseudoCountCell
+            if let cellViewModel = cellViewModel as? CountItemViewModel {
+                configurator.configure(cell, with: cellViewModel)
+            }
             return cell
         }
         
-        if item is PseudoItemViewModel {
+        if cellViewModel is PseudoItemViewModel {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PseudoCell.identifier, for: indexPath) as! PseudoCell
-            guard let item = item as? PseudoItemViewModel else { return UICollectionViewCell() }
-            cell.descriptionLabel.text = item.description
-            cell.nameLabel.text = item.name()
-            cell.phoneLabel.text = item.phoneNumber
-            cell.emojiLabel.text = item.emoji
+            if let cellViewModel = cellViewModel as? PseudoItemViewModel {
+                configurator.configure(cell, with: cellViewModel)
+            }
             return cell
         }
         
