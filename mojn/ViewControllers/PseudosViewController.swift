@@ -44,6 +44,15 @@ class PseudosViewController: GenericViewController<PseudosViewModel, PseudosRoot
         let section = viewModel.cellViewModels[indexPath.section]
         let cellViewModel = section[indexPath.row]
         
+        if cellViewModel is HeaderItemViewModel {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PseudoHeaderCell.identifier, for: indexPath) as! PseudoHeaderCell
+            if let cellViewModel = cellViewModel as? HeaderItemViewModel {
+                configurator.configure(cell, with: cellViewModel)
+            }
+            return cell
+        }
+        
+        
         if cellViewModel is AddItemViewModel {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PseudoAddCell.identifier, for: indexPath) as! PseudoAddCell
             if let cellViewModel = cellViewModel as? AddItemViewModel {

@@ -28,6 +28,7 @@
 		6853822E221C329C00DBA0FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6853822D221C329C00DBA0FB /* AppDelegate.swift */; };
 		68538235221C329E00DBA0FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68538234221C329E00DBA0FB /* Assets.xcassets */; };
 		68538238221C329E00DBA0FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68538236221C329E00DBA0FB /* LaunchScreen.storyboard */; };
+		685CC1B522329B9A0035C45F /* PseudoHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685CC1B422329B9A0035C45F /* PseudoHeaderCell.swift */; };
 		68618F57221C3E84004590B5 /* Layoutless.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68618F56221C3E83004590B5 /* Layoutless.framework */; };
 		686FABD022240A5300341D19 /* UIColor+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686FABCF22240A5300341D19 /* UIColor+Color.swift */; };
 		687B4044222557C800304B88 /* MessageKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 687B4043222557C800304B88 /* MessageKit.framework */; };
@@ -69,6 +70,7 @@
 		68538234221C329E00DBA0FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68538237221C329E00DBA0FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		68538239221C329E00DBA0FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		685CC1B422329B9A0035C45F /* PseudoHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PseudoHeaderCell.swift; sourceTree = "<group>"; };
 		68618F56221C3E83004590B5 /* Layoutless.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Layoutless.framework; path = Carthage/Build/iOS/Layoutless.framework; sourceTree = SOURCE_ROOT; };
 		686FABCF22240A5300341D19 /* UIColor+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Color.swift"; sourceTree = "<group>"; };
 		687B4043222557C800304B88 /* MessageKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageKit.framework; path = Carthage/Build/iOS/MessageKit.framework; sourceTree = SOURCE_ROOT; };
@@ -196,6 +198,7 @@
 				684E95FE22232096005B14CF /* PseudoCell.swift */,
 				68B71694222ED10A0078F066 /* PseudoCountCell.swift */,
 				68B71692222EC9FE0078F066 /* PseudoLayout.swift */,
+				685CC1B422329B9A0035C45F /* PseudoHeaderCell.swift */,
 			);
 			path = Pseudos;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 				1C825B102227D9D90075E3FB /* LoginViewController.swift in Sources */,
 				687B404A22255C1600304B88 /* MojnInputBar.swift in Sources */,
 				6853822E221C329C00DBA0FB /* AppDelegate.swift in Sources */,
+				685CC1B522329B9A0035C45F /* PseudoHeaderCell.swift in Sources */,
 				6804516C22242B640080BE3D /* Pseudo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

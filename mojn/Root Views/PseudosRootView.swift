@@ -17,6 +17,7 @@ public class PseudosRootView: View, RootView {
         cv.register(PseudoCell.self, forCellWithReuseIdentifier: PseudoCell.identifier)
         cv.register(PseudoAddCell.self, forCellWithReuseIdentifier: PseudoAddCell.identifier)
         cv.register(PseudoCountCell.self, forCellWithReuseIdentifier: PseudoCountCell.identifier)
+        cv.register(PseudoHeaderCell.self, forCellWithReuseIdentifier: PseudoHeaderCell.identifier)
         cv.apply(Stylesheet.collectionView)
         return cv
     }()

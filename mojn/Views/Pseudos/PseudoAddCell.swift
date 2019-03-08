@@ -17,16 +17,16 @@ fileprivate class CrossView: View {
     override var subviewsLayout: AnyLayout {
         return View()
             .addingLayout(
-                verticalView.sizing(toWidth: 40, height: 8).centeringInParent())
+                verticalView.sizing(toWidth: 40, height: 6).centeringInParent())
             .addingLayout(
-                horizontalView.sizing(toWidth: 8, height: 40).centeringInParent())
+                horizontalView.sizing(toWidth: 6, height: 40).centeringInParent())
             .centeringInParent()
     }
 
     enum Stylesheet {
         static let line = Style<UIView> {
             $0.backgroundColor = .white
-            $0.layer.cornerRadius = 4
+            $0.layer.cornerRadius = 3
         }
     }
 }

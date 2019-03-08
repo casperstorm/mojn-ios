@@ -14,6 +14,9 @@ class PseudoCollectionViewCellConfigurator {
     }
     
     func configure(_ cell: PseudoCountCell, with viewModel: CountItemViewModel) {
+        let count = viewModel.count ?? 0
+        cell.countLabel.text = "\(count)"
+        cell.descriptionLabel.text = "Accounts"
     }
     
     func configure(_ cell: PseudoCell, with viewModel: PseudoItemViewModel) {
@@ -21,5 +24,8 @@ class PseudoCollectionViewCellConfigurator {
         cell.nameLabel.text = viewModel.name()
         cell.phoneLabel.text = viewModel.phoneNumber
         cell.emojiLabel.text = viewModel.emoji
+    }
+    
+    func configure(_ cell: PseudoHeaderCell, with viewModel: HeaderItemViewModel) {
     }
 }

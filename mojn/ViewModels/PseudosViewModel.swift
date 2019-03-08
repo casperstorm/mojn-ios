@@ -10,6 +10,12 @@ import Foundation
 import Siesta
 import UIKit
 
+class HeaderItemViewModel: CellViewModelSizable {
+    func height() -> CGFloat {
+        return 100
+    }
+}
+
 class AddItemViewModel: CellViewModelSizable {
     func height() -> CGFloat {
         return 88
@@ -69,6 +75,7 @@ extension PseudosViewModel: ResourceObserver {
     func resourceChanged(_ resource: Resource, event: ResourceEvent) {
         guard let pseudos: [Pseudo] = resource.typedContent() else { return }
         
+        let headerViewModel = HeaderItemViewModel()
         let addViewModel = AddItemViewModel()
         let countViewModel = CountItemViewModel()
         countViewModel.count = pseudos.count
@@ -86,7 +93,8 @@ extension PseudosViewModel: ResourceObserver {
         
         let add = [addViewModel]
         let count = [countViewModel]
+        let header = [headerViewModel]
         
-        self.cellViewModels = [add, count, data]
+        self.cellViewModels = [header, add, count, data]
     }
 }

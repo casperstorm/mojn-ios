@@ -45,24 +45,33 @@ class PseudoLayout: UICollectionViewLayout {
         var column = 0
         var yOffset = [CGFloat](repeating: 0, count: numberOfColumns)
 
-
         for section in 0 ..< collectionView.numberOfSections {
             for item in 0 ..< collectionView.numberOfItems(inSection: section) {
                 
                 let indexPath = IndexPath(item: item, section: section)
+                let header: Bool = (section == 0 && item == 0)
+                
+                let x = header ? 0 : xOffset[column]
+                let y = header ? 0 : yOffset[column]
+                let width = header ? contentWidth : columnWidth
                 
                 let cellHeight = delegate.collectionView(collectionView, heightForCellAtIndexPath: indexPath)
                 let height = cellPadding * 2 + cellHeight
-                let frame = CGRect(x: xOffset[column], y: yOffset[column], width: columnWidth, height: height)
+                let frame = CGRect(x: x, y: y, width: width, height: height)
                 let insetFrame = frame.insetBy(dx: cellPadding, dy: cellPadding)
                 let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
                 attributes.frame = insetFrame
                 cache.append(attributes)
                 
                 contentHeight = max(contentHeight, frame.maxY)
-                yOffset[column] = yOffset[column] + height
                 
-                column = column < (numberOfColumns - 1) ? (column + 1) : 0
+                if (header) {
+                    yOffset[column] = yOffset[column] + height
+                    yOffset[column + 1] = yOffset[column + 1] + height
+                } else {
+                    yOffset[column] = yOffset[column] + height
+                    column = column < (numberOfColumns - 1) ? (column + 1) : 0
+                }
             }
         }
     }
