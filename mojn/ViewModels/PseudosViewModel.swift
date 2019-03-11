@@ -10,19 +10,19 @@ import Foundation
 import Siesta
 import UIKit
 
-class HeaderItemViewModel: CellViewModelSizable {
+class HeaderItemPseudosViewModel: CellViewModelSizable {
     func height() -> CGFloat {
-        return 100
+        return 184
     }
 }
 
-class AddItemViewModel: CellViewModelSizable {
+class AddItemPseudosViewModel: CellViewModelSizable {
     func height() -> CGFloat {
         return 88
     }
 }
 
-class CountItemViewModel: CellViewModelSizable {
+class CountItemPseudosViewModel: CellViewModelSizable {
     var count: Int?
     
     func height() -> CGFloat {
@@ -30,15 +30,11 @@ class CountItemViewModel: CellViewModelSizable {
     }
 }
 
-class PseudoItemViewModel: CellViewModelSizable {
-    var description: String?
-    var firstName: String?
-    var lastName: String?
-    var phoneNumber: String?
-    var emoji: String?
+class PseudoItemPseudosViewModel: CellViewModelSizable {
+    var pseudo: Pseudo?
     
     func name() -> String? {
-        return firstName
+        return pseudo?.firstName
     }
     
     func height() -> CGFloat {
@@ -75,18 +71,14 @@ extension PseudosViewModel: ResourceObserver {
     func resourceChanged(_ resource: Resource, event: ResourceEvent) {
         guard let pseudos: [Pseudo] = resource.typedContent() else { return }
         
-        let headerViewModel = HeaderItemViewModel()
-        let addViewModel = AddItemViewModel()
-        let countViewModel = CountItemViewModel()
+        let headerViewModel = HeaderItemPseudosViewModel()
+        let addViewModel = AddItemPseudosViewModel()
+        let countViewModel = CountItemPseudosViewModel()
         countViewModel.count = pseudos.count
         
-        let data = pseudos.map { (pseudo) -> PseudoItemViewModel in
-            let vm = PseudoItemViewModel()
-            vm.description = pseudo.description
-            vm.firstName = pseudo.firstName
-            vm.lastName = pseudo.lastName
-            vm.phoneNumber = pseudo.phoneNumber
-            vm.emoji = pseudo.emoji
+        let data = pseudos.map { (pseudo) -> PseudoItemPseudosViewModel in
+            let vm = PseudoItemPseudosViewModel()
+            vm.pseudo = pseudo
             
             return vm
         }

@@ -19,7 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.makeKeyAndVisible()
         
 //        let loginViewController = LoginViewController(viewModel: LoginViewModel())
-        self.window?.rootViewController = PseudosViewController(viewModel: PseudosViewModel())
+//        self.window?.rootViewController = MessageViewController()
+        let nc = UINavigationController(rootViewController: PseudosViewController(viewModel: PseudosViewModel()))
+        self.window?.rootViewController = nc
+
         
         return true
     }

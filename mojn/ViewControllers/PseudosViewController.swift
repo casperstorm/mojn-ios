@@ -22,11 +22,25 @@ class PseudosViewController: GenericViewController<PseudosViewModel, PseudosRoot
         
         self.viewModel.loadData()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        super.viewWillAppear(animated)
+    }
 
     // MARK: - UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("tapped!")
+        let section = viewModel.cellViewModels[indexPath.section]
+        let cellViewModel = section[indexPath.row]
+        
+
+        if let cellViewModel = cellViewModel as? PseudoItemPseudosViewModel {
+            guard let pseudo = cellViewModel.pseudo else { return }
+            let vc = MessageListViewController(viewModel: MessageListViewModel(pseudo: pseudo))
+            navigationController?.present(vc, animated: true, completion: nil)
+        }
+
     }
     
     // MARK: - UICollectionViewDataSource
@@ -44,34 +58,34 @@ class PseudosViewController: GenericViewController<PseudosViewModel, PseudosRoot
         let section = viewModel.cellViewModels[indexPath.section]
         let cellViewModel = section[indexPath.row]
         
-        if cellViewModel is HeaderItemViewModel {
+        if cellViewModel is HeaderItemPseudosViewModel {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PseudoHeaderCell.identifier, for: indexPath) as! PseudoHeaderCell
-            if let cellViewModel = cellViewModel as? HeaderItemViewModel {
+            if let cellViewModel = cellViewModel as? HeaderItemPseudosViewModel {
                 configurator.configure(cell, with: cellViewModel)
             }
             return cell
         }
         
         
-        if cellViewModel is AddItemViewModel {
+        if cellViewModel is AddItemPseudosViewModel {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PseudoAddCell.identifier, for: indexPath) as! PseudoAddCell
-            if let cellViewModel = cellViewModel as? AddItemViewModel {
+            if let cellViewModel = cellViewModel as? AddItemPseudosViewModel {
                 configurator.configure(cell, with: cellViewModel)
             }
             return cell
         }
         
-        if cellViewModel is CountItemViewModel {
+        if cellViewModel is CountItemPseudosViewModel {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PseudoCountCell.identifier, for: indexPath) as! PseudoCountCell
-            if let cellViewModel = cellViewModel as? CountItemViewModel {
+            if let cellViewModel = cellViewModel as? CountItemPseudosViewModel {
                 configurator.configure(cell, with: cellViewModel)
             }
             return cell
         }
         
-        if cellViewModel is PseudoItemViewModel {
+        if cellViewModel is PseudoItemPseudosViewModel {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PseudoCell.identifier, for: indexPath) as! PseudoCell
-            if let cellViewModel = cellViewModel as? PseudoItemViewModel {
+            if let cellViewModel = cellViewModel as? PseudoItemPseudosViewModel {
                 configurator.configure(cell, with: cellViewModel)
             }
             return cell

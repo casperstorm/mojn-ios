@@ -10,22 +10,22 @@ import Foundation
 import UIKit
 
 class PseudoCollectionViewCellConfigurator {
-    func configure(_ cell: PseudoAddCell, with viewModel: AddItemViewModel) {
+    func configure(_ cell: PseudoAddCell, with viewModel: AddItemPseudosViewModel) {
     }
     
-    func configure(_ cell: PseudoCountCell, with viewModel: CountItemViewModel) {
+    func configure(_ cell: PseudoCountCell, with viewModel: CountItemPseudosViewModel) {
         let count = viewModel.count ?? 0
         cell.countLabel.text = "\(count)"
         cell.descriptionLabel.text = "Accounts"
     }
     
-    func configure(_ cell: PseudoCell, with viewModel: PseudoItemViewModel) {
-        cell.descriptionLabel.text = viewModel.description
+    func configure(_ cell: PseudoCell, with viewModel: PseudoItemPseudosViewModel) {
+        cell.descriptionLabel.text = viewModel.pseudo?.description
         cell.nameLabel.text = viewModel.name()
-        cell.phoneLabel.text = viewModel.phoneNumber
-        cell.emojiLabel.text = viewModel.emoji
+        cell.phoneLabel.text = viewModel.pseudo?.phoneNumber
+        cell.emojiLabel.text = viewModel.pseudo?.emoji
     }
     
-    func configure(_ cell: PseudoHeaderCell, with viewModel: HeaderItemViewModel) {
+    func configure(_ cell: PseudoHeaderCell, with viewModel: HeaderItemPseudosViewModel) {
     }
 }

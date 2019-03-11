@@ -18,6 +18,16 @@ class PseudoCell: CollectionViewCell {
     lazy var nameLabel: Label = Label(style: Stylesheet.name)
     lazy var phoneLabel: Label = Label(style: Stylesheet.phone)
     lazy var emojiLabel: Label = Label(style: Stylesheet.emoji)
+    
+    override var isHighlighted: Bool {
+        didSet {
+            let fromValue: CGFloat = 1.0
+            let toValue: CGFloat = 0.95
+            UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut, animations: {
+                self.containerView.transform = CGAffineTransform(scaleX: self.isHighlighted ? toValue : fromValue, y: self.isHighlighted ? toValue : fromValue)
+            })
+        }
+    }
 
     override var subviewsLayout: AnyLayout {
         return containerView.addingLayout(
@@ -46,6 +56,10 @@ extension PseudoCell {
     enum Stylesheet {
         static let container = Style<UIView> {
             $0.backgroundColor = .white
+            $0.layer.cornerRadius = 12
+        }
+        static let highlightedContainer = Style<UIView> {
+            $0.backgroundColor = UIColor(hexString: "#F6F6F6")
             $0.layer.cornerRadius = 12
         }
         static let name = Style<UILabel> {

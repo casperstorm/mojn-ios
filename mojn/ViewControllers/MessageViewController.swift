@@ -27,7 +27,6 @@ class MessageViewController: MessagesViewController {
         super.viewDidLoad()
         
         self.title = "Mojn du"
-        
         self.messageResource = MojnAPI.sharedInstance.message()
         
         if let layout = messagesCollectionView.collectionViewLayout as? MessagesCollectionViewFlowLayout {

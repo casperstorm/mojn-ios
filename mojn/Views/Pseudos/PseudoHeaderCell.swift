@@ -16,7 +16,12 @@ class PseudoHeaderCell: CollectionViewCell {
     lazy var imageView: ImageView = ImageView(image: UIImage(imageLiteralResourceName: "icHand"))
     
     override var subviewsLayout: AnyLayout {
-        return containerView.addingLayout(stack(.vertical, alignment: .center)(verticalSpacing(40), imageView, verticalSpacing(20)).centeringInParent()).fillingParent()
+        return containerView.addingLayout(
+            stack(.vertical, alignment: .center)(
+                verticalSpacing(40),
+                imageView.sizing(toWidth: 60, height: 94),
+                verticalSpacing(40)
+            ).centeringInParent()).fillingParent()
     }
     
     override init(frame: CGRect) {

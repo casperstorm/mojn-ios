@@ -36,6 +36,16 @@ class PseudoAddCell: CollectionViewCell {
     lazy var containerView: View = View(style: Stylesheet.container)
     fileprivate lazy var crossView: CrossView = CrossView()
     
+    override var isHighlighted: Bool {
+        didSet {
+            let fromValue: CGFloat = 1.0
+            let toValue: CGFloat = 0.95
+            UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut, animations: {
+                self.containerView.transform = CGAffineTransform(scaleX: self.isHighlighted ? toValue : fromValue, y: self.isHighlighted ? toValue : fromValue)
+            })
+        }
+    }
+    
     override var subviewsLayout: AnyLayout {
         return containerView.addingLayout(crossView.centeringInParent()).fillingParent()
     }
