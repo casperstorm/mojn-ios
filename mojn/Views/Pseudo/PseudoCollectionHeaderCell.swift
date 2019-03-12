@@ -1,5 +1,5 @@
 //
-//  PseudoHeaderCell.swift
+//  PseudoCollectionHeaderCell.swift
 //  mojn
 //
 //  Created by Casper Rogild Storm on 08/03/2019.
@@ -10,7 +10,7 @@ import Foundation
 import Layoutless
 import UIKit
 
-class PseudoHeaderCell: CollectionViewCell {
+class PseudoCollectionHeaderCell: CollectionViewCell {
     static var identifier: String = "PseudoHeaderCell"
     lazy var containerView: View = View(style: Stylesheet.container)
     lazy var imageView: ImageView = ImageView(image: UIImage(imageLiteralResourceName: "icHand"))
@@ -33,7 +33,7 @@ class PseudoHeaderCell: CollectionViewCell {
     }
 }
 
-extension PseudoHeaderCell {
+extension PseudoCollectionHeaderCell {
     enum Stylesheet {
         static let container = Style<UIView> {
             $0.layer.cornerRadius = 12

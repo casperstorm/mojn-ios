@@ -1,5 +1,5 @@
 //
-//  PseudoCell.swift
+//  PseudoCollectionDefaultCell.swift
 //  mojn
 //
 //  Created by Casper Rogild Storm on 24/02/2019.
@@ -10,8 +10,8 @@ import Foundation
 import UIKit
 import Layoutless
 
-class PseudoCell: CollectionViewCell {
-    static var identifier: String = "PseudoCell"
+class PseudoCollectionDefaultCell: CollectionViewCell {
+    static var identifier: String = "PseudoCollectionDefaultCell"
     lazy var containerView: View = View(style: Stylesheet.container)
     lazy var emojiContainer: View = View(style: Stylesheet.emojiContainer)
     lazy var descriptionLabel: Label = Label(style: Stylesheet.description)
@@ -52,7 +52,7 @@ class PseudoCell: CollectionViewCell {
     }
 }
 
-extension PseudoCell {
+extension PseudoCollectionDefaultCell {
     enum Stylesheet {
         static let container = Style<UIView> {
             $0.backgroundColor = .white

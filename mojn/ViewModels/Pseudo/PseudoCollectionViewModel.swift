@@ -42,15 +42,15 @@ class PseudoItemPseudosViewModel: CellViewModelSizable {
     }
 }
 
-protocol PseudosViewModelDelegate: class {
-    func pseudosViewModel(_ viewModel: PseudosViewModel, didChangeData data: [[ViewModel]])
+protocol PseudoCollectionViewModelDelegate: class {
+    func pseudoCollectionViewModel(_ viewModel: PseudoCollectionViewModel, didChangeData data: [[ViewModel]])
 }
 
-class PseudosViewModel: ViewModel {
-    weak var delegate: PseudosViewModelDelegate?
+class PseudoCollectionViewModel: ViewModel {
+    weak var delegate: PseudoCollectionViewModelDelegate?
     var cellViewModels = [[ViewModel]]() {
         didSet {
-            delegate?.pseudosViewModel(self, didChangeData: cellViewModels)
+            delegate?.pseudoCollectionViewModel(self, didChangeData: cellViewModels)
         }
     }
     var pseudoResource: Resource? {
@@ -67,7 +67,7 @@ class PseudosViewModel: ViewModel {
     }
 }
 
-extension PseudosViewModel: ResourceObserver {
+extension PseudoCollectionViewModel: ResourceObserver {
     func resourceChanged(_ resource: Resource, event: ResourceEvent) {
         guard let pseudos: [Pseudo] = resource.typedContent() else { return }
         

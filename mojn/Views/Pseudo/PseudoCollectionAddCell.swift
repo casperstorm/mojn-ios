@@ -1,5 +1,5 @@
 //
-//  PseudoAddCell.swift
+//  PseudoCollectionAddCell.swift
 //  mojn
 //
 //  Created by Casper Rogild Storm on 05/03/2019.
@@ -31,8 +31,8 @@ fileprivate class CrossView: View {
     }
 }
 
-class PseudoAddCell: CollectionViewCell {
-    static var identifier: String = "PseudoAddCell"
+class PseudoCollectionAddCell: CollectionViewCell {
+    static var identifier: String = "PseudoCollectionAddCell"
     lazy var containerView: View = View(style: Stylesheet.container)
     fileprivate lazy var crossView: CrossView = CrossView()
     
@@ -59,7 +59,7 @@ class PseudoAddCell: CollectionViewCell {
     }
 }
 
-extension PseudoAddCell {
+extension PseudoCollectionAddCell {
     enum Stylesheet {
         static let container = Style<UIView> {
             $0.backgroundColor = UIColor(hexString: "#f98b74")

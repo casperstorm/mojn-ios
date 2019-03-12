@@ -1,5 +1,5 @@
 //
-//  PseudoLayout.swift
+//  PseudoCollectionLayout.swift
 //  mojn
 //
 //  Created by Casper Rogild Storm on 05/03/2019.
@@ -9,12 +9,12 @@
 import Foundation
 import UIKit
 
-protocol PseudoLayoutDelegate: class {
+protocol PseudoCollectionLayoutDelegate: class {
     func collectionView(_ collectionView:UICollectionView, heightForCellAtIndexPath indexPath:IndexPath) -> CGFloat
 }
 
-class PseudoLayout: UICollectionViewLayout {
-    weak var delegate: PseudoLayoutDelegate!
+class PseudoCollectionLayout: UICollectionViewLayout {
+    weak var delegate: PseudoCollectionLayoutDelegate!
     fileprivate var numberOfColumns = 2
     fileprivate var cellPadding: CGFloat = 6
     

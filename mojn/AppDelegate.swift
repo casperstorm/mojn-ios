@@ -20,8 +20,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 //        let loginViewController = LoginViewController(viewModel: LoginViewModel())
 //        self.window?.rootViewController = MessageViewController()
-        let nc = UINavigationController(rootViewController: PseudosViewController(viewModel: PseudosViewModel()))
+        let nc = UINavigationController(rootViewController: PseudoCollectionViewController(viewModel: PseudoCollectionViewModel()))
         self.window?.rootViewController = nc
+
+        
+        /*
+         PseudoListViewController
+         PseudoCollectionViewController
+         PseudosViewController
+         
+         ConversationOverviewTableViewController
+         ConversationTableViewController
+         
+         ConversationTableViewController
+         */
 
         
         return true

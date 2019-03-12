@@ -1,5 +1,5 @@
 //
-//  PseudosViewController.swift
+//  PseudoCollectionViewController.swift
 //  mojn
 //
 //  Created by Casper Rogild Storm on 24/02/2019.
@@ -9,14 +9,14 @@
 import UIKit
 import Layoutless
 
-class PseudosViewController: GenericViewController<PseudosViewModel, PseudosRootView>, UICollectionViewDelegate, UICollectionViewDataSource {
+class PseudoCollectionViewController: GenericViewController<PseudoCollectionViewModel, PseudoCollectionRootView>, UICollectionViewDelegate, UICollectionViewDataSource {
     let configurator = PseudoCollectionViewCellConfigurator()
     override func viewDidLoad() {
         self.viewModel.delegate = self
         self.rootView.collectionView.delegate = self
         self.rootView.collectionView.dataSource = self
         
-        if let layout = rootView.collectionView.collectionViewLayout as? PseudoLayout {
+        if let layout = rootView.collectionView.collectionViewLayout as? PseudoCollectionLayout {
             layout.delegate = self
         }
         
@@ -59,7 +59,7 @@ class PseudosViewController: GenericViewController<PseudosViewModel, PseudosRoot
         let cellViewModel = section[indexPath.row]
         
         if cellViewModel is HeaderItemPseudosViewModel {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PseudoHeaderCell.identifier, for: indexPath) as! PseudoHeaderCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PseudoCollectionHeaderCell.identifier, for: indexPath) as! PseudoCollectionHeaderCell
             if let cellViewModel = cellViewModel as? HeaderItemPseudosViewModel {
                 configurator.configure(cell, with: cellViewModel)
             }
@@ -68,7 +68,7 @@ class PseudosViewController: GenericViewController<PseudosViewModel, PseudosRoot
         
         
         if cellViewModel is AddItemPseudosViewModel {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PseudoAddCell.identifier, for: indexPath) as! PseudoAddCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PseudoCollectionAddCell.identifier, for: indexPath) as! PseudoCollectionAddCell
             if let cellViewModel = cellViewModel as? AddItemPseudosViewModel {
                 configurator.configure(cell, with: cellViewModel)
             }
@@ -76,7 +76,7 @@ class PseudosViewController: GenericViewController<PseudosViewModel, PseudosRoot
         }
         
         if cellViewModel is CountItemPseudosViewModel {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PseudoCountCell.identifier, for: indexPath) as! PseudoCountCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PseudoCollectionCountCell.identifier, for: indexPath) as! PseudoCollectionCountCell
             if let cellViewModel = cellViewModel as? CountItemPseudosViewModel {
                 configurator.configure(cell, with: cellViewModel)
             }
@@ -84,7 +84,7 @@ class PseudosViewController: GenericViewController<PseudosViewModel, PseudosRoot
         }
         
         if cellViewModel is PseudoItemPseudosViewModel {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PseudoCell.identifier, for: indexPath) as! PseudoCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PseudoCollectionDefaultCell.identifier, for: indexPath) as! PseudoCollectionDefaultCell
             if let cellViewModel = cellViewModel as? PseudoItemPseudosViewModel {
                 configurator.configure(cell, with: cellViewModel)
             }
@@ -97,13 +97,13 @@ class PseudosViewController: GenericViewController<PseudosViewModel, PseudosRoot
 
 // MARK: - PseudosViewModelDelegate
 
-extension PseudosViewController: PseudosViewModelDelegate {
-    func pseudosViewModel(_ viewModel: PseudosViewModel, didChangeData data: [[ViewModel]]) {
+extension PseudoCollectionViewController: PseudoCollectionViewModelDelegate {
+    func pseudoCollectionViewModel(_ viewModel: PseudoCollectionViewModel, didChangeData data: [[ViewModel]]) {
         rootView.collectionView.reloadData()
     }
 }
 
-extension PseudosViewController: PseudoLayoutDelegate {
+extension PseudoCollectionViewController: PseudoCollectionLayoutDelegate {
     func collectionView(_ collectionView: UICollectionView, heightForCellAtIndexPath indexPath: IndexPath) -> CGFloat {
         let section = viewModel.cellViewModels[indexPath.section]
         let item = section[indexPath.row]

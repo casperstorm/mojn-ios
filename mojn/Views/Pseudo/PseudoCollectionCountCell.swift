@@ -1,5 +1,5 @@
 //
-//  PseudoCountCell.swift
+//  PseudoCollectionCountCell.swift
 //  mojn
 //
 //  Created by Casper Rogild Storm on 05/03/2019.
@@ -9,8 +9,8 @@
 import Foundation
 import Layoutless
 import UIKit
-class PseudoCountCell: CollectionViewCell {
-    static var identifier: String = "PseudoCountCell"
+class PseudoCollectionCountCell: CollectionViewCell {
+    static var identifier: String = "PseudoCollectionCountCell"
     lazy var containerView: View = View(style: Stylesheet.container)
     lazy var countLabel: Label = Label(style: Stylesheet.count)
     lazy var descriptionLabel: Label = Label(style: Stylesheet.description)
@@ -34,7 +34,7 @@ class PseudoCountCell: CollectionViewCell {
     }
 }
 
-extension PseudoCountCell {
+extension PseudoCollectionCountCell {
     enum Stylesheet {
         static let container = Style<UIView> {
             $0.backgroundColor = UIColor(hexString: "#300c4d")

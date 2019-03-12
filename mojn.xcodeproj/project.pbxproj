@@ -15,20 +15,20 @@
 		1C825B132227DA5D0075E3FB /* LoginRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C825B122227DA5D0075E3FB /* LoginRootView.swift */; };
 		6804516C22242B640080BE3D /* Pseudo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6804516B22242B640080BE3D /* Pseudo.swift */; };
 		68135C792230099C00DDD5F9 /* PseudoCollectionViewCellConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68135C782230099C00DDD5F9 /* PseudoCollectionViewCellConfigurator.swift */; };
-		682754A7222D3DA800C6326D /* PseudosRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682754A6222D3DA800C6326D /* PseudosRootView.swift */; };
-		682754A9222D3E2700C6326D /* PseudosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682754A8222D3E2700C6326D /* PseudosViewModel.swift */; };
+		682754A7222D3DA800C6326D /* PseudoCollectionRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682754A6222D3DA800C6326D /* PseudoCollectionRootView.swift */; };
+		682754A9222D3E2700C6326D /* PseudoCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682754A8222D3E2700C6326D /* PseudoCollectionViewModel.swift */; };
 		684BB511221ED86000C46642 /* SiestaUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 684BB50F221ED86000C46642 /* SiestaUI.framework */; };
 		684BB512221ED86000C46642 /* Siesta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 684BB510221ED86000C46642 /* Siesta.framework */; };
 		684BB516221EDC0200C46642 /* MojnAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684BB515221EDC0200C46642 /* MojnAPI.swift */; };
 		684BB519221EF40B00C46642 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684BB518221EF40B00C46642 /* User.swift */; };
 		684BB51E221F35A000C46642 /* Valet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 684BB51D221F35A000C46642 /* Valet.framework */; };
-		684E95FC22231DE9005B14CF /* PseudosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684E95FB22231DE9005B14CF /* PseudosViewController.swift */; };
-		684E95FF22232096005B14CF /* PseudoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684E95FE22232096005B14CF /* PseudoCell.swift */; };
-		684F5124222EAA49003A3885 /* PseudoAddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684F5123222EAA49003A3885 /* PseudoAddCell.swift */; };
+		684E95FC22231DE9005B14CF /* PseudoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684E95FB22231DE9005B14CF /* PseudoCollectionViewController.swift */; };
+		684E95FF22232096005B14CF /* PseudoCollectionDefaultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684E95FE22232096005B14CF /* PseudoCollectionDefaultCell.swift */; };
+		684F5124222EAA49003A3885 /* PseudoCollectionAddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684F5123222EAA49003A3885 /* PseudoCollectionAddCell.swift */; };
 		6853822E221C329C00DBA0FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6853822D221C329C00DBA0FB /* AppDelegate.swift */; };
 		68538235221C329E00DBA0FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68538234221C329E00DBA0FB /* Assets.xcassets */; };
 		68538238221C329E00DBA0FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68538236221C329E00DBA0FB /* LaunchScreen.storyboard */; };
-		685CC1B522329B9A0035C45F /* PseudoHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685CC1B422329B9A0035C45F /* PseudoHeaderCell.swift */; };
+		685CC1B522329B9A0035C45F /* PseudoCollectionHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685CC1B422329B9A0035C45F /* PseudoCollectionHeaderCell.swift */; };
 		685CC1BA223681A40035C45F /* MessageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685CC1B9223681A40035C45F /* MessageListViewController.swift */; };
 		685CC1BC223681D50035C45F /* MessageListRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685CC1BB223681D50035C45F /* MessageListRootView.swift */; };
 		685CC1BE223681FB0035C45F /* MessageListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685CC1BD223681FB0035C45F /* MessageListViewModel.swift */; };
@@ -43,8 +43,8 @@
 		687B404C22255D2200304B88 /* MessageInputBar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 687B404B22255D2200304B88 /* MessageInputBar.framework */; };
 		687B404E22256BF400304B88 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 687B404D22256BF400304B88 /* SwiftyJSON.framework */; };
 		6881ADBE2237C082008C3051 /* MessageListDefaultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6881ADBD2237C082008C3051 /* MessageListDefaultCell.swift */; };
-		68B71693222EC9FE0078F066 /* PseudoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B71692222EC9FE0078F066 /* PseudoLayout.swift */; };
-		68B71695222ED10A0078F066 /* PseudoCountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B71694222ED10A0078F066 /* PseudoCountCell.swift */; };
+		68B71693222EC9FE0078F066 /* PseudoCollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B71692222EC9FE0078F066 /* PseudoCollectionLayout.swift */; };
+		68B71695222ED10A0078F066 /* PseudoCollectionCountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B71694222ED10A0078F066 /* PseudoCollectionCountCell.swift */; };
 		68D30EDE222E86A700DEEAA1 /* OverpassMono-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 68D30EDD222E859200DEEAA1 /* OverpassMono-Bold.ttf */; };
 		68D30EDF222E86A700DEEAA1 /* OverpassMono-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 68D30EDB222E859200DEEAA1 /* OverpassMono-Light.ttf */; };
 		68D30EE0222E86A700DEEAA1 /* OverpassMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 68D30EDA222E859200DEEAA1 /* OverpassMono-Regular.ttf */; };
@@ -61,22 +61,22 @@
 		1C825B122227DA5D0075E3FB /* LoginRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRootView.swift; sourceTree = "<group>"; };
 		6804516B22242B640080BE3D /* Pseudo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pseudo.swift; sourceTree = "<group>"; };
 		68135C782230099C00DDD5F9 /* PseudoCollectionViewCellConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PseudoCollectionViewCellConfigurator.swift; sourceTree = "<group>"; };
-		682754A6222D3DA800C6326D /* PseudosRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PseudosRootView.swift; sourceTree = "<group>"; };
-		682754A8222D3E2700C6326D /* PseudosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PseudosViewModel.swift; sourceTree = "<group>"; };
+		682754A6222D3DA800C6326D /* PseudoCollectionRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PseudoCollectionRootView.swift; sourceTree = "<group>"; };
+		682754A8222D3E2700C6326D /* PseudoCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PseudoCollectionViewModel.swift; sourceTree = "<group>"; };
 		684BB50F221ED86000C46642 /* SiestaUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SiestaUI.framework; path = Carthage/Build/iOS/SiestaUI.framework; sourceTree = SOURCE_ROOT; };
 		684BB510221ED86000C46642 /* Siesta.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Siesta.framework; path = Carthage/Build/iOS/Siesta.framework; sourceTree = SOURCE_ROOT; };
 		684BB515221EDC0200C46642 /* MojnAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MojnAPI.swift; sourceTree = "<group>"; };
 		684BB518221EF40B00C46642 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		684BB51D221F35A000C46642 /* Valet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Valet.framework; path = Carthage/Build/iOS/Valet.framework; sourceTree = SOURCE_ROOT; };
-		684E95FB22231DE9005B14CF /* PseudosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PseudosViewController.swift; sourceTree = "<group>"; };
-		684E95FE22232096005B14CF /* PseudoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PseudoCell.swift; sourceTree = "<group>"; };
-		684F5123222EAA49003A3885 /* PseudoAddCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PseudoAddCell.swift; sourceTree = "<group>"; };
+		684E95FB22231DE9005B14CF /* PseudoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PseudoCollectionViewController.swift; sourceTree = "<group>"; };
+		684E95FE22232096005B14CF /* PseudoCollectionDefaultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PseudoCollectionDefaultCell.swift; sourceTree = "<group>"; };
+		684F5123222EAA49003A3885 /* PseudoCollectionAddCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PseudoCollectionAddCell.swift; sourceTree = "<group>"; };
 		6853822A221C329C00DBA0FB /* mojn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mojn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6853822D221C329C00DBA0FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		68538234221C329E00DBA0FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68538237221C329E00DBA0FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		68538239221C329E00DBA0FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		685CC1B422329B9A0035C45F /* PseudoHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PseudoHeaderCell.swift; sourceTree = "<group>"; };
+		685CC1B422329B9A0035C45F /* PseudoCollectionHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PseudoCollectionHeaderCell.swift; sourceTree = "<group>"; };
 		685CC1B9223681A40035C45F /* MessageListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListViewController.swift; sourceTree = "<group>"; };
 		685CC1BB223681D50035C45F /* MessageListRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListRootView.swift; sourceTree = "<group>"; };
 		685CC1BD223681FB0035C45F /* MessageListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListViewModel.swift; sourceTree = "<group>"; };
@@ -91,8 +91,8 @@
 		687B404B22255D2200304B88 /* MessageInputBar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageInputBar.framework; path = Carthage/Build/iOS/MessageInputBar.framework; sourceTree = SOURCE_ROOT; };
 		687B404D22256BF400304B88 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = SOURCE_ROOT; };
 		6881ADBD2237C082008C3051 /* MessageListDefaultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListDefaultCell.swift; sourceTree = "<group>"; };
-		68B71692222EC9FE0078F066 /* PseudoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PseudoLayout.swift; sourceTree = "<group>"; };
-		68B71694222ED10A0078F066 /* PseudoCountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PseudoCountCell.swift; sourceTree = "<group>"; };
+		68B71692222EC9FE0078F066 /* PseudoCollectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PseudoCollectionLayout.swift; sourceTree = "<group>"; };
+		68B71694222ED10A0078F066 /* PseudoCollectionCountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PseudoCollectionCountCell.swift; sourceTree = "<group>"; };
 		68D30ED9222E859100DEEAA1 /* PatuaOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "PatuaOne-Regular.ttf"; path = "Fonts/PatuaOne-Regular.ttf"; sourceTree = "<group>"; };
 		68D30EDA222E859200DEEAA1 /* OverpassMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OverpassMono-Regular.ttf"; path = "Fonts/OverpassMono-Regular.ttf"; sourceTree = "<group>"; };
 		68D30EDB222E859200DEEAA1 /* OverpassMono-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OverpassMono-Light.ttf"; path = "Fonts/OverpassMono-Light.ttf"; sourceTree = "<group>"; };
@@ -131,8 +131,8 @@
 		1C825B0C2226D8FB0075E3FB /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				6881ADC22237DC4E008C3051 /* Pseudo */,
 				1C825B0D2226D91B0075E3FB /* LoginViewModel.swift */,
-				682754A8222D3E2700C6326D /* PseudosViewModel.swift */,
 				685CC1BD223681FB0035C45F /* MessageListViewModel.swift */,
 			);
 			path = ViewModels;
@@ -141,8 +141,8 @@
 		1C825B112227DA3B0075E3FB /* Root Views */ = {
 			isa = PBXGroup;
 			children = (
+				6881ADC12237DC47008C3051 /* Pseudo */,
 				1C825B122227DA5D0075E3FB /* LoginRootView.swift */,
-				682754A6222D3DA800C6326D /* PseudosRootView.swift */,
 				685CC1BB223681D50035C45F /* MessageListRootView.swift */,
 			);
 			path = "Root Views";
@@ -190,7 +190,7 @@
 		684E95FA22231DAE005B14CF /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				684E95FB22231DE9005B14CF /* PseudosViewController.swift */,
+				6881ADC02237DC3D008C3051 /* Pseudo */,
 				685CC1B9223681A40035C45F /* MessageListViewController.swift */,
 				687B4045222557FC00304B88 /* MessageViewController.swift */,
 				1C825B0F2227D9D90075E3FB /* LoginViewController.swift */,
@@ -203,22 +203,22 @@
 			children = (
 				6881ADBF2237C1D1008C3051 /* Shared */,
 				6881ADBC2237C05F008C3051 /* MessageList */,
-				684F5122222EA9A4003A3885 /* Pseudos */,
+				684F5122222EA9A4003A3885 /* Pseudo */,
 				687B404922255C1600304B88 /* MojnInputBar.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		684F5122222EA9A4003A3885 /* Pseudos */ = {
+		684F5122222EA9A4003A3885 /* Pseudo */ = {
 			isa = PBXGroup;
 			children = (
-				684F5123222EAA49003A3885 /* PseudoAddCell.swift */,
-				684E95FE22232096005B14CF /* PseudoCell.swift */,
-				68B71694222ED10A0078F066 /* PseudoCountCell.swift */,
-				68B71692222EC9FE0078F066 /* PseudoLayout.swift */,
-				685CC1B422329B9A0035C45F /* PseudoHeaderCell.swift */,
+				684F5123222EAA49003A3885 /* PseudoCollectionAddCell.swift */,
+				684E95FE22232096005B14CF /* PseudoCollectionDefaultCell.swift */,
+				68B71694222ED10A0078F066 /* PseudoCollectionCountCell.swift */,
+				68B71692222EC9FE0078F066 /* PseudoCollectionLayout.swift */,
+				685CC1B422329B9A0035C45F /* PseudoCollectionHeaderCell.swift */,
 			);
-			path = Pseudos;
+			path = Pseudo;
 			sourceTree = "<group>";
 		};
 		68538221221C329C00DBA0FB = {
@@ -292,6 +292,30 @@
 				685CC1C2223688740035C45F /* ListHeaderView.swift */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		6881ADC02237DC3D008C3051 /* Pseudo */ = {
+			isa = PBXGroup;
+			children = (
+				684E95FB22231DE9005B14CF /* PseudoCollectionViewController.swift */,
+			);
+			path = Pseudo;
+			sourceTree = "<group>";
+		};
+		6881ADC12237DC47008C3051 /* Pseudo */ = {
+			isa = PBXGroup;
+			children = (
+				682754A6222D3DA800C6326D /* PseudoCollectionRootView.swift */,
+			);
+			path = Pseudo;
+			sourceTree = "<group>";
+		};
+		6881ADC22237DC4E008C3051 /* Pseudo */ = {
+			isa = PBXGroup;
+			children = (
+				682754A8222D3E2700C6326D /* PseudoCollectionViewModel.swift */,
+			);
+			path = Pseudo;
 			sourceTree = "<group>";
 		};
 		68D30ED8222E858100DEEAA1 /* Fonts */ = {
@@ -418,23 +442,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				685CC1C3223688740035C45F /* ListHeaderView.swift in Sources */,
-				682754A9222D3E2700C6326D /* PseudosViewModel.swift in Sources */,
+				682754A9222D3E2700C6326D /* PseudoCollectionViewModel.swift in Sources */,
 				686FABD022240A5300341D19 /* UIColor+Color.swift in Sources */,
 				687B4046222557FC00304B88 /* MessageViewController.swift in Sources */,
-				68B71693222EC9FE0078F066 /* PseudoLayout.swift in Sources */,
-				682754A7222D3DA800C6326D /* PseudosRootView.swift in Sources */,
+				68B71693222EC9FE0078F066 /* PseudoCollectionLayout.swift in Sources */,
+				682754A7222D3DA800C6326D /* PseudoCollectionRootView.swift in Sources */,
 				68135C792230099C00DDD5F9 /* PseudoCollectionViewCellConfigurator.swift in Sources */,
 				685CC1BA223681A40035C45F /* MessageListViewController.swift in Sources */,
 				1C825B072226CAF30075E3FB /* GenericViewController.swift in Sources */,
 				685CC1BE223681FB0035C45F /* MessageListViewModel.swift in Sources */,
 				684BB519221EF40B00C46642 /* User.swift in Sources */,
 				1C825B0B2226D5D40075E3FB /* RootView.swift in Sources */,
-				684F5124222EAA49003A3885 /* PseudoAddCell.swift in Sources */,
-				684E95FC22231DE9005B14CF /* PseudosViewController.swift in Sources */,
-				68B71695222ED10A0078F066 /* PseudoCountCell.swift in Sources */,
+				684F5124222EAA49003A3885 /* PseudoCollectionAddCell.swift in Sources */,
+				684E95FC22231DE9005B14CF /* PseudoCollectionViewController.swift in Sources */,
+				68B71695222ED10A0078F066 /* PseudoCollectionCountCell.swift in Sources */,
 				685CC1C0223685830035C45F /* MessageListTableViewCellConfigurator.swift in Sources */,
 				1C825B092226D1640075E3FB /* ViewModel.swift in Sources */,
-				684E95FF22232096005B14CF /* PseudoCell.swift in Sources */,
+				684E95FF22232096005B14CF /* PseudoCollectionDefaultCell.swift in Sources */,
 				1C825B0E2226D91B0075E3FB /* LoginViewModel.swift in Sources */,
 				684BB516221EDC0200C46642 /* MojnAPI.swift in Sources */,
 				1C825B132227DA5D0075E3FB /* LoginRootView.swift in Sources */,
@@ -443,7 +467,7 @@
 				687B404A22255C1600304B88 /* MojnInputBar.swift in Sources */,
 				6881ADBE2237C082008C3051 /* MessageListDefaultCell.swift in Sources */,
 				6853822E221C329C00DBA0FB /* AppDelegate.swift in Sources */,
-				685CC1B522329B9A0035C45F /* PseudoHeaderCell.swift in Sources */,
+				685CC1B522329B9A0035C45F /* PseudoCollectionHeaderCell.swift in Sources */,
 				6804516C22242B640080BE3D /* Pseudo.swift in Sources */,
 				685CC1BC223681D50035C45F /* MessageListRootView.swift in Sources */,
 			);
