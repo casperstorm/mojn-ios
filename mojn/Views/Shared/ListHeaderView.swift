@@ -29,17 +29,19 @@ class ListHeaderView: View {
     }
     
     override var subviewsLayout: AnyLayout {
-        let gutter: Length = 18
-        let height: Length = 150
+        let gutter: Length = 24
+        let height: Length = 125
+        let offset: Length = 15
+        let emojiSize: Length = 66
         return containerView.addingLayout(
-            stack(.horizontal)(
+            stack(.horizontal, alignment: .center)(
                 View().addingLayout(
                     titleLabel.stickingToParentEdges(left: gutter).centeringVerticallyInParent()
                 ),
                 View().addingLayout(
                     emojiContainerView.addingLayout(
-                        emojiLabel.centeringInParent()).sizing(toWidth: 66, height: 66).stickingToParentEdges(right: gutter).centeringVerticallyInParent()
-            )).sizingToParent().sizing(toHeight: height)
+                        emojiLabel.centeringInParent()).sizing(toWidth: emojiSize, height: emojiSize).stickingToParentEdges(right: gutter).centeringVerticallyInParent()
+            )).sizingToParent(relativeToSafeArea: true).sizing(toHeight: height).centeringVerticallyInParent(offset: offset)
         ).fillingParent()
     }
 }

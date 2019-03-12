@@ -31,7 +31,8 @@ public extension MessageListRootView {
     enum Stylesheet {
         static let tableView = Style<UITableView> {
             $0.backgroundColor = UIColor(hexString: "#310c4d")
-            $0.contentInset = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
+            $0.separatorStyle = .none
+            $0.register(MessageListDefaultCell.self, forCellReuseIdentifier: MessageListDefaultCell.identifier)
         }
     }
 }

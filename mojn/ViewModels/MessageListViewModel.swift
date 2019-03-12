@@ -9,13 +9,11 @@
 import Foundation
 import UIKit
 
-//class HeaderItemMessageListViewModel: CellViewModelSizable {
-//    var emoji: String?
-//
-//    func height() -> CGFloat {
-//        return 120
-//    }
-//}
+class MessageItemMessageListViewModel: CellViewModelSizable {
+    func height() -> CGFloat {
+        return 130
+    }
+}
 
 protocol MessageListViewModelDelegate: class {
     func messageListViewModel(_ viewModel: MessageListViewModel, didChangeData data: [[ViewModel]])

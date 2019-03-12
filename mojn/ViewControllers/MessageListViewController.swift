@@ -17,7 +17,7 @@ class MessageListViewController: GenericViewController<MessageListViewModel, Mes
         rootView.tableView.delegate = self
         rootView.tableView.dataSource = self
         
-//        viewModel.cellViewModels = [[HeaderItemMessageListViewModel()]]
+        viewModel.cellViewModels = [[MessageItemMessageListViewModel(), MessageItemMessageListViewModel(), MessageItemMessageListViewModel()]]
         rootView.headerView.title = "messages"
         rootView.headerView.emoji = viewModel.pseudo.emoji
     }
@@ -25,6 +25,12 @@ class MessageListViewController: GenericViewController<MessageListViewModel, Mes
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
         super.viewWillAppear(animated)
+    }
+    
+    // MARK: - UITableViewDelegate
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
     }
     
     // MARK: - UITableViewDataSource
@@ -39,17 +45,17 @@ class MessageListViewController: GenericViewController<MessageListViewModel, Mes
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-//        let section = viewModel.cellViewModels[indexPath.section]
-//        let cellViewModel = section[indexPath.row]
+        let section = viewModel.cellViewModels[indexPath.section]
+        let cellViewModel = section[indexPath.row]
         
-//        if cellViewModel is HeaderItemMessageListViewModel {
-//            let cell = tableView.dequeueReusableCell(withIdentifier: MessageListHeaderCell.identifier, for: indexPath) as! MessageListHeaderCell
-//            if let cellViewModel = cellViewModel as? HeaderItemMessageListViewModel {
-//                configurator.configure(cell, with: cellViewModel)
-//            }
-//
-//            return cell
-//        }
+        if cellViewModel is MessageItemMessageListViewModel {
+            let cell = tableView.dequeueReusableCell(withIdentifier: MessageListDefaultCell.identifier, for: indexPath) as! MessageListDefaultCell
+            if let cellViewModel = cellViewModel as? MessageItemMessageListViewModel {
+                configurator.configure(cell, with: cellViewModel)
+            }
+
+            return cell
+        }
         
         return UITableViewCell()
     }

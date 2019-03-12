@@ -42,6 +42,7 @@
 		687B404A22255C1600304B88 /* MojnInputBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687B404922255C1600304B88 /* MojnInputBar.swift */; };
 		687B404C22255D2200304B88 /* MessageInputBar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 687B404B22255D2200304B88 /* MessageInputBar.framework */; };
 		687B404E22256BF400304B88 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 687B404D22256BF400304B88 /* SwiftyJSON.framework */; };
+		6881ADBE2237C082008C3051 /* MessageListDefaultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6881ADBD2237C082008C3051 /* MessageListDefaultCell.swift */; };
 		68B71693222EC9FE0078F066 /* PseudoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B71692222EC9FE0078F066 /* PseudoLayout.swift */; };
 		68B71695222ED10A0078F066 /* PseudoCountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B71694222ED10A0078F066 /* PseudoCountCell.swift */; };
 		68D30EDE222E86A700DEEAA1 /* OverpassMono-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 68D30EDD222E859200DEEAA1 /* OverpassMono-Bold.ttf */; };
@@ -89,6 +90,7 @@
 		687B404922255C1600304B88 /* MojnInputBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MojnInputBar.swift; sourceTree = "<group>"; };
 		687B404B22255D2200304B88 /* MessageInputBar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageInputBar.framework; path = Carthage/Build/iOS/MessageInputBar.framework; sourceTree = SOURCE_ROOT; };
 		687B404D22256BF400304B88 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = SOURCE_ROOT; };
+		6881ADBD2237C082008C3051 /* MessageListDefaultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListDefaultCell.swift; sourceTree = "<group>"; };
 		68B71692222EC9FE0078F066 /* PseudoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PseudoLayout.swift; sourceTree = "<group>"; };
 		68B71694222ED10A0078F066 /* PseudoCountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PseudoCountCell.swift; sourceTree = "<group>"; };
 		68D30ED9222E859100DEEAA1 /* PatuaOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "PatuaOne-Regular.ttf"; path = "Fonts/PatuaOne-Regular.ttf"; sourceTree = "<group>"; };
@@ -199,8 +201,9 @@
 		684E95FD2223207E005B14CF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6881ADBF2237C1D1008C3051 /* Shared */,
+				6881ADBC2237C05F008C3051 /* MessageList */,
 				684F5122222EA9A4003A3885 /* Pseudos */,
-				685CC1C2223688740035C45F /* ListHeaderView.swift */,
 				687B404922255C1600304B88 /* MojnInputBar.swift */,
 			);
 			path = Views;
@@ -273,6 +276,22 @@
 				686FABCF22240A5300341D19 /* UIColor+Color.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		6881ADBC2237C05F008C3051 /* MessageList */ = {
+			isa = PBXGroup;
+			children = (
+				6881ADBD2237C082008C3051 /* MessageListDefaultCell.swift */,
+			);
+			path = MessageList;
+			sourceTree = "<group>";
+		};
+		6881ADBF2237C1D1008C3051 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				685CC1C2223688740035C45F /* ListHeaderView.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 		68D30ED8222E858100DEEAA1 /* Fonts */ = {
@@ -422,6 +441,7 @@
 				687B40482225585800304B88 /* Message.swift in Sources */,
 				1C825B102227D9D90075E3FB /* LoginViewController.swift in Sources */,
 				687B404A22255C1600304B88 /* MojnInputBar.swift in Sources */,
+				6881ADBE2237C082008C3051 /* MessageListDefaultCell.swift in Sources */,
 				6853822E221C329C00DBA0FB /* AppDelegate.swift in Sources */,
 				685CC1B522329B9A0035C45F /* PseudoHeaderCell.swift in Sources */,
 				6804516C22242B640080BE3D /* Pseudo.swift in Sources */,
