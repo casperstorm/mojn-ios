@@ -34,13 +34,11 @@ class PseudoCollectionViewController: GenericViewController<PseudoCollectionView
         let section = viewModel.cellViewModels[indexPath.section]
         let cellViewModel = section[indexPath.row]
         
-
-        if let cellViewModel = cellViewModel as? PseudoCollectionDefaultCellViewModel {
-            guard let pseudo = cellViewModel.pseudo else { return }
+        if let vm = cellViewModel as? PseudoCollectionDefaultCellViewModel {
+            guard let pseudo = vm.pseudo else { return }
             let vc = ConversationTableViewController(viewModel: ConversationTableViewModel(pseudo: pseudo))
             navigationController?.present(vc, animated: true, completion: nil)
         }
-
     }
     
     // MARK: - UICollectionViewDataSource
@@ -58,38 +56,30 @@ class PseudoCollectionViewController: GenericViewController<PseudoCollectionView
         let section = viewModel.cellViewModels[indexPath.section]
         let cellViewModel = section[indexPath.row]
         
-        if cellViewModel is PseudoCollectionHeaderCellViewModel {
+        if let vm = cellViewModel as? PseudoCollectionHeaderCellViewModel {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PseudoCollectionHeaderCell.identifier, for: indexPath) as! PseudoCollectionHeaderCell
-            if let cellViewModel = cellViewModel as? PseudoCollectionHeaderCellViewModel {
-                configurator.configure(cell, with: cellViewModel)
-            }
+            configurator.configure(cell, with: vm)
             return cell
         }
         
-        
-        if cellViewModel is PseudoCollectionAddCellViewModel {
+        if let vm = cellViewModel as? PseudoCollectionAddCellViewModel {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PseudoCollectionAddCell.identifier, for: indexPath) as! PseudoCollectionAddCell
-            if let cellViewModel = cellViewModel as? PseudoCollectionAddCellViewModel {
-                configurator.configure(cell, with: cellViewModel)
-            }
+            configurator.configure(cell, with: vm)
             return cell
         }
         
-        if cellViewModel is PseudoCollectionCountCellViewModel {
+        if let vm = cellViewModel as? PseudoCollectionCountCellViewModel {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PseudoCollectionCountCell.identifier, for: indexPath) as! PseudoCollectionCountCell
-            if let cellViewModel = cellViewModel as? PseudoCollectionCountCellViewModel {
-                configurator.configure(cell, with: cellViewModel)
-            }
+            configurator.configure(cell, with: vm)
             return cell
         }
         
-        if cellViewModel is PseudoCollectionDefaultCellViewModel {
+        if let vm = cellViewModel as? PseudoCollectionDefaultCellViewModel {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PseudoCollectionDefaultCell.identifier, for: indexPath) as! PseudoCollectionDefaultCell
-            if let cellViewModel = cellViewModel as? PseudoCollectionDefaultCellViewModel {
-                configurator.configure(cell, with: cellViewModel)
-            }
+            configurator.configure(cell, with: vm)
             return cell
         }
+        
         
         return UICollectionViewCell()
     }
