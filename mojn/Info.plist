@@ -66,5 +66,7 @@
 		<string>OverpassMono-SemiBold.ttf</string>
 		<string>PatuaOne-Regular.ttf</string>
 	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<true/>
 </dict>
 </plist>

@@ -13,6 +13,8 @@ class ConversationTableViewController: GenericViewController<ConversationTableVi
     let configurator = ConversationTableViewCellConfigurator()
 
     override func viewDidLoad() {
+        super.viewDidLoad()
+
         viewModel.delegate = self
         rootView.tableView.delegate = self
         rootView.tableView.dataSource = self
@@ -23,11 +25,12 @@ class ConversationTableViewController: GenericViewController<ConversationTableVi
         UINavigationBar.tintColor(color: UIColor(hexString: "#310c4d"))
         self.title = "messages"
     }
-        
+    
     // MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
+        dismiss(animated: true, completion: nil)
     }
     
     // MARK: - UITableViewDataSource
@@ -71,7 +74,13 @@ class ConversationTableViewController: GenericViewController<ConversationTableVi
 
 extension ConversationTableViewController: ConversationTableViewModelDelegate {
     func conversationTableViewModel(_ viewModel: ConversationTableViewModel, didChangeData data: [[ViewModel]]) {
-        print("called!")
     }
 }
 
+extension UINavigationController {
+    override open var preferredStatusBarStyle: UIStatusBarStyle {
+        get {
+            return .lightContent
+        }
+    }
+}
