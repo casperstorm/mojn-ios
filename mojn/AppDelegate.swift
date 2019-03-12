@@ -18,25 +18,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.makeKeyAndVisible()
         
+        // Global app styling
+        setupApplicationStyling()
+        
 //        let loginViewController = LoginViewController(viewModel: LoginViewModel())
 //        self.window?.rootViewController = MessageViewController()
         let nc = UINavigationController(rootViewController: PseudoCollectionViewController(viewModel: PseudoCollectionViewModel()))
         self.window?.rootViewController = nc
-
-        
-        /*
-         PseudoListViewController
-         PseudoCollectionViewController
-         PseudosViewController
-         
-         ConversationOverviewTableViewController
-         ConversationTableViewController
-         
-         ConversationTableViewController
-         */
-
         
         return true
+    }
+}
+
+extension AppDelegate {
+    func setupApplicationStyling () {
+        UINavigationBar.setupGlobalAppearance()
     }
 }
 

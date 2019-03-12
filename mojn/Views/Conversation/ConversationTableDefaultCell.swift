@@ -18,16 +18,16 @@ class ConversationTableDefaultCell: TableViewCell {
     lazy var separatorView: View = View(style: Stylesheet.separator)
     
     override var subviewsLayout: AnyLayout {
-        let gutter: Length = 22
+        let gutter: Length = 18
         return containerView.addingLayout(
             stack(.vertical, alignment: .leading)(
                 recipientLabel.sizing(toHeight: 24),
                 verticalSpacing(6),
                 snippetLabel).stickingToParentEdges(left: gutter, right: gutter, top: gutter, bottom: gutter)
             ).addingLayout(
-                timeLabel.stickingToParentEdges(right: 22, top: 26)
+                timeLabel.stickingToParentEdges(right: gutter, top: 26)
             ).addingLayout(
-                separatorView.sizing(toHeight: 0.5).stickingToParentEdges(left: 22, right: 22, bottom: 6)
+                separatorView.sizing(toHeight: 0.5).stickingToParentEdges(left: gutter, right: gutter, bottom: 6)
             ).fillingParent()
     }
 }

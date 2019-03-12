@@ -18,15 +18,12 @@ class ConversationTableViewController: GenericViewController<ConversationTableVi
         rootView.tableView.dataSource = self
         
         viewModel.cellViewModels = [[ConversationTableViewMessageItem(), ConversationTableViewMessageItem(), ConversationTableViewMessageItem()]]
-        rootView.headerView.title = "messages"
-        rootView.headerView.emoji = viewModel.pseudo.emoji
+        
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        UINavigationBar.tintColor(color: UIColor(hexString: "#310c4d"))
+        self.title = "messages"
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(true, animated: animated)
-        super.viewWillAppear(animated)
-    }
-    
+        
     // MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

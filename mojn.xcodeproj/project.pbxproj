@@ -33,7 +33,6 @@
 		685CC1BC223681D50035C45F /* ConversationTableRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685CC1BB223681D50035C45F /* ConversationTableRootView.swift */; };
 		685CC1BE223681FB0035C45F /* ConversationTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685CC1BD223681FB0035C45F /* ConversationTableViewModel.swift */; };
 		685CC1C0223685830035C45F /* ConversationTableViewCellConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685CC1BF223685830035C45F /* ConversationTableViewCellConfigurator.swift */; };
-		685CC1C3223688740035C45F /* ListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685CC1C2223688740035C45F /* ListHeaderView.swift */; };
 		68618F57221C3E84004590B5 /* Layoutless.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68618F56221C3E83004590B5 /* Layoutless.framework */; };
 		686FABD022240A5300341D19 /* UIColor+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686FABCF22240A5300341D19 /* UIColor+Color.swift */; };
 		687B4044222557C800304B88 /* MessageKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 687B4043222557C800304B88 /* MessageKit.framework */; };
@@ -43,6 +42,7 @@
 		687B404C22255D2200304B88 /* MessageInputBar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 687B404B22255D2200304B88 /* MessageInputBar.framework */; };
 		687B404E22256BF400304B88 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 687B404D22256BF400304B88 /* SwiftyJSON.framework */; };
 		6881ADBE2237C082008C3051 /* ConversationTableDefaultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6881ADBD2237C082008C3051 /* ConversationTableDefaultCell.swift */; };
+		6884B8EB22382BE9003ECE05 /* UINavigationBar+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6884B8EA22382BE9003ECE05 /* UINavigationBar+Appearance.swift */; };
 		68B71693222EC9FE0078F066 /* PseudoCollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B71692222EC9FE0078F066 /* PseudoCollectionLayout.swift */; };
 		68B71695222ED10A0078F066 /* PseudoCollectionCountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B71694222ED10A0078F066 /* PseudoCollectionCountCell.swift */; };
 		68D30EDE222E86A700DEEAA1 /* OverpassMono-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 68D30EDD222E859200DEEAA1 /* OverpassMono-Bold.ttf */; };
@@ -81,7 +81,6 @@
 		685CC1BB223681D50035C45F /* ConversationTableRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationTableRootView.swift; sourceTree = "<group>"; };
 		685CC1BD223681FB0035C45F /* ConversationTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationTableViewModel.swift; sourceTree = "<group>"; };
 		685CC1BF223685830035C45F /* ConversationTableViewCellConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationTableViewCellConfigurator.swift; sourceTree = "<group>"; };
-		685CC1C2223688740035C45F /* ListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListHeaderView.swift; sourceTree = "<group>"; };
 		68618F56221C3E83004590B5 /* Layoutless.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Layoutless.framework; path = Carthage/Build/iOS/Layoutless.framework; sourceTree = SOURCE_ROOT; };
 		686FABCF22240A5300341D19 /* UIColor+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Color.swift"; sourceTree = "<group>"; };
 		687B4043222557C800304B88 /* MessageKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageKit.framework; path = Carthage/Build/iOS/MessageKit.framework; sourceTree = SOURCE_ROOT; };
@@ -91,6 +90,7 @@
 		687B404B22255D2200304B88 /* MessageInputBar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageInputBar.framework; path = Carthage/Build/iOS/MessageInputBar.framework; sourceTree = SOURCE_ROOT; };
 		687B404D22256BF400304B88 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = SOURCE_ROOT; };
 		6881ADBD2237C082008C3051 /* ConversationTableDefaultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationTableDefaultCell.swift; sourceTree = "<group>"; };
+		6884B8EA22382BE9003ECE05 /* UINavigationBar+Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Appearance.swift"; sourceTree = "<group>"; };
 		68B71692222EC9FE0078F066 /* PseudoCollectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PseudoCollectionLayout.swift; sourceTree = "<group>"; };
 		68B71694222ED10A0078F066 /* PseudoCollectionCountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PseudoCollectionCountCell.swift; sourceTree = "<group>"; };
 		68D30ED9222E859100DEEAA1 /* PatuaOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "PatuaOne-Regular.ttf"; path = "Fonts/PatuaOne-Regular.ttf"; sourceTree = "<group>"; };
@@ -201,7 +201,6 @@
 		684E95FD2223207E005B14CF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				6881ADBF2237C1D1008C3051 /* Shared */,
 				6881ADBC2237C05F008C3051 /* Conversation */,
 				684F5122222EA9A4003A3885 /* Pseudo */,
 				687B404922255C1600304B88 /* MojnInputBar.swift */,
@@ -274,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				686FABCF22240A5300341D19 /* UIColor+Color.swift */,
+				6884B8EA22382BE9003ECE05 /* UINavigationBar+Appearance.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -284,14 +284,6 @@
 				6881ADBD2237C082008C3051 /* ConversationTableDefaultCell.swift */,
 			);
 			path = Conversation;
-			sourceTree = "<group>";
-		};
-		6881ADBF2237C1D1008C3051 /* Shared */ = {
-			isa = PBXGroup;
-			children = (
-				685CC1C2223688740035C45F /* ListHeaderView.swift */,
-			);
-			path = Shared;
 			sourceTree = "<group>";
 		};
 		6881ADC02237DC3D008C3051 /* Pseudo */ = {
@@ -465,7 +457,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				685CC1C3223688740035C45F /* ListHeaderView.swift in Sources */,
 				682754A9222D3E2700C6326D /* PseudoCollectionViewModel.swift in Sources */,
 				686FABD022240A5300341D19 /* UIColor+Color.swift in Sources */,
 				687B4046222557FC00304B88 /* MessageViewController.swift in Sources */,
@@ -483,6 +474,7 @@
 				685CC1C0223685830035C45F /* ConversationTableViewCellConfigurator.swift in Sources */,
 				1C825B092226D1640075E3FB /* ViewModel.swift in Sources */,
 				684E95FF22232096005B14CF /* PseudoCollectionDefaultCell.swift in Sources */,
+				6884B8EB22382BE9003ECE05 /* UINavigationBar+Appearance.swift in Sources */,
 				1C825B0E2226D91B0075E3FB /* LoginViewModel.swift in Sources */,
 				684BB516221EDC0200C46642 /* MojnAPI.swift in Sources */,
 				1C825B132227DA5D0075E3FB /* LoginRootView.swift in Sources */,

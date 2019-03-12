@@ -17,13 +17,9 @@ public class ConversationTableRootView: View, RootView {
         tv.apply(Stylesheet.tableView)
         return tv
     }()
-    lazy var headerView = ListHeaderView()
     
     override public var subviewsLayout: AnyLayout {
-        return stack(.vertical)(
-            headerView,
-            tableView
-            ).fillingParent()
+        return tableView.fillingParent()
     }
 }
 
