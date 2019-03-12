@@ -46,6 +46,11 @@ class PseudoCollectionAddCell: CollectionViewCell {
         }
     }
     
+    /*
+        ConversationTableViewController
+        ConversationDetailTableViewController
+     */
+    
     override var subviewsLayout: AnyLayout {
         return containerView.addingLayout(crossView.centeringInParent()).fillingParent()
     }

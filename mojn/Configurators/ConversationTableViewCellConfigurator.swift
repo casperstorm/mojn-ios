@@ -9,8 +9,8 @@
 import Foundation
 import UIKit
 
-class MessageListTableViewCellConfigurator {
-    func configure(_ cell: MessageListDefaultCell, with viewModel: MessageItemMessageListViewModel) {
+class ConversationTableViewCellConfigurator {
+    func configure(_ cell: ConversationTableDefaultCell, with viewModel: ConversationTableViewMessageItem) {
         cell.recipientLabel.text = "Isak Johannesson"
         cell.snippetLabel.text = "I saw your post on craigslist, and I was wondering if you are willing to trade it for something else? Maybe my horse. It's a really nice horse."
         cell.timeLabel.text = "12:24"

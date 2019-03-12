@@ -10,19 +10,19 @@ import Foundation
 import Siesta
 import UIKit
 
-class HeaderItemPseudosViewModel: CellViewModelSizable {
+class PseudoCollectionHeaderCellViewModel: CellViewModelSizable {
     func height() -> CGFloat {
         return 184
     }
 }
 
-class AddItemPseudosViewModel: CellViewModelSizable {
+class PseudoCollectionAddCellViewModel: CellViewModelSizable {
     func height() -> CGFloat {
         return 88
     }
 }
 
-class CountItemPseudosViewModel: CellViewModelSizable {
+class PseudoCollectionCountCellViewModel: CellViewModelSizable {
     var count: Int?
     
     func height() -> CGFloat {
@@ -30,7 +30,7 @@ class CountItemPseudosViewModel: CellViewModelSizable {
     }
 }
 
-class PseudoItemPseudosViewModel: CellViewModelSizable {
+class PseudoCollectionDefaultCellViewModel: CellViewModelSizable {
     var pseudo: Pseudo?
     
     func name() -> String? {
@@ -71,13 +71,13 @@ extension PseudoCollectionViewModel: ResourceObserver {
     func resourceChanged(_ resource: Resource, event: ResourceEvent) {
         guard let pseudos: [Pseudo] = resource.typedContent() else { return }
         
-        let headerViewModel = HeaderItemPseudosViewModel()
-        let addViewModel = AddItemPseudosViewModel()
-        let countViewModel = CountItemPseudosViewModel()
+        let headerViewModel = PseudoCollectionHeaderCellViewModel()
+        let addViewModel = PseudoCollectionAddCellViewModel()
+        let countViewModel = PseudoCollectionCountCellViewModel()
         countViewModel.count = pseudos.count
         
-        let data = pseudos.map { (pseudo) -> PseudoItemPseudosViewModel in
-            let vm = PseudoItemPseudosViewModel()
+        let data = pseudos.map { (pseudo) -> PseudoCollectionDefaultCellViewModel in
+            let vm = PseudoCollectionDefaultCellViewModel()
             vm.pseudo = pseudo
             
             return vm

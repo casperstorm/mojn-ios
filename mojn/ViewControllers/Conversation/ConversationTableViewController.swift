@@ -1,5 +1,5 @@
 //
-//  MessageListViewController.swift
+//  ConversationTableViewController.swift
 //  mojn
 //
 //  Created by Casper Rogild Storm on 11/03/2019.
@@ -9,15 +9,15 @@
 import Foundation
 import UIKit
 
-class MessageListViewController: GenericViewController<MessageListViewModel, MessageListRootView>, UITableViewDelegate, UITableViewDataSource {
-    let configurator = MessageListTableViewCellConfigurator()
+class ConversationTableViewController: GenericViewController<ConversationTableViewModel, ConversationTableRootView>, UITableViewDelegate, UITableViewDataSource {
+    let configurator = ConversationTableViewCellConfigurator()
 
     override func viewDidLoad() {
         viewModel.delegate = self
         rootView.tableView.delegate = self
         rootView.tableView.dataSource = self
         
-        viewModel.cellViewModels = [[MessageItemMessageListViewModel(), MessageItemMessageListViewModel(), MessageItemMessageListViewModel()]]
+        viewModel.cellViewModels = [[ConversationTableViewMessageItem(), ConversationTableViewMessageItem(), ConversationTableViewMessageItem()]]
         rootView.headerView.title = "messages"
         rootView.headerView.emoji = viewModel.pseudo.emoji
     }
@@ -48,9 +48,9 @@ class MessageListViewController: GenericViewController<MessageListViewModel, Mes
         let section = viewModel.cellViewModels[indexPath.section]
         let cellViewModel = section[indexPath.row]
         
-        if cellViewModel is MessageItemMessageListViewModel {
-            let cell = tableView.dequeueReusableCell(withIdentifier: MessageListDefaultCell.identifier, for: indexPath) as! MessageListDefaultCell
-            if let cellViewModel = cellViewModel as? MessageItemMessageListViewModel {
+        if cellViewModel is ConversationTableViewMessageItem {
+            let cell = tableView.dequeueReusableCell(withIdentifier: ConversationTableDefaultCell.identifier, for: indexPath) as! ConversationTableDefaultCell
+            if let cellViewModel = cellViewModel as? ConversationTableViewMessageItem {
                 configurator.configure(cell, with: cellViewModel)
             }
 
@@ -72,8 +72,8 @@ class MessageListViewController: GenericViewController<MessageListViewModel, Mes
     }
 }
 
-extension MessageListViewController: MessageListViewModelDelegate {
-    func messageListViewModel(_ viewModel: MessageListViewModel, didChangeData data: [[ViewModel]]) {
+extension ConversationTableViewController: ConversationTableViewModelDelegate {
+    func conversationTableViewModel(_ viewModel: ConversationTableViewModel, didChangeData data: [[ViewModel]]) {
         print("called!")
     }
 }
