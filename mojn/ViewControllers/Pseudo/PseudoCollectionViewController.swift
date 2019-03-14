@@ -27,6 +27,11 @@ class PseudoCollectionViewController: GenericViewController<PseudoCollectionView
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
         super.viewWillAppear(animated)
     }
+        
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        super.viewWillDisappear(animated)
+    }
 
     // MARK: - UICollectionViewDelegate
     
@@ -37,8 +42,7 @@ class PseudoCollectionViewController: GenericViewController<PseudoCollectionView
         if let vm = cellViewModel as? PseudoCollectionDefaultCellViewModel {
             guard let pseudo = vm.pseudo else { return }
             let vc = ConversationTableViewController(viewModel: ConversationTableViewModel(pseudo: pseudo))
-            let nc = UINavigationController(rootViewController: vc)
-            navigationController?.present(nc, animated: true, completion: nil)
+            show(vc, sender: nil)
         }
     }
     
@@ -80,6 +84,13 @@ class PseudoCollectionViewController: GenericViewController<PseudoCollectionView
             configurator.configure(cell, with: vm)
             return cell
         }
+        
+        if let vm = cellViewModel as? PseudoCollectionEmptyCellViewModel {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PseudoCollectionEmptyCell.identifier, for: indexPath) as! PseudoCollectionEmptyCell
+            configurator.configure(cell, with: vm)
+            return cell
+        }
+        
         
         
         return UICollectionViewCell()

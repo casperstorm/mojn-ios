@@ -43,6 +43,8 @@
 		687B404E22256BF400304B88 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 687B404D22256BF400304B88 /* SwiftyJSON.framework */; };
 		6881ADBE2237C082008C3051 /* ConversationTableDefaultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6881ADBD2237C082008C3051 /* ConversationTableDefaultCell.swift */; };
 		6884B8EB22382BE9003ECE05 /* UINavigationBar+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6884B8EA22382BE9003ECE05 /* UINavigationBar+Appearance.swift */; };
+		6884B8F622394494003ECE05 /* PseudoCollectionEmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6884B8F522394494003ECE05 /* PseudoCollectionEmptyCell.swift */; };
+		6884B8F8223945F6003ECE05 /* UIView+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6884B8F7223945F6003ECE05 /* UIView+Border.swift */; };
 		68B71693222EC9FE0078F066 /* PseudoCollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B71692222EC9FE0078F066 /* PseudoCollectionLayout.swift */; };
 		68B71695222ED10A0078F066 /* PseudoCollectionCountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B71694222ED10A0078F066 /* PseudoCollectionCountCell.swift */; };
 		68D30EDE222E86A700DEEAA1 /* OverpassMono-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 68D30EDD222E859200DEEAA1 /* OverpassMono-Bold.ttf */; };
@@ -91,6 +93,8 @@
 		687B404D22256BF400304B88 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = SOURCE_ROOT; };
 		6881ADBD2237C082008C3051 /* ConversationTableDefaultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationTableDefaultCell.swift; sourceTree = "<group>"; };
 		6884B8EA22382BE9003ECE05 /* UINavigationBar+Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Appearance.swift"; sourceTree = "<group>"; };
+		6884B8F522394494003ECE05 /* PseudoCollectionEmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PseudoCollectionEmptyCell.swift; sourceTree = "<group>"; };
+		6884B8F7223945F6003ECE05 /* UIView+Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Border.swift"; sourceTree = "<group>"; };
 		68B71692222EC9FE0078F066 /* PseudoCollectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PseudoCollectionLayout.swift; sourceTree = "<group>"; };
 		68B71694222ED10A0078F066 /* PseudoCollectionCountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PseudoCollectionCountCell.swift; sourceTree = "<group>"; };
 		68D30ED9222E859100DEEAA1 /* PatuaOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "PatuaOne-Regular.ttf"; path = "Fonts/PatuaOne-Regular.ttf"; sourceTree = "<group>"; };
@@ -201,6 +205,7 @@
 		684E95FD2223207E005B14CF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6884B8EC2238F974003ECE05 /* Shared */,
 				6881ADBC2237C05F008C3051 /* Conversation */,
 				684F5122222EA9A4003A3885 /* Pseudo */,
 				687B404922255C1600304B88 /* MojnInputBar.swift */,
@@ -216,6 +221,7 @@
 				68B71694222ED10A0078F066 /* PseudoCollectionCountCell.swift */,
 				68B71692222EC9FE0078F066 /* PseudoCollectionLayout.swift */,
 				685CC1B422329B9A0035C45F /* PseudoCollectionHeaderCell.swift */,
+				6884B8F522394494003ECE05 /* PseudoCollectionEmptyCell.swift */,
 			);
 			path = Pseudo;
 			sourceTree = "<group>";
@@ -274,6 +280,7 @@
 			children = (
 				686FABCF22240A5300341D19 /* UIColor+Color.swift */,
 				6884B8EA22382BE9003ECE05 /* UINavigationBar+Appearance.swift */,
+				6884B8F7223945F6003ECE05 /* UIView+Border.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -332,6 +339,13 @@
 				685CC1BD223681FB0035C45F /* ConversationTableViewModel.swift */,
 			);
 			path = Conversation;
+			sourceTree = "<group>";
+		};
+		6884B8EC2238F974003ECE05 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 		68D30ED8222E858100DEEAA1 /* Fonts */ = {
@@ -482,6 +496,8 @@
 				1C825B102227D9D90075E3FB /* LoginViewController.swift in Sources */,
 				687B404A22255C1600304B88 /* MojnInputBar.swift in Sources */,
 				6881ADBE2237C082008C3051 /* ConversationTableDefaultCell.swift in Sources */,
+				6884B8F8223945F6003ECE05 /* UIView+Border.swift in Sources */,
+				6884B8F622394494003ECE05 /* PseudoCollectionEmptyCell.swift in Sources */,
 				6853822E221C329C00DBA0FB /* AppDelegate.swift in Sources */,
 				685CC1B522329B9A0035C45F /* PseudoCollectionHeaderCell.swift in Sources */,
 				6804516C22242B640080BE3D /* Pseudo.swift in Sources */,

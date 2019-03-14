@@ -23,7 +23,8 @@ class ConversationTableDefaultCell: TableViewCell {
             stack(.vertical, alignment: .leading)(
                 recipientLabel.sizing(toHeight: 24),
                 verticalSpacing(6),
-                snippetLabel).stickingToParentEdges(left: gutter, right: gutter, top: gutter, bottom: gutter)
+                snippetLabel,
+                View()).stickingToParentEdges(left: gutter, right: gutter, top: gutter, bottom: gutter)
             ).addingLayout(
                 timeLabel.stickingToParentEdges(right: gutter, top: 26)
             ).addingLayout(
@@ -47,7 +48,7 @@ extension ConversationTableDefaultCell {
             $0.textColor = .white
             $0.font = UIFont(name: "OverpassMono-Light", size: 14)
         }
-        static let snippet = Style<UILabel> {
+        static let snippet = Style<Label> {
             $0.textAlignment = .left
             $0.numberOfLines = 3
             $0.textColor = UIColor(hexString: "#f98b74")

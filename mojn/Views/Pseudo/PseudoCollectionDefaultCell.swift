@@ -58,10 +58,6 @@ extension PseudoCollectionDefaultCell {
             $0.backgroundColor = .white
             $0.layer.cornerRadius = 12
         }
-        static let highlightedContainer = Style<UIView> {
-            $0.backgroundColor = UIColor(hexString: "#F6F6F6")
-            $0.layer.cornerRadius = 12
-        }
         static let name = Style<UILabel> {
             $0.font = UIFont(name: "OverpassMono-Light", size: 12)
             $0.textAlignment = .center

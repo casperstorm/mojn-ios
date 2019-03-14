@@ -42,6 +42,12 @@ class PseudoCollectionDefaultCellViewModel: CellViewModelSizable {
     }
 }
 
+class PseudoCollectionEmptyCellViewModel: CellViewModelSizable {
+    func height() -> CGFloat {
+        return 220
+    }
+}
+
 protocol PseudoCollectionViewModelDelegate: class {
     func pseudoCollectionViewModel(_ viewModel: PseudoCollectionViewModel, didChangeData data: [[ViewModel]])
 }
@@ -76,11 +82,15 @@ extension PseudoCollectionViewModel: ResourceObserver {
         let countViewModel = PseudoCollectionCountCellViewModel()
         countViewModel.count = pseudos.count
         
-        let data = pseudos.map { (pseudo) -> PseudoCollectionDefaultCellViewModel in
+        var data: [ViewModel] = pseudos.map { (pseudo) -> PseudoCollectionDefaultCellViewModel in
             let vm = PseudoCollectionDefaultCellViewModel()
             vm.pseudo = pseudo
             
             return vm
+        }
+        
+        if (data.count == 0) {
+            data = [PseudoCollectionEmptyCellViewModel(), PseudoCollectionEmptyCellViewModel(), PseudoCollectionEmptyCellViewModel()]
         }
         
         let add = [addViewModel]

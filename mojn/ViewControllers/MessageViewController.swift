@@ -27,7 +27,7 @@ class MessageViewController: MessagesViewController {
         super.viewDidLoad()
         
         self.title = "Mojn du"
-        self.messageResource = MojnAPI.sharedInstance.message()
+//        self.messageResource = MojnAPI.sharedInstance.message()
         
         if let layout = messagesCollectionView.collectionViewLayout as? MessagesCollectionViewFlowLayout {
             layout.textMessageSizeCalculator.outgoingAvatarSize = .zero

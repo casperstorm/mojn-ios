@@ -8,12 +8,18 @@
 
 import Foundation
 import UIKit
+import MessageKit
 
 class ConversationTableViewCellConfigurator {
     func configure(_ cell: ConversationTableDefaultCell, with viewModel: ConversationTableViewMessageItem) {
-        cell.recipientLabel.text = "Isak Johannesson"
-        cell.snippetLabel.text = "I saw your post on craigslist, and I was wondering if you are willing to trade it for something else? Maybe my horse. It's a really nice horse."
-        cell.timeLabel.text = "12:24"
+        
+        guard let message = viewModel.message else { return }
+        guard case .text(let text) = message.kind else { return }
+        
+        cell.recipientLabel.text = message.recipient
+        cell.snippetLabel.text = text
+        
+        cell.timeLabel.text = message.prettyDate()
     }
 }
 

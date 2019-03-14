@@ -20,6 +20,7 @@ extension UINavigationBar {
              NSAttributedString.Key.font: UIFont(name: "PatuaOne-Regular", size: 22)!]
         
         self.appearance().isTranslucent = false
+        self.appearance().shadowImage = UIImage()
     }
     
     class func tintColor (color: UIColor) {

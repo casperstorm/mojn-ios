@@ -18,12 +18,12 @@ class ConversationTableViewController: GenericViewController<ConversationTableVi
         viewModel.delegate = self
         rootView.tableView.delegate = self
         rootView.tableView.dataSource = self
-        
-        viewModel.cellViewModels = [[ConversationTableViewMessageItem(), ConversationTableViewMessageItem(), ConversationTableViewMessageItem()]]
-        
+                
         self.navigationController?.navigationBar.prefersLargeTitles = true
         UINavigationBar.tintColor(color: UIColor(hexString: "#310c4d"))
         self.title = "messages"
+        
+        viewModel.loadData()
     }
     
     // MARK: - UITableViewDelegate
@@ -74,6 +74,7 @@ class ConversationTableViewController: GenericViewController<ConversationTableVi
 
 extension ConversationTableViewController: ConversationTableViewModelDelegate {
     func conversationTableViewModel(_ viewModel: ConversationTableViewModel, didChangeData data: [[ViewModel]]) {
+        rootView.tableView.reloadData()
     }
 }
 

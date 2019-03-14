@@ -28,4 +28,7 @@ class PseudoCollectionViewCellConfigurator {
     
     func configure(_ cell: PseudoCollectionHeaderCell, with viewModel: PseudoCollectionHeaderCellViewModel) {
     }
+    
+    func configure(_ cell: PseudoCollectionEmptyCell, with viewModel: PseudoCollectionEmptyCellViewModel) {
+    }
 }

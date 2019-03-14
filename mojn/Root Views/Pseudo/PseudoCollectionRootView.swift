@@ -34,6 +34,7 @@ public extension PseudoCollectionRootView {
             $0.register(PseudoCollectionAddCell.self, forCellWithReuseIdentifier: PseudoCollectionAddCell.identifier)
             $0.register(PseudoCollectionCountCell.self, forCellWithReuseIdentifier: PseudoCollectionCountCell.identifier)
             $0.register(PseudoCollectionHeaderCell.self, forCellWithReuseIdentifier: PseudoCollectionHeaderCell.identifier)
+            $0.register(PseudoCollectionEmptyCell.self, forCellWithReuseIdentifier: PseudoCollectionEmptyCell.identifier)
         }
     }
 }

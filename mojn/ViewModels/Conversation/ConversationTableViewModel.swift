@@ -8,8 +8,10 @@
 
 import Foundation
 import UIKit
+import Siesta
 
 class ConversationTableViewMessageItem: CellViewModelSizable {
+    var message: Message?
     func height() -> CGFloat {
         return 130
     }
@@ -22,6 +24,14 @@ protocol ConversationTableViewModelDelegate: class {
 public class ConversationTableViewModel: ViewModel {
     weak var delegate: ConversationTableViewModelDelegate?
     let pseudo: Pseudo
+    var latestMessagesResource: Resource? {
+        didSet {
+            oldValue?.removeObservers(ownedBy: self)
+            latestMessagesResource?
+                .addObserver(self)
+                .loadIfNeeded()
+        }
+    }
     var cellViewModels = [[ViewModel]]() {
         didSet {
             delegate?.conversationTableViewModel(self, didChangeData: cellViewModels)
@@ -30,5 +40,24 @@ public class ConversationTableViewModel: ViewModel {
     
     init(pseudo: Pseudo) {
         self.pseudo = pseudo
+    }
+    
+    func loadData() {
+        latestMessagesResource = MojnAPI.sharedInstance.latestMessages(from: pseudo.phoneNumber)
+    }
+}
+
+extension ConversationTableViewModel: ResourceObserver {
+    public func resourceChanged(_ resource: Resource, event: ResourceEvent) {
+        guard let messages: [Message] = resource.typedContent() else { return }
+
+        let data = messages.map { (message) -> ConversationTableViewMessageItem in
+            let vm = ConversationTableViewMessageItem()
+            vm.message = message
+
+            return vm
+        }
+
+        self.cellViewModels = [data]
     }
 }
