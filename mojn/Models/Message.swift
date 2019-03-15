@@ -22,7 +22,12 @@ struct Message: MessageType {
     let recipient: String
     let status: MessageStatus
     
-    private init(kind: MessageKind, sender: Sender, recipient: String, messageId: String, date: Date, status: MessageStatus) {
+    private init(kind: MessageKind,
+                 sender: Sender,
+                 recipient: String,
+                 messageId: String,
+                 date: Date,
+                 status: MessageStatus) {
         self.messageId = messageId
         self.sender = sender
         self.sentDate = date
@@ -32,7 +37,8 @@ struct Message: MessageType {
     }
     
     
-    init?(json: JSON) {
+    init?(_ json: JSON) {
+        print(json)
         guard let messageId = json["id"].string else { return nil }
         guard let body = json["body"].string else { return nil }
         guard let from = json["from"].string else { return nil }

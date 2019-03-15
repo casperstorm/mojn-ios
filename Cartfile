@@ -4,6 +4,9 @@ github "DeclarativeHub/Layoutless" ~> 0.2
 # Network
 github "bustoutsolutions/siesta" ~> 1.0
 
+# Database
+github "realm/realm-cocoa"
+
 # Message
 github "MessageKit/MessageKit" ~> 2.0
 

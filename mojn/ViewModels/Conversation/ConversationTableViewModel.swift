@@ -43,21 +43,23 @@ public class ConversationTableViewModel: ViewModel {
     }
     
     func loadData() {
-        latestMessagesResource = MojnAPI.sharedInstance.latestMessages(from: pseudo.phoneNumber)
+//        latestMessagesResource = MojnAPI.sharedInstance.latestMessages(from: pseudo.phoneNumber)
+        latestMessagesResource = MojnAPI.sharedInstance.numbers()
     }
 }
 
 extension ConversationTableViewModel: ResourceObserver {
     public func resourceChanged(_ resource: Resource, event: ResourceEvent) {
-        guard let messages: [Message] = resource.typedContent() else { return }
-
-        let data = messages.map { (message) -> ConversationTableViewMessageItem in
-            let vm = ConversationTableViewMessageItem()
-            vm.message = message
-
-            return vm
-        }
-
-        self.cellViewModels = [data]
+//        print(resource.typedContent()!)
+//        guard let messages: [Message] = resource.typedContent() else { return }
+//
+//        let data = messages.map { (message) -> ConversationTableViewMessageItem in
+//            let vm = ConversationTableViewMessageItem()
+//            vm.message = message
+//
+//            return vm
+//        }
+//
+//        self.cellViewModels = [data]
     }
 }

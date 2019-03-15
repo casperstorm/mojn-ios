@@ -59,38 +59,29 @@ class PseudoCollectionViewModel: ViewModel {
             delegate?.pseudoCollectionViewModel(self, didChangeData: cellViewModels)
         }
     }
-    var pseudoResource: Resource? {
-        didSet {
-            oldValue?.removeObservers(ownedBy: self)
-            pseudoResource?
-                .addObserver(self)
-                .loadIfNeeded()
-        }
-    }
-    
-    func loadData() {
-        pseudoResource = MojnAPI.sharedInstance.pseudos()
-    }
 }
 
-extension PseudoCollectionViewModel: ResourceObserver {
-    func resourceChanged(_ resource: Resource, event: ResourceEvent) {
-        guard let pseudos: [Pseudo] = resource.typedContent() else { return }
+extension PseudoCollectionViewModel {
+    func loadData() {
+        let database = Database()
+        guard let pseudos = database.queryPseudos() else { return }
         
         let headerViewModel = PseudoCollectionHeaderCellViewModel()
         let addViewModel = PseudoCollectionAddCellViewModel()
         let countViewModel = PseudoCollectionCountCellViewModel()
         countViewModel.count = pseudos.count
-        
-        var data: [ViewModel] = pseudos.map { (pseudo) -> PseudoCollectionDefaultCellViewModel in
-            let vm = PseudoCollectionDefaultCellViewModel()
-            vm.pseudo = pseudo
-            
-            return vm
-        }
-        
-        if (data.count == 0) {
-            data = [PseudoCollectionEmptyCellViewModel(), PseudoCollectionEmptyCellViewModel(), PseudoCollectionEmptyCellViewModel()]
+
+        var data: [ViewModel] = []
+        if (pseudos.count == 0) {
+            data = [PseudoCollectionEmptyCellViewModel(),
+                    PseudoCollectionEmptyCellViewModel(),
+                    PseudoCollectionEmptyCellViewModel()]
+        } else {
+            data = pseudos.map { (pseudo) -> PseudoCollectionDefaultCellViewModel in
+                let vm = PseudoCollectionDefaultCellViewModel()
+                vm.pseudo = pseudo
+                return vm
+            }
         }
         
         let add = [addViewModel]
