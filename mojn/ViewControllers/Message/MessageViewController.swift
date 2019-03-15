@@ -1,5 +1,5 @@
 //
-//  ConversationTableViewController.swift
+//  MessageViewController.swift
 //  mojn
 //
 //  Created by Casper Rogild Storm on 11/03/2019.
@@ -9,8 +9,8 @@
 import Foundation
 import UIKit
 
-class ConversationTableViewController: GenericViewController<ConversationTableViewModel, ConversationTableRootView>, UITableViewDelegate, UITableViewDataSource {
-    let configurator = ConversationTableViewCellConfigurator()
+class MessageViewController: GenericViewController<MessageViewModel, MessageRootView>, UITableViewDelegate, UITableViewDataSource {
+    let configurator = MessageViewCellConfigurator()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +30,17 @@ class ConversationTableViewController: GenericViewController<ConversationTableVi
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
-        dismiss(animated: true, completion: nil)
+        
+        let section = viewModel.cellViewModels[indexPath.section]
+        let cellViewModel = section[indexPath.row]
+        guard let cvm = cellViewModel as? MessageTableViewMessageItem else { return }
+        guard let message = cvm.message else { return }
+        
+        let pseudo = viewModel.pseudo
+        let recipient = message.recipient
+        let vm = MessageDetailViewModel(pseudo: pseudo, recipient: recipient)
+        let vc = MessageDetailViewController(viewModel: vm)
+        show(vc, sender: self)
     }
     
     // MARK: - UITableViewDataSource
@@ -48,12 +58,9 @@ class ConversationTableViewController: GenericViewController<ConversationTableVi
         let section = viewModel.cellViewModels[indexPath.section]
         let cellViewModel = section[indexPath.row]
         
-        if cellViewModel is ConversationTableViewMessageItem {
-            let cell = tableView.dequeueReusableCell(withIdentifier: ConversationTableDefaultCell.identifier, for: indexPath) as! ConversationTableDefaultCell
-            if let cellViewModel = cellViewModel as? ConversationTableViewMessageItem {
-                configurator.configure(cell, with: cellViewModel)
-            }
-
+        if let vm = cellViewModel as? MessageTableViewMessageItem {
+            let cell = tableView.dequeueReusableCell(withIdentifier: MessageDefaultCell.identifier, for: indexPath) as! MessageDefaultCell
+            configurator.configure(cell, with: vm)
             return cell
         }
         
@@ -72,8 +79,8 @@ class ConversationTableViewController: GenericViewController<ConversationTableVi
     }
 }
 
-extension ConversationTableViewController: ConversationTableViewModelDelegate {
-    func conversationTableViewModel(_ viewModel: ConversationTableViewModel, didChangeData data: [[ViewModel]]) {
+extension MessageViewController: MessageViewModelDelegate {
+    func MessageViewModel(_ viewModel: MessageViewModel, didChangeData data: [[ViewModel]]) {
         rootView.tableView.reloadData()
     }
 }

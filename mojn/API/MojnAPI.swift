@@ -15,18 +15,18 @@ class MojnAPI {
         case base
         case balance(_ sid: String)
         case numbers(_ sid: String)
-        case messages(_ sid: String, query: String?)
+        case messages(_ sid: String)
         
         func endpoint() -> String {
             switch self {
             case .base:
-                return "https://api.twilio.com/2010-04-01/"
+                return "https://api.twilio.com"
             case .balance(let sid):
-                return "/Accounts/\(sid)/Balance.json"
+                return "/2010-04-01/Accounts/\(sid)/Balance.json"
             case .numbers(let sid):
-                return "/Accounts/\(sid)/IncomingPhoneNumbers.json"
-            case .messages(let sid, let query):
-                return "/Accounts/\(sid)/Messages.json\(query ?? "")"
+                return "/2010-04-01/Accounts/\(sid)/IncomingPhoneNumbers.json"
+            case .messages(let sid):
+                return "/2010-04-01/Accounts/\(sid)/Messages.json"
             }
         }
     }
@@ -42,6 +42,13 @@ class MojnAPI {
     
     private init() {
         SiestaLog.Category.enabled = [.network, .pipeline]
+        setupServiceConfigurations()
+        setupServiceTransformers()
+    }
+}
+
+extension MojnAPI {
+    func setupServiceConfigurations() {
         let SwiftyJSONTransformer =
             ResponseContentTransformer
                 { JSON($0.content as AnyObject) }
@@ -54,16 +61,23 @@ class MojnAPI {
                 SwiftyJSONTransformer,
                 contentTypes: ["*/json"])
         }
-        
+    }
+    
+    func setupServiceTransformers() {
         service.configureTransformer(APIRoutes.numbers("*").endpoint()) {
             return ($0.content as JSON)["incoming_phone_numbers"].arrayValue.map({ json in
                 return Number(json)
             })
         }
+        
+        service.configureTransformer(APIRoutes.messages("*").endpoint()) {
+            return ($0.content as JSON)["messages"].arrayValue.map({ json in
+                return Message(json)
+            })
+        }
     }
 }
 
-// MARK: - sid
 extension MojnAPI {
     func sid() -> String {
         guard let sid = Keychain(identifier: .credentials).get(.sid) else {
@@ -73,7 +87,6 @@ extension MojnAPI {
     }
 }
 
-// MARK: - Twilio
 extension MojnAPI {
     func balance() -> Resource {
         let sid = self.sid()
@@ -90,9 +103,28 @@ extension MojnAPI {
 }
 
 extension MojnAPI {
+    // TODO:
+    // Pagination
+    
+    func messages() -> Resource {
+        return messages(from: nil, to: nil, size: 50)
+    }
+    
     func messages(from: String) -> Resource {
+        return messages(from: from, to: nil, size: 50)
+    }
+    
+    func messages(from: String, to: String) -> Resource {
+        return messages(from: from, to: to, size: 50)
+    }
+    
+    fileprivate func messages(from: String?, to: String?, size: Int) -> Resource {
         let sid = self.sid()
-        return service.resource(APIRoutes.messages(sid, query: "?From=\(from)").endpoint())
+        return  service
+            .resource(APIRoutes.messages(sid).endpoint())
+            .withParam("From", from)
+            .withParam("To", to)
+            .withParam("PageSize", "\(size)")
     }
 }
 

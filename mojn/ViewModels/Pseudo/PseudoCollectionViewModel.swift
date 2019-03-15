@@ -71,23 +71,18 @@ extension PseudoCollectionViewModel {
         let countViewModel = PseudoCollectionCountCellViewModel()
         countViewModel.count = pseudos.count
 
-        var data: [ViewModel] = []
-        if (pseudos.count == 0) {
-            data = [PseudoCollectionEmptyCellViewModel(),
-                    PseudoCollectionEmptyCellViewModel(),
-                    PseudoCollectionEmptyCellViewModel()]
-        } else {
-            data = pseudos.map { (pseudo) -> PseudoCollectionDefaultCellViewModel in
-                let vm = PseudoCollectionDefaultCellViewModel()
-                vm.pseudo = pseudo
-                return vm
-            }
+        let data: [ViewModel] = pseudos.map { (pseudo) in
+            let vm = PseudoCollectionDefaultCellViewModel()
+            vm.pseudo = pseudo
+            return vm
         }
         
+        let placeholder: [ViewModel] = [PseudoCollectionEmptyCellViewModel()]
+
         let add = [addViewModel]
         let count = [countViewModel]
         let header = [headerViewModel]
         
-        self.cellViewModels = [header, add, count, data]
+        self.cellViewModels = [header, add, count, data, placeholder]
     }
 }

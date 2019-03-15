@@ -41,8 +41,9 @@ class PseudoCollectionViewController: GenericViewController<PseudoCollectionView
         
         if let vm = cellViewModel as? PseudoCollectionDefaultCellViewModel {
             guard let pseudo = vm.pseudo else { return }
-            let vc = ConversationTableViewController(viewModel: ConversationTableViewModel(pseudo: pseudo))
-            show(vc, sender: nil)
+            let vc = MessageViewController(viewModel: MessageViewModel(pseudo: pseudo))
+            let nc = UINavigationController(rootViewController: vc)
+            present(nc, animated: true, completion: nil)
         }
     }
     

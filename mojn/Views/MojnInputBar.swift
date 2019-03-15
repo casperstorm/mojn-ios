@@ -21,7 +21,7 @@ class MojnInputBar: MessageInputBar {
     }
     
     func configure() {
-        backgroundView.backgroundColor = .white
+        backgroundView.backgroundColor = UIColor(hexString: "#310c4d")
         let button = InputBarButtonItem()
         button.setSize(CGSize(width: 36, height: 36), animated: false)
         button.setImage(#imageLiteral(resourceName: "ic_plus").withRenderingMode(.alwaysTemplate), for: .normal)
