@@ -28,14 +28,16 @@ class MessageDetailViewController: MessageKit.MessagesViewController {
         self.viewModel.delegate = self
         
         if let layout = messagesCollectionView.collectionViewLayout as? MessagesCollectionViewFlowLayout {
-            layout.textMessageSizeCalculator.outgoingAvatarSize = .zero
             layout.textMessageSizeCalculator.incomingAvatarSize = .zero
+            layout.textMessageSizeCalculator.outgoingAvatarSize = .zero
+            layout.textMessageSizeCalculator.messageLabelFont = UIFont(name: "OverpassMono-Light", size: 17)!
         }
         
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
         messagesCollectionView.backgroundColor = UIColor(hexString: "#310c4d")
+        messageInputBar = MojnInputBar()
         
         viewModel.loadData()
     }
@@ -58,6 +60,14 @@ extension MessageDetailViewController: MessagesDataSource {
 extension MessageDetailViewController: MessagesDisplayDelegate, MessagesLayoutDelegate {
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
         avatarView.isHidden = true
+    }
+    
+    func textColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
+        if message.sender == viewModel.sender {
+            return  UIColor.white
+        } else {
+            return UIColor(hexString: "#310c4d")
+        }
     }
     
     func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
