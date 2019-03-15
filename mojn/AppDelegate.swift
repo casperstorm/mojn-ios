@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,11 +22,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Global app styling
         setupApplicationStyling()
         
+        // TEMP: Login
+        let keychain = Keychain(identifier: .credentials)
+        if let sid = keychain.get(.sid), let token = keychain.get(.token) {
+            MojnAPI.sharedInstance.login(sid: sid, token: token)
+            print("logged in.")
+        }
+        
 //        let loginViewController = LoginViewController(viewModel: LoginViewModel())
 //        self.window?.rootViewController = MessageViewController()
         let nc = UINavigationController(rootViewController: PseudoCollectionViewController(viewModel: PseudoCollectionViewModel()))
         self.window?.rootViewController = nc
         
+//        realm db file path
+//        print(Realm.Configuration.defaultConfiguration.fileURL!)
+                
         return true
     }
 }

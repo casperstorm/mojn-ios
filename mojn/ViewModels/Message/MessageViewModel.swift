@@ -10,19 +10,19 @@ import Foundation
 import UIKit
 import Siesta
 
-class ConversationTableViewMessageItem: CellViewModelSizable {
+class MessageTableViewMessageItem: CellViewModelSizable {
     var message: Message?
     func height() -> CGFloat {
         return 130
     }
 }
 
-protocol ConversationTableViewModelDelegate: class {
-    func conversationTableViewModel(_ viewModel: ConversationTableViewModel, didChangeData data: [[ViewModel]])
+protocol MessageViewModelDelegate: class {
+    func MessageViewModel(_ viewModel: MessageViewModel, didChangeData data: [[ViewModel]])
 }
 
-public class ConversationTableViewModel: ViewModel {
-    weak var delegate: ConversationTableViewModelDelegate?
+public class MessageViewModel: ViewModel {
+    weak var delegate: MessageViewModelDelegate?
     let pseudo: Pseudo
     var latestMessagesResource: Resource? {
         didSet {
@@ -34,7 +34,7 @@ public class ConversationTableViewModel: ViewModel {
     }
     var cellViewModels = [[ViewModel]]() {
         didSet {
-            delegate?.conversationTableViewModel(self, didChangeData: cellViewModels)
+            delegate?.MessageViewModel(self, didChangeData: cellViewModels)
         }
     }
     
@@ -43,16 +43,18 @@ public class ConversationTableViewModel: ViewModel {
     }
     
     func loadData() {
-        latestMessagesResource = MojnAPI.sharedInstance.latestMessages(from: pseudo.phoneNumber)
+        guard let number = pseudo.phoneNumber else { return }
+        latestMessagesResource = MojnAPI.sharedInstance.messages(from: number)
     }
 }
 
-extension ConversationTableViewModel: ResourceObserver {
+extension MessageViewModel: ResourceObserver {
     public func resourceChanged(_ resource: Resource, event: ResourceEvent) {
         guard let messages: [Message] = resource.typedContent() else { return }
-
-        let data = messages.map { (message) -> ConversationTableViewMessageItem in
-            let vm = ConversationTableViewMessageItem()
+        let data = messages
+            .removingDuplicates{$0.recipient}
+            .map{ (message) -> MessageTableViewMessageItem in
+            let vm = MessageTableViewMessageItem()
             vm.message = message
 
             return vm
@@ -61,3 +63,4 @@ extension ConversationTableViewModel: ResourceObserver {
         self.cellViewModels = [data]
     }
 }
+

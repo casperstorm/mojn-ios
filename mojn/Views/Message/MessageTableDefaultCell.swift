@@ -1,5 +1,5 @@
 //
-//  ConversationTableDefaultCell.swift
+//  MessageDefaultCell.swift
 //  mojn
 //
 //  Created by Casper Rogild Storm on 12/03/2019.
@@ -9,7 +9,7 @@
 import Foundation
 import Layoutless
 
-class ConversationTableDefaultCell: TableViewCell {
+class MessageDefaultCell: TableViewCell {
     static var identifier: String = "ConversationTableDefaultCell"
     lazy var containerView: View = View(style: Stylesheet.container)
     lazy var recipientLabel: Label = Label(style: Stylesheet.recipient)
@@ -33,7 +33,7 @@ class ConversationTableDefaultCell: TableViewCell {
     }
 }
 
-extension ConversationTableDefaultCell {
+extension MessageDefaultCell {
     enum Stylesheet {
         static let container = Style<UIView> {
             $0.backgroundColor = UIColor(hexString: "#310c4d")

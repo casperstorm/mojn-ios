@@ -11,7 +11,7 @@ import MessageKit
 import SwiftyJSON
 
 enum MessageStatus: String {
-    case queued, failed, sent, delivered, undelivered
+    case queued, failed, sent, delivered, undelivered, received
 }
 
 struct Message: MessageType {
@@ -22,7 +22,12 @@ struct Message: MessageType {
     let recipient: String
     let status: MessageStatus
     
-    private init(kind: MessageKind, sender: Sender, recipient: String, messageId: String, date: Date, status: MessageStatus) {
+    private init(kind: MessageKind,
+                 sender: Sender,
+                 recipient: String,
+                 messageId: String,
+                 date: Date,
+                 status: MessageStatus) {
         self.messageId = messageId
         self.sender = sender
         self.sentDate = date
@@ -32,20 +37,19 @@ struct Message: MessageType {
     }
     
     
-    init?(json: JSON) {
-        guard let messageId = json["id"].string else { return nil }
+    init?(_ json: JSON) {
+        guard let messageId = json["sid"].string else { return nil }
         guard let body = json["body"].string else { return nil }
         guard let from = json["from"].string else { return nil }
         guard let recipient = json["to"].string else { return nil }
-        guard let dateString = json["dateSent"].string else { return nil }
+        guard let dateString = json["date_sent"].string else { return nil }
         guard let status = json["status"].string else { return nil }
 
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        dateFormatter.dateFormat = "E, d MMM yyyy HH:mm:ss Z"
         guard let date = dateFormatter.date(from: dateString) else { return nil }
 
         let sender: Sender = Sender(id: from, displayName: from)
-        
         self.init(kind: .text(body), sender: sender, recipient: recipient, messageId: messageId, date: date, status: MessageStatus(rawValue: status)!)
     }
     

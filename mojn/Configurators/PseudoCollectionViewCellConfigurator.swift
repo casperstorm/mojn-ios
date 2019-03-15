@@ -20,7 +20,7 @@ class PseudoCollectionViewCellConfigurator {
     }
     
     func configure(_ cell: PseudoCollectionDefaultCell, with viewModel: PseudoCollectionDefaultCellViewModel) {
-        cell.descriptionLabel.text = viewModel.pseudo?.description
+        cell.descriptionLabel.text = viewModel.pseudo?.title
         cell.nameLabel.text = viewModel.name()
         cell.phoneLabel.text = viewModel.pseudo?.phoneNumber
         cell.emojiLabel.text = viewModel.pseudo?.emoji

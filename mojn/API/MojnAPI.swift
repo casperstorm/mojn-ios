@@ -11,84 +11,133 @@ import Siesta
 import SwiftyJSON
 
 class MojnAPI {
+    enum APIRoutes {
+        case base
+        case balance(_ sid: String)
+        case numbers(_ sid: String)
+        case messages(_ sid: String)
+        
+        func endpoint() -> String {
+            switch self {
+            case .base:
+                return "https://api.twilio.com"
+            case .balance(let sid):
+                return "/2010-04-01/Accounts/\(sid)/Balance.json"
+            case .numbers(let sid):
+                return "/2010-04-01/Accounts/\(sid)/IncomingPhoneNumbers.json"
+            case .messages(let sid):
+                return "/2010-04-01/Accounts/\(sid)/Messages.json"
+            }
+        }
+    }
+    
     static let sharedInstance = MojnAPI()
-    
-    private let service = Service(
-        baseURL: "http://localhost:5000",
-        standardTransformers: [])
-    
+    private let service = Service(baseURL: APIRoutes.base.endpoint(), standardTransformers: [])
     private var token: String? {
         didSet {
-            service.invalidateConfiguration()  // So that future requests for existing resources pick up config change
-            service.wipeResources()            // Scrub all unauthenticated data
+            service.invalidateConfiguration()
+            service.wipeResources()
         }
     }
     
     private init() {
         SiestaLog.Category.enabled = [.network, .pipeline]
+        setupServiceConfigurations()
+        setupServiceTransformers()
+    }
+}
+
+extension MojnAPI {
+    func setupServiceConfigurations() {
+        let SwiftyJSONTransformer =
+            ResponseContentTransformer
+                { JSON($0.content as AnyObject) }
         
         service.configure("**") {
-//            guard let token = self.token else { return }
-//            $0.headers["Authorization"] = "Bearer " + token
-            $0.headers["Authorization"] = "Bearer " + "a5f2e0bb441f8a382188231f628dbe62077d30c8"
+            guard let token = self.token else { return }
+            $0.headers["Authorization"] = "Basic " + token
             $0.headers["Accept"] = "application/json"
+            $0.pipeline[.parsing].add(
+                SwiftyJSONTransformer,
+                contentTypes: ["*/json"])
+        }
+    }
+    
+    func setupServiceTransformers() {
+        service.configureTransformer(APIRoutes.numbers("*").endpoint()) {
+            return ($0.content as JSON)["incoming_phone_numbers"].arrayValue.map({ json in
+                return Number(json)
+            })
         }
         
-        let jsonDecoder = JSONDecoder()
-        service.configureTransformer("/user") {
-            try jsonDecoder.decode(User.self, from: $0.content)
-        }
-        
-        service.configureTransformer("/pseudos") {
-            try jsonDecoder.decode([Pseudo].self, from: $0.content)
-        }
-        
-        service.configureTransformer("/login") {
-            try jsonDecoder.decode([String: String].self, from: $0.content)
-        }
-        
-        service.configureTransformer("/numbers/*/messages/latest") {
-            try JSON(data: $0.content).arrayValue.map({ (json) -> Message? in
-                return Message(json: json)
+        service.configureTransformer(APIRoutes.messages("*").endpoint()) {
+            return ($0.content as JSON)["messages"].arrayValue.map({ json in
+                return Message(json)
             })
         }
     }
 }
 
-// MARK: - User
 extension MojnAPI {
-    func user() -> Resource {
-        return service.resource("/user")
+    func sid() -> String {
+        guard let sid = Keychain(identifier: .credentials).get(.sid) else {
+            fatalError("No SID found in Keychain.")
+        }
+        return sid
     }
 }
 
-// MARK: - Pseudo
 extension MojnAPI {
-    func pseudos() -> Resource {
-        return service.resource("/pseudos")
+    func balance() -> Resource {
+        let sid = self.sid()
+        return service.resource(APIRoutes.balance(sid).endpoint())
     }
 }
 
-// MARK: - Messages
+
 extension MojnAPI {
-    func latestMessages(from: String) -> Resource {
-        return service.resource("/numbers/\(from)/messages/latest")
+    func numbers() -> Resource {
+        let sid = self.sid()
+        return service.resource(APIRoutes.numbers(sid).endpoint())
     }
 }
 
-// MARK: - Auth
-// TODO: Rewrite
-//extension MojnAPI {
-//    func login(username: String, password: String) -> Request {
-//        return service
-//            .resource("/login")
-//            .request(.post, json: ["username": username, "password": password])
-//            .onSuccess({ [weak self] response in
-//                guard let self = self else { return }
-//                guard let dictionary: [String: String] = response.typedContent() else { return }
-//                guard let token = dictionary["sessionToken"] else { return }
-//
-//                self.token = token
-//            })
-//    }
-//}
+extension MojnAPI {
+    // TODO:
+    // Pagination
+    
+    func messages() -> Resource {
+        return messages(from: nil, to: nil, size: 50)
+    }
+    
+    func messages(from: String) -> Resource {
+        return messages(from: from, to: nil, size: 50)
+    }
+    
+    func messages(from: String, to: String) -> Resource {
+        return messages(from: from, to: to, size: 50)
+    }
+    
+    fileprivate func messages(from: String?, to: String?, size: Int) -> Resource {
+        let sid = self.sid()
+        return  service
+            .resource(APIRoutes.messages(sid).endpoint())
+            .withParam("From", from)
+            .withParam("To", to)
+            .withParam("PageSize", "\(size)")
+    }
+}
+
+extension MojnAPI {
+    func login(sid: String, token: String) {
+        guard let token = base64TokenString(sid: sid, token: token) else { return }
+        self.token = token
+    }
+    
+    func base64TokenString(sid: String, token: String) -> String? {
+        let string = String(format: "%@:%@", sid, token)
+        let data = string.data(using: String.Encoding.utf8)
+        return data?.base64EncodedString()
+    }
+}
+

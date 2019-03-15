@@ -1,5 +1,5 @@
 //
-//  MessageListTableViewCellConfigurator.swift
+//  MessageViewCellConfigurator.swift
 //  mojn
 //
 //  Created by Casper Rogild Storm on 11/03/2019.
@@ -10,8 +10,8 @@ import Foundation
 import UIKit
 import MessageKit
 
-class ConversationTableViewCellConfigurator {
-    func configure(_ cell: ConversationTableDefaultCell, with viewModel: ConversationTableViewMessageItem) {
+class MessageViewCellConfigurator {
+    func configure(_ cell: MessageDefaultCell, with viewModel: MessageTableViewMessageItem) {
         
         guard let message = viewModel.message else { return }
         guard case .text(let text) = message.kind else { return }
