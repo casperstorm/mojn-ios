@@ -69,5 +69,12 @@ fastlane/test_output
 # MacOS
 #
 .DS_Store
+
+# Gems
+#
 /vendor
 /.bundle
+
+# Fastlane
+#
+/fastlane/.env
