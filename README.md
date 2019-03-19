@@ -10,6 +10,7 @@ To fetch dependencies:
 ```sh
 carthage update --platform ios
 ```
+You also need an [Twilio](http://twilio.com/) account.
 
 ## Project
 Should we start treating phone numbers like passwords? Maybe. I belive we should use different phone numbers for different situtations to stay more private and to secure our self against different scam techniques. We should have pseudonyms. One number for work, one number for dating, one number for family etc. 
@@ -21,9 +22,6 @@ This project aims to create a FOSS platform which will be self hostable. You wil
 ## Goal
 
 The goal is to release this app on the AppStore. This way people can selfhost [the api](https://github.com/casperstorm/mojn-api/) and use either the AppStore version of this app, or build it them self.
-
-## API
-[mojn-api](https://github.com/casperstorm/mojn-api/).
 
 ## Acknowledgement
 [Rasmus Nielsen](http://rasmusnielsen.dk/) — design, logo and everything related ✨
