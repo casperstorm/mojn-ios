@@ -23,7 +23,14 @@ class MessageViewController: GenericViewController<MessageViewModel, MessageRoot
         UINavigationBar.tintColor(color: UIColor(hexString: "#310c4d"))
         self.title = "messages"
         
+        let closeButton = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector(closeButtonPressed))
+        navigationItem.leftBarButtonItem = closeButton
+        
         viewModel.loadData()
+    }
+    
+    @objc func closeButtonPressed() {
+        dismiss(animated: true, completion: nil)
     }
     
     // MARK: - UITableViewDelegate

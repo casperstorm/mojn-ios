@@ -1,5 +1,5 @@
 //
-//  UINavigationBar+Appearance.swift
+//  Appearance.swift
 //  mojn
 //
 //  Created by Casper Rogild Storm on 12/03/2019.
@@ -25,5 +25,12 @@ extension UINavigationBar {
     
     class func tintColor (color: UIColor) {
         self.appearance().barTintColor = color
+    }
+}
+
+extension UIBarButtonItem {
+    class func setupGlobalAppearance() {
+//        let fontAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont(name: "PatuaOne-Regular", size: 18)!]
+//        UIBarButtonItem.appearance().setTitleTextAttributes(fontAttributes, for: .normal)
     }
 }

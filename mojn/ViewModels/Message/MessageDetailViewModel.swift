@@ -21,19 +21,20 @@ public class MessageDetailViewModel: ViewModel {
             delegate?.messageDetailViewModelDelegate(self, didChangeData: messages)
         }
     }
+    
     let pseudo: Pseudo
     let recipient: String
     let sender: Sender
-    
+
     var messagesResource: Resource? {
         didSet {
             oldValue?.removeObservers(ownedBy: self)
             messagesResource?
                 .addObserver(self)
-                .loadIfNeeded()
+                .load()
         }
     }
-    
+ 
     init(pseudo: Pseudo, recipient: String) {
         self.pseudo = pseudo
         self.recipient = recipient
@@ -46,16 +47,25 @@ extension MessageDetailViewModel {
     func loadData() {
         messagesResource = MojnAPI.sharedInstance.messages()
     }
+    
+    func sendMessage(text: String) {
+        guard let sender = pseudo.phoneNumber else { return }
+        let response = MojnAPI.sharedInstance.message(text: text, from: sender, to: recipient)
+        response.onSuccess { [weak self] _ in
+            self?.loadData()
+        }
+    }
 }
 
 extension MessageDetailViewModel: ResourceObserver {
     public func resourceChanged(_ resource: Resource, event: ResourceEvent) {
         guard let messages: [Message] = resource.typedContent() else { return }
         guard let sender = pseudo.phoneNumber else { return }
-        
-        
-        self.messages = messages.filter({ (message) -> Bool in
+
+        let filtered = messages.filter({ (message) -> Bool in
             return message.recipient == sender || message.recipient == recipient
-        })
+        }).sorted(by: { $0.sentDate.compare($1.sentDate) == .orderedAscending })
+        
+        self.messages = filtered
     }
 }

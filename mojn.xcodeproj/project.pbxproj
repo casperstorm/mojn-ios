@@ -41,7 +41,7 @@
 		687B404C22255D2200304B88 /* MessageInputBar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 687B404B22255D2200304B88 /* MessageInputBar.framework */; };
 		687B404E22256BF400304B88 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 687B404D22256BF400304B88 /* SwiftyJSON.framework */; };
 		6881ADBE2237C082008C3051 /* MessageTableDefaultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6881ADBD2237C082008C3051 /* MessageTableDefaultCell.swift */; };
-		6884B8EB22382BE9003ECE05 /* UINavigationBar+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6884B8EA22382BE9003ECE05 /* UINavigationBar+Appearance.swift */; };
+		6884B8EB22382BE9003ECE05 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6884B8EA22382BE9003ECE05 /* Appearance.swift */; };
 		6884B8F622394494003ECE05 /* PseudoCollectionEmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6884B8F522394494003ECE05 /* PseudoCollectionEmptyCell.swift */; };
 		6884B8F8223945F6003ECE05 /* UIView+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6884B8F7223945F6003ECE05 /* UIView+Border.swift */; };
 		6884B8FB223A5BC1003ECE05 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6884B8F9223A5BC1003ECE05 /* RealmSwift.framework */; };
@@ -98,7 +98,7 @@
 		687B404B22255D2200304B88 /* MessageInputBar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageInputBar.framework; path = Carthage/Build/iOS/MessageInputBar.framework; sourceTree = SOURCE_ROOT; };
 		687B404D22256BF400304B88 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = SOURCE_ROOT; };
 		6881ADBD2237C082008C3051 /* MessageTableDefaultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableDefaultCell.swift; sourceTree = "<group>"; };
-		6884B8EA22382BE9003ECE05 /* UINavigationBar+Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Appearance.swift"; sourceTree = "<group>"; };
+		6884B8EA22382BE9003ECE05 /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 		6884B8F522394494003ECE05 /* PseudoCollectionEmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PseudoCollectionEmptyCell.swift; sourceTree = "<group>"; };
 		6884B8F7223945F6003ECE05 /* UIView+Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Border.swift"; sourceTree = "<group>"; };
 		6884B8F9223A5BC1003ECE05 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = SOURCE_ROOT; };
@@ -298,7 +298,7 @@
 			isa = PBXGroup;
 			children = (
 				686FABCF22240A5300341D19 /* UIColor+Color.swift */,
-				6884B8EA22382BE9003ECE05 /* UINavigationBar+Appearance.swift */,
+				6884B8EA22382BE9003ECE05 /* Appearance.swift */,
 				6884B8F7223945F6003ECE05 /* UIView+Border.swift */,
 				6884B908223BD9B9003ECE05 /* NSArray+Additions.swift */,
 			);
@@ -525,7 +525,7 @@
 				6884B905223A86F7003ECE05 /* Seeds.swift in Sources */,
 				1C825B092226D1640075E3FB /* ViewModel.swift in Sources */,
 				684E95FF22232096005B14CF /* PseudoCollectionDefaultCell.swift in Sources */,
-				6884B8EB22382BE9003ECE05 /* UINavigationBar+Appearance.swift in Sources */,
+				6884B8EB22382BE9003ECE05 /* Appearance.swift in Sources */,
 				1C825B0E2226D91B0075E3FB /* LoginViewModel.swift in Sources */,
 				684BB516221EDC0200C46642 /* MojnAPI.swift in Sources */,
 				1C825B132227DA5D0075E3FB /* LoginRootView.swift in Sources */,

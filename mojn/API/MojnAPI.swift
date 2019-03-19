@@ -106,8 +106,8 @@ extension MojnAPI {
     // TODO:
     // Pagination
     
-    func messages() -> Resource {
-        return messages(from: nil, to: nil, size: 50)
+    func messages(size: Int = 50) -> Resource {
+        return messages(from: nil, to: nil, size: size)
     }
     
     func messages(from: String) -> Resource {
@@ -125,6 +125,11 @@ extension MojnAPI {
             .withParam("From", from)
             .withParam("To", to)
             .withParam("PageSize", "\(size)")
+    }
+    
+    func message(text: String, from: String, to: String) -> Request {
+        let sid = self.sid()
+        return service.resource(APIRoutes.messages(sid).endpoint()).request(.post, urlEncoded: ["From": from, "To": to, "Body": text])
     }
 }
 

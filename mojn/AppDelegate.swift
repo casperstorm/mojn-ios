@@ -44,6 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate {
     func setupApplicationStyling () {
         UINavigationBar.setupGlobalAppearance()
+        UIBarButtonItem.setupGlobalAppearance()
     }
 }
 

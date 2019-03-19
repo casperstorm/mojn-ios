@@ -8,6 +8,7 @@
 
 import Foundation
 import MessageKit
+import MessageInputBar
 
 class MessageDetailViewController: MessageKit.MessagesViewController {
     let viewModel: MessageDetailViewModel
@@ -37,7 +38,9 @@ class MessageDetailViewController: MessageKit.MessagesViewController {
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
         messagesCollectionView.backgroundColor = UIColor(hexString: "#310c4d")
+        
         messageInputBar = MojnInputBar()
+        messageInputBar.delegate = self
         
         viewModel.loadData()
     }
@@ -83,5 +86,13 @@ extension MessageDetailViewController: MessagesDisplayDelegate, MessagesLayoutDe
 extension MessageDetailViewController: MessageDetailViewModelDelegate {
     func messageDetailViewModelDelegate(_ viewModel: MessageDetailViewModel, didChangeData data: [Message]) {
         messagesCollectionView.reloadData()
+        messagesCollectionView.scrollToBottom(animated: true)
+        messageInputBar.inputTextView.text = String()
+    }
+}
+
+extension MessageDetailViewController: MessageInputBarDelegate {
+    func messageInputBar(_ inputBar: MessageInputBar, didPressSendButtonWith text: String) {
+        viewModel.sendMessage(text: text)
     }
 }
