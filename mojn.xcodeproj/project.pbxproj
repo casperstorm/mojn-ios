@@ -17,7 +17,6 @@
 		68135C792230099C00DDD5F9 /* PseudoCollectionViewCellConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68135C782230099C00DDD5F9 /* PseudoCollectionViewCellConfigurator.swift */; };
 		682754A7222D3DA800C6326D /* PseudoCollectionRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682754A6222D3DA800C6326D /* PseudoCollectionRootView.swift */; };
 		682754A9222D3E2700C6326D /* PseudoCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682754A8222D3E2700C6326D /* PseudoCollectionViewModel.swift */; };
-		684BB511221ED86000C46642 /* SiestaUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 684BB50F221ED86000C46642 /* SiestaUI.framework */; };
 		684BB512221ED86000C46642 /* Siesta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 684BB510221ED86000C46642 /* Siesta.framework */; };
 		684BB516221EDC0200C46642 /* MojnAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684BB515221EDC0200C46642 /* MojnAPI.swift */; };
 		684BB51E221F35A000C46642 /* Valet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 684BB51D221F35A000C46642 /* Valet.framework */; };
@@ -52,6 +51,7 @@
 		6884B907223A8948003ECE05 /* Number.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6884B906223A8948003ECE05 /* Number.swift */; };
 		6884B909223BD9B9003ECE05 /* NSArray+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6884B908223BD9B9003ECE05 /* NSArray+Additions.swift */; };
 		6884B90C223BE0BD003ECE05 /* MessageDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6884B90B223BE0BD003ECE05 /* MessageDetailViewModel.swift */; };
+		689DB40622411B430078F46E /* SiestaUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 684BB50F221ED86000C46642 /* SiestaUI.framework */; };
 		68B71693222EC9FE0078F066 /* PseudoCollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B71692222EC9FE0078F066 /* PseudoCollectionLayout.swift */; };
 		68B71695222ED10A0078F066 /* PseudoCollectionCountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B71694222ED10A0078F066 /* PseudoCollectionCountCell.swift */; };
 		68D30EDE222E86A700DEEAA1 /* OverpassMono-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 68D30EDD222E859200DEEAA1 /* OverpassMono-Bold.ttf */; };
@@ -126,7 +126,7 @@
 				6884B8FC223A5BC1003ECE05 /* Realm.framework in Frameworks */,
 				68618F57221C3E84004590B5 /* Layoutless.framework in Frameworks */,
 				684BB512221ED86000C46642 /* Siesta.framework in Frameworks */,
-				684BB511221ED86000C46642 /* SiestaUI.framework in Frameworks */,
+				689DB40622411B430078F46E /* SiestaUI.framework in Frameworks */,
 				687B404C22255D2200304B88 /* MessageInputBar.framework in Frameworks */,
 				687B404E22256BF400304B88 /* SwiftyJSON.framework in Frameworks */,
 				684BB51E221F35A000C46642 /* Valet.framework in Frameworks */,
@@ -473,13 +473,13 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Layoutless.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Siesta.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SiestaUI.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Valet.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/MessageKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/MessageInputBar.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SiestaUI.framework",
 			);
 			name = Carthage;
 			outputFileListPaths = (
@@ -487,13 +487,13 @@
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Layoutless.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Siesta.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SiestaUI.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Valvet.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/MessageKit.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/MessageInputBar.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftyJSON.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Realm.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RealmSwift.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SiestaUI.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
