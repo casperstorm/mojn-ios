@@ -1,0 +1,22 @@
+# ---------------------
+# Signing
+# ---------------------
+
+desc "Generate certificate and provisioning profiles"
+lane :signing do |options|
+  type = UI.select("Which certificate do you want to download? ", ["Development", "Adhoc", "AppStore"]).downcase
+  generic_sign(type: type)
+end
+  
+desc "Generic signing function"
+private_lane :generic_sign do |options|
+  type = options[:type]
+  match(
+    app_identifier: ENV["IOS_BUNDLE_ID"],
+    git_url: ENV["MATCH_CERTIFICATES_REPO_URL"],
+    git_branch: ENV["MATCH_CERTIFICATES_REPO_URL_BRANCH"],
+    type: type,
+    team_id: ENV["APPLE_TEAM_ID"],
+    username: ENV["APPLE_DEV_ID"]
+  )
+end
