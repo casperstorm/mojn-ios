@@ -31,12 +31,12 @@ public class LoginRootView: View, RootView {
     
     override public var subviewsLayout: AnyLayout {
         return stack(.vertical)(
-            sidTextField.sizing(toWidth: 200, height: 45),
-            View(style: Stylesheet.separator).sizing(toWidth: 200, height: 0.5),
-            tokenTextField.sizing(toWidth: 200, height: 45),
-            View(style: Stylesheet.separator).sizing(toWidth: 200, height: 0.5),
-            submitButton.sizing(toWidth: 200, height: 45)
-        ).centeringInParent()
+            sidTextField.sizing(toHeight: 45),
+            View(style: Stylesheet.separator).sizing(toHeight: 0.5),
+            tokenTextField.sizing(toHeight: 45),
+            View(style: Stylesheet.separator).sizing(toHeight: 0.5),
+            submitButton.sizing(toHeight: 45)
+        ).centeringInParent().sizing(toWidth: 200)
     }
 }
 

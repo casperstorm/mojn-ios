@@ -45,6 +45,12 @@ class PseudoCollectionViewController: GenericViewController<PseudoCollectionView
             let nc = UINavigationController(rootViewController: vc)
             present(nc, animated: true, completion: nil)
         }
+        
+        if let _ = cellViewModel as? PseudoCollectionAddCellViewModel {
+            let vc = NumberViewController(viewModel: NumberViewModel())
+            let nc = UINavigationController(rootViewController: vc)
+            present(nc, animated: true, completion: nil)
+        }
     }
     
     // MARK: - UICollectionViewDataSource
@@ -91,8 +97,6 @@ class PseudoCollectionViewController: GenericViewController<PseudoCollectionView
             configurator.configure(cell, with: vm)
             return cell
         }
-        
-        
         
         return UICollectionViewCell()
     }

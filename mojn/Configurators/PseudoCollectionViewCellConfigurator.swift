@@ -16,7 +16,7 @@ class PseudoCollectionViewCellConfigurator {
     func configure(_ cell: PseudoCollectionCountCell, with viewModel: PseudoCollectionCountCellViewModel) {
         let count = viewModel.count ?? 0
         cell.countLabel.text = "\(count)"
-        cell.descriptionLabel.text = "Accounts"
+        cell.descriptionLabel.text = "Pseudos"
     }
     
     func configure(_ cell: PseudoCollectionDefaultCell, with viewModel: PseudoCollectionDefaultCellViewModel) {

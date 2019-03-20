@@ -14,14 +14,12 @@ class MessageViewController: GenericViewController<MessageViewModel, MessageRoot
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         viewModel.delegate = self
         rootView.tableView.delegate = self
         rootView.tableView.dataSource = self
                 
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        UINavigationBar.tintColor(color: UIColor(hexString: "#310c4d"))
-        self.title = "messages"
+        setupStyling()
         
         let closeButton = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector(closeButtonPressed))
         navigationItem.leftBarButtonItem = closeButton
@@ -92,6 +90,15 @@ extension MessageViewController: MessageViewModelDelegate {
     }
 }
 
+extension MessageViewController {
+    func setupStyling() {
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        UINavigationBar.tintColor(color: UIColor(hexString: "#310c4d"))
+        
+        self.title = "messages"
+    }
+}
+
 extension UINavigationController {
     override open var preferredStatusBarStyle: UIStatusBarStyle {
         get {
@@ -99,3 +106,4 @@ extension UINavigationController {
         }
     }
 }
+

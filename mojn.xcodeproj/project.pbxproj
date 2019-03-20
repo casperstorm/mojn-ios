@@ -30,7 +30,7 @@
 		685CC1BA223681A40035C45F /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685CC1B9223681A40035C45F /* MessageViewController.swift */; };
 		685CC1BC223681D50035C45F /* MessageRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685CC1BB223681D50035C45F /* MessageRootView.swift */; };
 		685CC1BE223681FB0035C45F /* MessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685CC1BD223681FB0035C45F /* MessageViewModel.swift */; };
-		685CC1C0223685830035C45F /* MessageTableViewCellConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685CC1BF223685830035C45F /* MessageTableViewCellConfigurator.swift */; };
+		685CC1C0223685830035C45F /* MessageViewCellConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685CC1BF223685830035C45F /* MessageViewCellConfigurator.swift */; };
 		68618F57221C3E84004590B5 /* Layoutless.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68618F56221C3E83004590B5 /* Layoutless.framework */; };
 		686FABD022240A5300341D19 /* UIColor+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686FABCF22240A5300341D19 /* UIColor+Color.swift */; };
 		687B4044222557C800304B88 /* MessageKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 687B4043222557C800304B88 /* MessageKit.framework */; };
@@ -39,7 +39,7 @@
 		687B404A22255C1600304B88 /* MojnInputBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687B404922255C1600304B88 /* MojnInputBar.swift */; };
 		687B404C22255D2200304B88 /* MessageInputBar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 687B404B22255D2200304B88 /* MessageInputBar.framework */; };
 		687B404E22256BF400304B88 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 687B404D22256BF400304B88 /* SwiftyJSON.framework */; };
-		6881ADBE2237C082008C3051 /* MessageTableDefaultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6881ADBD2237C082008C3051 /* MessageTableDefaultCell.swift */; };
+		6881ADBE2237C082008C3051 /* MessageDefaultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6881ADBD2237C082008C3051 /* MessageDefaultCell.swift */; };
 		6884B8EB22382BE9003ECE05 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6884B8EA22382BE9003ECE05 /* Appearance.swift */; };
 		6884B8F622394494003ECE05 /* PseudoCollectionEmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6884B8F522394494003ECE05 /* PseudoCollectionEmptyCell.swift */; };
 		6884B8F8223945F6003ECE05 /* UIView+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6884B8F7223945F6003ECE05 /* UIView+Border.swift */; };
@@ -59,6 +59,11 @@
 		68D30EE0222E86A700DEEAA1 /* OverpassMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 68D30EDA222E859200DEEAA1 /* OverpassMono-Regular.ttf */; };
 		68D30EE1222E86A700DEEAA1 /* OverpassMono-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 68D30EDC222E859200DEEAA1 /* OverpassMono-SemiBold.ttf */; };
 		68D30EE2222E86A700DEEAA1 /* PatuaOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 68D30ED9222E859100DEEAA1 /* PatuaOne-Regular.ttf */; };
+		68DB29C122423A4300D851EF /* NumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DB29C022423A4300D851EF /* NumberViewController.swift */; };
+		68DB29C422423A7100D851EF /* NumberRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DB29C322423A7100D851EF /* NumberRootView.swift */; };
+		68DB29C722423AAE00D851EF /* NumberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DB29C622423AAE00D851EF /* NumberViewModel.swift */; };
+		68DB29C92242421500D851EF /* NumberViewCellConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DB29C82242421500D851EF /* NumberViewCellConfigurator.swift */; };
+		68DB29CC2242486400D851EF /* NumberDefaultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DB29CB2242486400D851EF /* NumberDefaultCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,7 +93,7 @@
 		685CC1B9223681A40035C45F /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		685CC1BB223681D50035C45F /* MessageRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageRootView.swift; sourceTree = "<group>"; };
 		685CC1BD223681FB0035C45F /* MessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewModel.swift; sourceTree = "<group>"; };
-		685CC1BF223685830035C45F /* MessageTableViewCellConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCellConfigurator.swift; sourceTree = "<group>"; };
+		685CC1BF223685830035C45F /* MessageViewCellConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewCellConfigurator.swift; sourceTree = "<group>"; };
 		68618F56221C3E83004590B5 /* Layoutless.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Layoutless.framework; path = Carthage/Build/iOS/Layoutless.framework; sourceTree = SOURCE_ROOT; };
 		686FABCF22240A5300341D19 /* UIColor+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Color.swift"; sourceTree = "<group>"; };
 		687B4043222557C800304B88 /* MessageKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageKit.framework; path = Carthage/Build/iOS/MessageKit.framework; sourceTree = SOURCE_ROOT; };
@@ -97,7 +102,7 @@
 		687B404922255C1600304B88 /* MojnInputBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MojnInputBar.swift; sourceTree = "<group>"; };
 		687B404B22255D2200304B88 /* MessageInputBar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageInputBar.framework; path = Carthage/Build/iOS/MessageInputBar.framework; sourceTree = SOURCE_ROOT; };
 		687B404D22256BF400304B88 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = SOURCE_ROOT; };
-		6881ADBD2237C082008C3051 /* MessageTableDefaultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableDefaultCell.swift; sourceTree = "<group>"; };
+		6881ADBD2237C082008C3051 /* MessageDefaultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDefaultCell.swift; sourceTree = "<group>"; };
 		6884B8EA22382BE9003ECE05 /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 		6884B8F522394494003ECE05 /* PseudoCollectionEmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PseudoCollectionEmptyCell.swift; sourceTree = "<group>"; };
 		6884B8F7223945F6003ECE05 /* UIView+Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Border.swift"; sourceTree = "<group>"; };
@@ -116,6 +121,11 @@
 		68D30EDB222E859200DEEAA1 /* OverpassMono-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OverpassMono-Light.ttf"; path = "Fonts/OverpassMono-Light.ttf"; sourceTree = "<group>"; };
 		68D30EDC222E859200DEEAA1 /* OverpassMono-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OverpassMono-SemiBold.ttf"; path = "Fonts/OverpassMono-SemiBold.ttf"; sourceTree = "<group>"; };
 		68D30EDD222E859200DEEAA1 /* OverpassMono-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OverpassMono-Bold.ttf"; path = "Fonts/OverpassMono-Bold.ttf"; sourceTree = "<group>"; };
+		68DB29C022423A4300D851EF /* NumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberViewController.swift; sourceTree = "<group>"; };
+		68DB29C322423A7100D851EF /* NumberRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberRootView.swift; sourceTree = "<group>"; };
+		68DB29C622423AAE00D851EF /* NumberViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberViewModel.swift; sourceTree = "<group>"; };
+		68DB29C82242421500D851EF /* NumberViewCellConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberViewCellConfigurator.swift; sourceTree = "<group>"; };
+		68DB29CB2242486400D851EF /* NumberDefaultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberDefaultCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +161,7 @@
 		1C825B0C2226D8FB0075E3FB /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				68DB29C522423A9C00D851EF /* Number */,
 				68DB29BC22411D1000D851EF /* Login */,
 				6881ADC52237EA25008C3051 /* Message */,
 				6881ADC22237DC4E008C3051 /* Pseudo */,
@@ -161,6 +172,7 @@
 		1C825B112227DA3B0075E3FB /* Root Views */ = {
 			isa = PBXGroup;
 			children = (
+				68DB29C222423A5900D851EF /* Number */,
 				68DB29BD22411D1C00D851EF /* Login */,
 				6881ADC42237EA1C008C3051 /* Message */,
 				6881ADC12237DC47008C3051 /* Pseudo */,
@@ -184,7 +196,8 @@
 			isa = PBXGroup;
 			children = (
 				68135C782230099C00DDD5F9 /* PseudoCollectionViewCellConfigurator.swift */,
-				685CC1BF223685830035C45F /* MessageTableViewCellConfigurator.swift */,
+				685CC1BF223685830035C45F /* MessageViewCellConfigurator.swift */,
+				68DB29C82242421500D851EF /* NumberViewCellConfigurator.swift */,
 			);
 			path = Configurators;
 			sourceTree = "<group>";
@@ -211,6 +224,7 @@
 		684E95FA22231DAE005B14CF /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				68DB29BF224239BD00D851EF /* Number */,
 				68DB29BE22411D2400D851EF /* Login */,
 				6881ADC32237EA0D008C3051 /* Message */,
 				6881ADC02237DC3D008C3051 /* Pseudo */,
@@ -221,7 +235,7 @@
 		684E95FD2223207E005B14CF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				6884B8EC2238F974003ECE05 /* Shared */,
+				68DB29CA2242475E00D851EF /* Number */,
 				6881ADBC2237C05F008C3051 /* Message */,
 				684F5122222EA9A4003A3885 /* Pseudo */,
 				687B404922255C1600304B88 /* MojnInputBar.swift */,
@@ -308,7 +322,7 @@
 		6881ADBC2237C05F008C3051 /* Message */ = {
 			isa = PBXGroup;
 			children = (
-				6881ADBD2237C082008C3051 /* MessageTableDefaultCell.swift */,
+				6881ADBD2237C082008C3051 /* MessageDefaultCell.swift */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -363,13 +377,6 @@
 			path = Message;
 			sourceTree = "<group>";
 		};
-		6884B8EC2238F974003ECE05 /* Shared */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Shared;
-			sourceTree = "<group>";
-		};
 		6884B901223A807A003ECE05 /* DB */ = {
 			isa = PBXGroup;
 			children = (
@@ -413,6 +420,38 @@
 				1C825B0F2227D9D90075E3FB /* LoginViewController.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		68DB29BF224239BD00D851EF /* Number */ = {
+			isa = PBXGroup;
+			children = (
+				68DB29C022423A4300D851EF /* NumberViewController.swift */,
+			);
+			path = Number;
+			sourceTree = "<group>";
+		};
+		68DB29C222423A5900D851EF /* Number */ = {
+			isa = PBXGroup;
+			children = (
+				68DB29C322423A7100D851EF /* NumberRootView.swift */,
+			);
+			path = Number;
+			sourceTree = "<group>";
+		};
+		68DB29C522423A9C00D851EF /* Number */ = {
+			isa = PBXGroup;
+			children = (
+				68DB29C622423AAE00D851EF /* NumberViewModel.swift */,
+			);
+			path = Number;
+			sourceTree = "<group>";
+		};
+		68DB29CA2242475E00D851EF /* Number */ = {
+			isa = PBXGroup;
+			children = (
+				68DB29CB2242486400D851EF /* NumberDefaultCell.swift */,
+			);
+			path = Number;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -533,9 +572,12 @@
 				682754A9222D3E2700C6326D /* PseudoCollectionViewModel.swift in Sources */,
 				686FABD022240A5300341D19 /* UIColor+Color.swift in Sources */,
 				687B4046222557FC00304B88 /* MessageDetailViewController.swift in Sources */,
+				68DB29C722423AAE00D851EF /* NumberViewModel.swift in Sources */,
+				68DB29C422423A7100D851EF /* NumberRootView.swift in Sources */,
 				68B71693222EC9FE0078F066 /* PseudoCollectionLayout.swift in Sources */,
 				682754A7222D3DA800C6326D /* PseudoCollectionRootView.swift in Sources */,
 				68135C792230099C00DDD5F9 /* PseudoCollectionViewCellConfigurator.swift in Sources */,
+				68DB29CC2242486400D851EF /* NumberDefaultCell.swift in Sources */,
 				685CC1BA223681A40035C45F /* MessageViewController.swift in Sources */,
 				1C825B072226CAF30075E3FB /* GenericViewController.swift in Sources */,
 				6884B907223A8948003ECE05 /* Number.swift in Sources */,
@@ -543,9 +585,10 @@
 				1C825B0B2226D5D40075E3FB /* RootView.swift in Sources */,
 				684F5124222EAA49003A3885 /* PseudoCollectionAddCell.swift in Sources */,
 				684E95FC22231DE9005B14CF /* PseudoCollectionViewController.swift in Sources */,
+				68DB29C92242421500D851EF /* NumberViewCellConfigurator.swift in Sources */,
 				68B71695222ED10A0078F066 /* PseudoCollectionCountCell.swift in Sources */,
 				6884B903223A808C003ECE05 /* Database.swift in Sources */,
-				685CC1C0223685830035C45F /* MessageTableViewCellConfigurator.swift in Sources */,
+				685CC1C0223685830035C45F /* MessageViewCellConfigurator.swift in Sources */,
 				6884B905223A86F7003ECE05 /* Seeds.swift in Sources */,
 				1C825B092226D1640075E3FB /* ViewModel.swift in Sources */,
 				684E95FF22232096005B14CF /* PseudoCollectionDefaultCell.swift in Sources */,
@@ -558,9 +601,10 @@
 				687B40482225585800304B88 /* Message.swift in Sources */,
 				1C825B102227D9D90075E3FB /* LoginViewController.swift in Sources */,
 				687B404A22255C1600304B88 /* MojnInputBar.swift in Sources */,
-				6881ADBE2237C082008C3051 /* MessageTableDefaultCell.swift in Sources */,
+				6881ADBE2237C082008C3051 /* MessageDefaultCell.swift in Sources */,
 				6884B8F8223945F6003ECE05 /* UIView+Border.swift in Sources */,
 				6884B8F622394494003ECE05 /* PseudoCollectionEmptyCell.swift in Sources */,
+				68DB29C122423A4300D851EF /* NumberViewController.swift in Sources */,
 				6853822E221C329C00DBA0FB /* AppDelegate.swift in Sources */,
 				685CC1B522329B9A0035C45F /* PseudoCollectionHeaderCell.swift in Sources */,
 				6884B900223A6B64003ECE05 /* Keychain.swift in Sources */,
