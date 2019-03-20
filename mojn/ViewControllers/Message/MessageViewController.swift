@@ -38,7 +38,7 @@ class MessageViewController: GenericViewController<MessageViewModel, MessageRoot
         
         let section = viewModel.cellViewModels[indexPath.section]
         let cellViewModel = section[indexPath.row]
-        guard let cvm = cellViewModel as? MessageTableViewMessageItem else { return }
+        guard let cvm = cellViewModel as? MessageViewMessageItem else { return }
         guard let message = cvm.message else { return }
         
         let pseudo = viewModel.pseudo
@@ -63,8 +63,14 @@ class MessageViewController: GenericViewController<MessageViewModel, MessageRoot
         let section = viewModel.cellViewModels[indexPath.section]
         let cellViewModel = section[indexPath.row]
         
-        if let vm = cellViewModel as? MessageTableViewMessageItem {
+        if let vm = cellViewModel as? MessageViewMessageItem {
             let cell = tableView.dequeueReusableCell(withIdentifier: MessageDefaultCell.identifier, for: indexPath) as! MessageDefaultCell
+            configurator.configure(cell, with: vm)
+            return cell
+        }
+        
+        if let vm = cellViewModel as? MessageViewEmptyItem {
+            let cell = tableView.dequeueReusableCell(withIdentifier: MessageEmptyCell.identifier, for: indexPath) as! MessageEmptyCell
             configurator.configure(cell, with: vm)
             return cell
         }

@@ -11,7 +11,7 @@ import UIKit
 import MessageKit
 
 class MessageViewCellConfigurator {
-    func configure(_ cell: MessageDefaultCell, with viewModel: MessageTableViewMessageItem) {
+    func configure(_ cell: MessageDefaultCell, with viewModel: MessageViewMessageItem) {
         
         guard let message = viewModel.message else { return }
         guard case .text(let text) = message.kind else { return }
@@ -20,6 +20,9 @@ class MessageViewCellConfigurator {
         cell.snippetLabel.text = text
         
         cell.timeLabel.text = message.prettyDate()
+    }
+    
+    func configure(_ cell: MessageEmptyCell, with viewModel: MessageViewEmptyItem) {
     }
 }
 

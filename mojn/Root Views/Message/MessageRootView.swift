@@ -29,6 +29,7 @@ public extension MessageRootView {
             $0.backgroundColor = UIColor(hexString: "#310c4d")
             $0.separatorStyle = .none
             $0.register(MessageDefaultCell.self, forCellReuseIdentifier: MessageDefaultCell.identifier)
+            $0.register(MessageEmptyCell.self, forCellReuseIdentifier: MessageEmptyCell.identifier)
         }
     }
 }

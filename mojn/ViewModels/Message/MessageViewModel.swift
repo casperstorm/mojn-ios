@@ -10,7 +10,13 @@ import Foundation
 import UIKit
 import Siesta
 
-class MessageTableViewMessageItem: CellViewModelSizable {
+class MessageViewEmptyItem: CellViewModelSizable {
+    func height() -> CGFloat {
+        return 130
+    }
+}
+
+class MessageViewMessageItem: CellViewModelSizable {
     var message: Message?
     func height() -> CGFloat {
         return 130
@@ -53,14 +59,14 @@ extension MessageViewModel: ResourceObserver {
         guard let messages: [Message] = resource.typedContent() else { return }
         let data = messages
             .removingDuplicates{$0.recipient}
-            .map{ (message) -> MessageTableViewMessageItem in
-            let vm = MessageTableViewMessageItem()
+            .map{ (message) -> MessageViewMessageItem in
+            let vm = MessageViewMessageItem()
             vm.message = message
 
             return vm
         }
 
-        self.cellViewModels = [data]
+        self.cellViewModels = [data, [MessageViewEmptyItem()]]
     }
 }
 

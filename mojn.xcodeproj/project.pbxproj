@@ -64,6 +64,7 @@
 		68DB29C722423AAE00D851EF /* NumberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DB29C622423AAE00D851EF /* NumberViewModel.swift */; };
 		68DB29C92242421500D851EF /* NumberViewCellConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DB29C82242421500D851EF /* NumberViewCellConfigurator.swift */; };
 		68DB29CC2242486400D851EF /* NumberDefaultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DB29CB2242486400D851EF /* NumberDefaultCell.swift */; };
+		68DB29D022427B1100D851EF /* MessageEmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DB29CF22427B1100D851EF /* MessageEmptyCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -126,6 +127,7 @@
 		68DB29C622423AAE00D851EF /* NumberViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberViewModel.swift; sourceTree = "<group>"; };
 		68DB29C82242421500D851EF /* NumberViewCellConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberViewCellConfigurator.swift; sourceTree = "<group>"; };
 		68DB29CB2242486400D851EF /* NumberDefaultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberDefaultCell.swift; sourceTree = "<group>"; };
+		68DB29CF22427B1100D851EF /* MessageEmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageEmptyCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -323,6 +325,7 @@
 			isa = PBXGroup;
 			children = (
 				6881ADBD2237C082008C3051 /* MessageDefaultCell.swift */,
+				68DB29CF22427B1100D851EF /* MessageEmptyCell.swift */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -582,6 +585,7 @@
 				1C825B072226CAF30075E3FB /* GenericViewController.swift in Sources */,
 				6884B907223A8948003ECE05 /* Number.swift in Sources */,
 				685CC1BE223681FB0035C45F /* MessageViewModel.swift in Sources */,
+				68DB29D022427B1100D851EF /* MessageEmptyCell.swift in Sources */,
 				1C825B0B2226D5D40075E3FB /* RootView.swift in Sources */,
 				684F5124222EAA49003A3885 /* PseudoCollectionAddCell.swift in Sources */,
 				684E95FC22231DE9005B14CF /* PseudoCollectionViewController.swift in Sources */,
