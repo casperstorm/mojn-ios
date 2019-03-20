@@ -22,17 +22,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Global app styling
         setupApplicationStyling()
         
-        // TEMP: Login
+        let nc = UINavigationController(rootViewController: PseudoCollectionViewController(viewModel: PseudoCollectionViewModel()))
+        self.window?.rootViewController = nc
+        
         let keychain = Keychain(identifier: .credentials)
         if let sid = keychain.get(.sid), let token = keychain.get(.token) {
             MojnAPI.sharedInstance.login(sid: sid, token: token)
-            print("logged in.")
+        } else {
+            let loginViewController = LoginViewController(viewModel: LoginViewModel())
+            nc.present(loginViewController, animated: false, completion: nil)
         }
-        
-//        let loginViewController = LoginViewController(viewModel: LoginViewModel())
-//        self.window?.rootViewController = MessageViewController()
-        let nc = UINavigationController(rootViewController: PseudoCollectionViewController(viewModel: PseudoCollectionViewModel()))
-        self.window?.rootViewController = nc
         
 //        realm db file path
 //        print(Realm.Configuration.defaultConfiguration.fileURL!)
