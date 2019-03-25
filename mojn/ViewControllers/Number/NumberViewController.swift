@@ -9,11 +9,14 @@
 import Foundation
 import UIKit
 
+protocol NumberViewControllerDelegate: class {
+    func numberViewController(_ viewController: NumberViewController, didSelectNumber number: Number)
+}
+
 class NumberViewController: GenericViewController<NumberViewModel, NumberRootView>, UITableViewDelegate, UITableViewDataSource {
     let configurator = NumberViewCellConfigurator()
+    weak var delegate: NumberViewControllerDelegate?
     override func viewDidLoad() {
-        setupStyling()
-        
         self.viewModel.delegate = self
         
         self.rootView.tableView.delegate = self
@@ -56,19 +59,19 @@ class NumberViewController: GenericViewController<NumberViewModel, NumberRootVie
         
         return 0
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let section = viewModel.cellViewModels[indexPath.section]
+        let cellViewModel = section[indexPath.row]
+        
+        if let vm = cellViewModel as? NumberDefaultCellViewModel, let number = vm.number {
+            delegate?.numberViewController(self, didSelectNumber: number)
+        }
+    }
 }
 
 extension NumberViewController: NumberViewModelDelegate {
     func numberViewModel(_ viewModel: NumberViewModel, didChangeData data: [[ViewModel]]) {
         rootView.tableView.reloadData()
-    }
-}
-
-extension NumberViewController {
-    func setupStyling() {
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        UINavigationBar.tintColor(color: UIColor(hexString: "#f98b74"))
-        
-        self.title = "Numbers"
     }
 }

@@ -9,8 +9,7 @@ import RealmSwift
 import Foundation
 
 class Pseudo: Object {
-    @objc dynamic var firstName: String? = nil
-    @objc dynamic var lastName: String? = nil
+    @objc dynamic var name: String? = nil
     @objc dynamic var title: String? = nil
     @objc dynamic var phoneNumber: String? = nil
     @objc dynamic var emoji: String? = nil

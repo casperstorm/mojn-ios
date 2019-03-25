@@ -31,6 +31,7 @@
 		685CC1BC223681D50035C45F /* MessageRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685CC1BB223681D50035C45F /* MessageRootView.swift */; };
 		685CC1BE223681FB0035C45F /* MessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685CC1BD223681FB0035C45F /* MessageViewModel.swift */; };
 		685CC1C0223685830035C45F /* MessageViewCellConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685CC1BF223685830035C45F /* MessageViewCellConfigurator.swift */; };
+		685E55892243C9F200C5B0AD /* CreatePseudoPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685E55882243C9F200C5B0AD /* CreatePseudoPageViewController.swift */; };
 		68618F57221C3E84004590B5 /* Layoutless.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68618F56221C3E83004590B5 /* Layoutless.framework */; };
 		686FABD022240A5300341D19 /* UIColor+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686FABCF22240A5300341D19 /* UIColor+Color.swift */; };
 		687B4044222557C800304B88 /* MessageKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 687B4043222557C800304B88 /* MessageKit.framework */; };
@@ -65,6 +66,11 @@
 		68DB29C92242421500D851EF /* NumberViewCellConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DB29C82242421500D851EF /* NumberViewCellConfigurator.swift */; };
 		68DB29CC2242486400D851EF /* NumberDefaultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DB29CB2242486400D851EF /* NumberDefaultCell.swift */; };
 		68DB29D022427B1100D851EF /* MessageEmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DB29CF22427B1100D851EF /* MessageEmptyCell.swift */; };
+		68E6D0692244D9AD00BD0767 /* CreatePseudoPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E6D0682244D9AD00BD0767 /* CreatePseudoPageViewModel.swift */; };
+		68E6D06C2244EBFC00BD0767 /* PseudoBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E6D06B2244EBFC00BD0767 /* PseudoBuilder.swift */; };
+		68E6D06F2244F15D00BD0767 /* TextFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E6D06E2244F15D00BD0767 /* TextFieldViewController.swift */; };
+		68E6D0722244F18400BD0767 /* TextFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E6D0712244F18400BD0767 /* TextFieldViewModel.swift */; };
+		68E6D0752244F19A00BD0767 /* TextFieldRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E6D0742244F19A00BD0767 /* TextFieldRootView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +101,7 @@
 		685CC1BB223681D50035C45F /* MessageRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageRootView.swift; sourceTree = "<group>"; };
 		685CC1BD223681FB0035C45F /* MessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewModel.swift; sourceTree = "<group>"; };
 		685CC1BF223685830035C45F /* MessageViewCellConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewCellConfigurator.swift; sourceTree = "<group>"; };
+		685E55882243C9F200C5B0AD /* CreatePseudoPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePseudoPageViewController.swift; sourceTree = "<group>"; };
 		68618F56221C3E83004590B5 /* Layoutless.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Layoutless.framework; path = Carthage/Build/iOS/Layoutless.framework; sourceTree = SOURCE_ROOT; };
 		686FABCF22240A5300341D19 /* UIColor+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Color.swift"; sourceTree = "<group>"; };
 		687B4043222557C800304B88 /* MessageKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageKit.framework; path = Carthage/Build/iOS/MessageKit.framework; sourceTree = SOURCE_ROOT; };
@@ -128,6 +135,11 @@
 		68DB29C82242421500D851EF /* NumberViewCellConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberViewCellConfigurator.swift; sourceTree = "<group>"; };
 		68DB29CB2242486400D851EF /* NumberDefaultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberDefaultCell.swift; sourceTree = "<group>"; };
 		68DB29CF22427B1100D851EF /* MessageEmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageEmptyCell.swift; sourceTree = "<group>"; };
+		68E6D0682244D9AD00BD0767 /* CreatePseudoPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePseudoPageViewModel.swift; sourceTree = "<group>"; };
+		68E6D06B2244EBFC00BD0767 /* PseudoBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PseudoBuilder.swift; sourceTree = "<group>"; };
+		68E6D06E2244F15D00BD0767 /* TextFieldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldViewController.swift; sourceTree = "<group>"; };
+		68E6D0712244F18400BD0767 /* TextFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldViewModel.swift; sourceTree = "<group>"; };
+		68E6D0742244F19A00BD0767 /* TextFieldRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldRootView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +175,7 @@
 		1C825B0C2226D8FB0075E3FB /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				68E6D0702244F17200BD0767 /* TextField */,
 				68DB29C522423A9C00D851EF /* Number */,
 				68DB29BC22411D1000D851EF /* Login */,
 				6881ADC52237EA25008C3051 /* Message */,
@@ -174,6 +187,7 @@
 		1C825B112227DA3B0075E3FB /* Root Views */ = {
 			isa = PBXGroup;
 			children = (
+				68E6D0732244F18A00BD0767 /* TextField */,
 				68DB29C222423A5900D851EF /* Number */,
 				68DB29BD22411D1C00D851EF /* Login */,
 				6881ADC42237EA1C008C3051 /* Message */,
@@ -226,6 +240,7 @@
 		684E95FA22231DAE005B14CF /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				68E6D06D2244F12D00BD0767 /* TextField */,
 				68DB29BF224239BD00D851EF /* Number */,
 				68DB29BE22411D2400D851EF /* Login */,
 				6881ADC32237EA0D008C3051 /* Message */,
@@ -278,6 +293,7 @@
 		6853822C221C329C00DBA0FB /* mojn */ = {
 			isa = PBXGroup;
 			children = (
+				68E6D06A2244EBDE00BD0767 /* Builders */,
 				68135C772230093D00DDD5F9 /* Configurators */,
 				1C825B052226CABD0075E3FB /* Lib */,
 				6804516D22242B770080BE3D /* Support Files */,
@@ -333,6 +349,7 @@
 		6881ADC02237DC3D008C3051 /* Pseudo */ = {
 			isa = PBXGroup;
 			children = (
+				685E55882243C9F200C5B0AD /* CreatePseudoPageViewController.swift */,
 				684E95FB22231DE9005B14CF /* PseudoCollectionViewController.swift */,
 			);
 			path = Pseudo;
@@ -350,6 +367,7 @@
 			isa = PBXGroup;
 			children = (
 				682754A8222D3E2700C6326D /* PseudoCollectionViewModel.swift */,
+				68E6D0682244D9AD00BD0767 /* CreatePseudoPageViewModel.swift */,
 			);
 			path = Pseudo;
 			sourceTree = "<group>";
@@ -455,6 +473,38 @@
 				68DB29CB2242486400D851EF /* NumberDefaultCell.swift */,
 			);
 			path = Number;
+			sourceTree = "<group>";
+		};
+		68E6D06A2244EBDE00BD0767 /* Builders */ = {
+			isa = PBXGroup;
+			children = (
+				68E6D06B2244EBFC00BD0767 /* PseudoBuilder.swift */,
+			);
+			path = Builders;
+			sourceTree = "<group>";
+		};
+		68E6D06D2244F12D00BD0767 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				68E6D06E2244F15D00BD0767 /* TextFieldViewController.swift */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
+		68E6D0702244F17200BD0767 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				68E6D0712244F18400BD0767 /* TextFieldViewModel.swift */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
+		68E6D0732244F18A00BD0767 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				68E6D0742244F19A00BD0767 /* TextFieldRootView.swift */,
+			);
+			path = TextField;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -577,10 +627,12 @@
 				687B4046222557FC00304B88 /* MessageDetailViewController.swift in Sources */,
 				68DB29C722423AAE00D851EF /* NumberViewModel.swift in Sources */,
 				68DB29C422423A7100D851EF /* NumberRootView.swift in Sources */,
+				685E55892243C9F200C5B0AD /* CreatePseudoPageViewController.swift in Sources */,
 				68B71693222EC9FE0078F066 /* PseudoCollectionLayout.swift in Sources */,
 				682754A7222D3DA800C6326D /* PseudoCollectionRootView.swift in Sources */,
 				68135C792230099C00DDD5F9 /* PseudoCollectionViewCellConfigurator.swift in Sources */,
 				68DB29CC2242486400D851EF /* NumberDefaultCell.swift in Sources */,
+				68E6D0722244F18400BD0767 /* TextFieldViewModel.swift in Sources */,
 				685CC1BA223681A40035C45F /* MessageViewController.swift in Sources */,
 				1C825B072226CAF30075E3FB /* GenericViewController.swift in Sources */,
 				6884B907223A8948003ECE05 /* Number.swift in Sources */,
@@ -590,15 +642,19 @@
 				684F5124222EAA49003A3885 /* PseudoCollectionAddCell.swift in Sources */,
 				684E95FC22231DE9005B14CF /* PseudoCollectionViewController.swift in Sources */,
 				68DB29C92242421500D851EF /* NumberViewCellConfigurator.swift in Sources */,
+				68E6D0692244D9AD00BD0767 /* CreatePseudoPageViewModel.swift in Sources */,
 				68B71695222ED10A0078F066 /* PseudoCollectionCountCell.swift in Sources */,
 				6884B903223A808C003ECE05 /* Database.swift in Sources */,
+				68E6D06C2244EBFC00BD0767 /* PseudoBuilder.swift in Sources */,
 				685CC1C0223685830035C45F /* MessageViewCellConfigurator.swift in Sources */,
 				6884B905223A86F7003ECE05 /* Seeds.swift in Sources */,
+				68E6D0752244F19A00BD0767 /* TextFieldRootView.swift in Sources */,
 				1C825B092226D1640075E3FB /* ViewModel.swift in Sources */,
 				684E95FF22232096005B14CF /* PseudoCollectionDefaultCell.swift in Sources */,
 				6884B8EB22382BE9003ECE05 /* Appearance.swift in Sources */,
 				1C825B0E2226D91B0075E3FB /* LoginViewModel.swift in Sources */,
 				684BB516221EDC0200C46642 /* MojnAPI.swift in Sources */,
+				68E6D06F2244F15D00BD0767 /* TextFieldViewController.swift in Sources */,
 				1C825B132227DA5D0075E3FB /* LoginRootView.swift in Sources */,
 				6884B90C223BE0BD003ECE05 /* MessageDetailViewModel.swift in Sources */,
 				6884B909223BD9B9003ECE05 /* NSArray+Additions.swift in Sources */,

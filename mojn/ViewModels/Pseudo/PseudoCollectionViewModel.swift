@@ -33,10 +33,6 @@ class PseudoCollectionCountCellViewModel: CellViewModelSizable {
 class PseudoCollectionDefaultCellViewModel: CellViewModelSizable {
     var pseudo: Pseudo?
     
-    func name() -> String? {
-        return pseudo?.firstName
-    }
-    
     func height() -> CGFloat {
         return 220
     }

@@ -34,8 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
 //        realm db file path
-//        print(Realm.Configuration.defaultConfiguration.fileURL!)
-                
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
+        
         return true
     }
 }

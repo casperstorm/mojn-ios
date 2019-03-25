@@ -47,8 +47,8 @@ class PseudoCollectionViewController: GenericViewController<PseudoCollectionView
         }
         
         if let _ = cellViewModel as? PseudoCollectionAddCellViewModel {
-            let vc = NumberViewController(viewModel: NumberViewModel())
-            let nc = UINavigationController(rootViewController: vc)
+//            let vc = NumberViewController(viewModel: NumberViewModel())
+            let nc = UINavigationController(rootViewController: CreatePseudoPageViewController())
             present(nc, animated: true, completion: nil)
         }
     }

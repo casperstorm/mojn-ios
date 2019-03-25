@@ -12,15 +12,13 @@ class Seeds {
     func generate() {
         let pseudo1 = Pseudo()
         pseudo1.emoji = "☀️"
-        pseudo1.firstName = "Casper"
-        pseudo1.lastName = "Storm"
+        pseudo1.name = "Casper Storm"
         pseudo1.phoneNumber = "+447533003581"
         pseudo1.title = "Private"
         
         let pseudo2 = Pseudo()
         pseudo2.emoji = "🔥"
-        pseudo2.firstName = "Bob"
-        pseudo2.lastName = "Leo"
+        pseudo2.name = "Bob Leo"
         pseudo2.phoneNumber = "+447533003582"
         pseudo2.title = "Tinder"
 
