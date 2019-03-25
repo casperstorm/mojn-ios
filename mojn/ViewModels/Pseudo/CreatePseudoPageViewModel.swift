@@ -17,6 +17,18 @@ class CreatePseudoPageViewModel: ViewModel {
         builder.withPhoneNumber(number.number)
     }
     
+    func pseudoTitle(title: String) {
+        builder.withTitle(title)
+    }
+    
+    func pseudoName(name: String) {
+        builder.withName(name)
+    }
+    
+    func pseudoEmoji(emoji: String) {
+        builder.withEmoji(emoji)
+    }
+    
     func build() -> Pseudo {
         return builder.build()
     }

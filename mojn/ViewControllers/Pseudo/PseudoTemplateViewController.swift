@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+class PseudoTemplateViewController: GenericViewController<PseudoTemplateViewModel, PseudoTemplateRootView> {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+}

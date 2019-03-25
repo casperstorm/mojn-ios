@@ -39,6 +39,12 @@ class PseudoBuilder {
     }
     
     func build() -> Pseudo {
-        return Pseudo()
+        let pseudo = Pseudo()
+        pseudo.emoji = emoji
+        pseudo.name = name
+        pseudo.phoneNumber = phoneNumber
+        pseudo.title = title
+        
+        return pseudo
     }
 }

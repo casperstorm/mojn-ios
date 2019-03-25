@@ -12,28 +12,34 @@ import Layoutless
 
 class CreatePseudoPageViewController: UIPageViewController {
     enum Steps {
-        case number, emoji, title, name
+        case number, emoji, title, name, summary
     }
     
     fileprivate lazy var pageControl: UIPageControl = {
-        let pageControl = UIPageControl(frame: CGRect(x: 0, y: UIScreen.main.bounds.height - 200, width: UIScreen.main.bounds.width, height: 50))
+        let pageControl = UIPageControl(frame: CGRect(x: 0, y: UIScreen.main.bounds.height - 150, width: UIScreen.main.bounds.width, height: 50))
         pageControl.currentPage = 0
-        pageControl.tintColor = UIColor.black
-        pageControl.pageIndicatorTintColor = UIColor.white
-        pageControl.currentPageIndicatorTintColor = UIColor.black
+        pageControl.tintColor =  UIColor(hexString: "#472761")
+        pageControl.pageIndicatorTintColor = UIColor(hexString: "#ffffff")
+        pageControl.currentPageIndicatorTintColor = UIColor(hexString: "#472761")
         return pageControl
     }()
     
     fileprivate lazy var pages: [UIViewController] = {
         return [
+            self.getViewController(withStep: .title),
+            self.getViewController(withStep: .name),
             self.getViewController(withStep: .number),
-            self.getViewController(withStep: .title)
+            self.getViewController(withStep: .emoji),
+            self.getViewController(withStep: .summary)
         ]
     }()
     
     let viewModel: CreatePseudoPageViewModel
     let numberViewController: NumberViewController
     let titleViewController: TextFieldViewController
+    let nameViewController: TextFieldViewController
+    let emojiViewController: TextFieldViewController
+    let summaryViewController: PseudoTemplateViewController
 
     override init(transitionStyle style: UIPageViewController.TransitionStyle, navigationOrientation: UIPageViewController.NavigationOrientation, options: [UIPageViewController.OptionsKey : Any]? = nil) {
         
@@ -41,6 +47,9 @@ class CreatePseudoPageViewController: UIPageViewController {
         
         self.numberViewController = NumberViewController(viewModel: NumberViewModel())
         self.titleViewController = TextFieldViewController(viewModel: TextFieldViewModel())
+        self.nameViewController = TextFieldViewController(viewModel: TextFieldViewModel())
+        self.emojiViewController = TextFieldViewController(viewModel: TextFieldViewModel())
+        self.summaryViewController = PseudoTemplateViewController(viewModel: PseudoTemplateViewModel())
         
         super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: options)
     }
@@ -52,15 +61,32 @@ class CreatePseudoPageViewController: UIPageViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.delegate = self
-        self.dataSource = self
+        delegate = self
+        dataSource = self
         
-        self.numberViewController.delegate = self
+        numberViewController.delegate = self
         
-        self.setupStyling()
+        titleViewController.delegate = self
+        titleViewController.rootView.textField.placeholder = "Title"
+        titleViewController.rootView.textLabel.text = "Please input the title of the pseudo\nEg. Dating, Shopping etc."
         
-        self.pageControl.numberOfPages = pages.count
-        self.view.addSubview(pageControl)
+        nameViewController.delegate = self
+        nameViewController.rootView.textField.placeholder = "Name"
+        nameViewController.rootView.textLabel.text = "Please input the name of the pseudo\nEg. John Doe, Alex Jones etc"
+        
+        emojiViewController.delegate = self
+        emojiViewController.rootView.textField.placeholder = "Emoji"
+        emojiViewController.rootView.textLabel.text = "Please input a emoji for your pseudo\nEg. 🏡, 🔥 etc"
+        
+        summaryViewController.rootView.button.addTarget(self, action: #selector(createPseudo), for: .touchUpInside)
+        
+        let closeButton = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector(closeButtonPressed))
+        navigationItem.leftBarButtonItem = closeButton
+        
+        setupStyling()
+        
+        pageControl.numberOfPages = pages.count
+        view.addSubview(pageControl)
         
         if let firstVC = pages.first
         {
@@ -75,8 +101,12 @@ class CreatePseudoPageViewController: UIPageViewController {
             return self.numberViewController
         case .title:
             return self.titleViewController
-        default:
-            return UIViewController()
+        case .name:
+            return self.nameViewController
+        case .emoji:
+            return self.emojiViewController
+        case .summary:
+            return self.summaryViewController
         }
     }
     
@@ -85,6 +115,7 @@ class CreatePseudoPageViewController: UIPageViewController {
         guard let viewControllerIndex = pages.index(of: currentVC) else { return nil }
 
         let nextIndex = viewControllerIndex + 1
+        
         guard nextIndex < pages.count else { return pages.first }
         guard pages.count > nextIndex else { return nil }
         
@@ -94,13 +125,32 @@ class CreatePseudoPageViewController: UIPageViewController {
     func previousViewController() -> UIViewController? {
         guard let currentVC = viewControllers?.first else { return nil }
         guard let viewControllerIndex = pages.index(of: currentVC) else { return nil }
-
+        
         let previousIndex = viewControllerIndex - 1
         
         guard previousIndex >= 0 else { return pages.last }
         guard pages.count > previousIndex else { return nil }
         
         return pages[previousIndex]
+    }
+    
+    func setPseudoTemplate(pseudo: Pseudo) {
+        summaryViewController.rootView.nameLabel.text = pseudo.name
+        summaryViewController.rootView.titleLabel.text = pseudo.title
+        summaryViewController.rootView.emojiLabel.text = pseudo.emoji
+        summaryViewController.rootView.phoneLabel.text = pseudo.phoneNumber
+    }
+    
+    @objc func createPseudo() {
+        let pseudo = viewModel.build()
+        
+        let database = Database()
+        database.writePseudo(pseudo)
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func closeButtonPressed() {
+        dismiss(animated: true, completion: nil)
     }
 }
 
@@ -131,12 +181,36 @@ extension CreatePseudoPageViewController: NumberViewControllerDelegate {
     }
 }
 
+extension CreatePseudoPageViewController: TextFieldViewControllerDelegate {
+    func textFieldViewController(_ viewController: TextFieldViewController, didInputText text: String) {
+        
+        guard let currentVC = viewControllers?.first else { return }
+        
+        switch currentVC {
+        case titleViewController:
+            viewModel.pseudoTitle(title: text)
+        case nameViewController:
+            viewModel.pseudoName(name: text)
+        case emojiViewController:
+            viewModel.pseudoEmoji(emoji: text)
+        default: break
+        }
+        
+        let pseudo = viewModel.build()
+        setPseudoTemplate(pseudo: pseudo)
+
+        guard let nextVC = nextViewController() else { return }
+        setViewControllers([nextVC], direction: .forward, animated: true, completion: nil)
+    }
+}
+
+
 extension CreatePseudoPageViewController {
     func setupStyling() {
-        self.navigationController?.navigationBar.prefersLargeTitles = true
         UINavigationBar.tintColor(color: UIColor(hexString: "#f98b74"))
         self.view.backgroundColor = UIColor(hexString: "#f98b74")
         
-        self.title = "Create Pseudo"
+        self.navigationController?.navigationBar.prefersLargeTitles = false
+        self.title = nil
     }
 }

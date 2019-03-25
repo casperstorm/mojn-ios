@@ -9,7 +9,23 @@
 import Foundation
 import UIKit
 
-class TextFieldViewController: GenericViewController<TextFieldViewModel, TextFieldRootView> {
+protocol TextFieldViewControllerDelegate: class {
+    func textFieldViewController(_ viewController: TextFieldViewController, didInputText text: String)
+}
+
+
+class TextFieldViewController: GenericViewController<TextFieldViewModel, TextFieldRootView>, UITextFieldDelegate {
+    weak var delegate: TextFieldViewControllerDelegate?
+
     override func viewDidLoad() {
+        rootView.textField.delegate = self
+    }
+    
+    // MARK: - UITextFieldDelegate
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        delegate?.textFieldViewController(self, didInputText: textField.text ?? "")
+        textField.resignFirstResponder()
+        return true
     }
 }

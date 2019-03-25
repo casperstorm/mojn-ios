@@ -71,6 +71,9 @@
 		68E6D06F2244F15D00BD0767 /* TextFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E6D06E2244F15D00BD0767 /* TextFieldViewController.swift */; };
 		68E6D0722244F18400BD0767 /* TextFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E6D0712244F18400BD0767 /* TextFieldViewModel.swift */; };
 		68E6D0752244F19A00BD0767 /* TextFieldRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E6D0742244F19A00BD0767 /* TextFieldRootView.swift */; };
+		68E6D0772248E37500BD0767 /* PseudoTemplateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E6D0762248E37500BD0767 /* PseudoTemplateViewController.swift */; };
+		68E6D0792248E3B500BD0767 /* PseudoTemplateRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E6D0782248E3B500BD0767 /* PseudoTemplateRootView.swift */; };
+		68E6D07B2248E3FE00BD0767 /* PseudoTemplateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E6D07A2248E3FE00BD0767 /* PseudoTemplateViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -140,6 +143,9 @@
 		68E6D06E2244F15D00BD0767 /* TextFieldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldViewController.swift; sourceTree = "<group>"; };
 		68E6D0712244F18400BD0767 /* TextFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldViewModel.swift; sourceTree = "<group>"; };
 		68E6D0742244F19A00BD0767 /* TextFieldRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldRootView.swift; sourceTree = "<group>"; };
+		68E6D0762248E37500BD0767 /* PseudoTemplateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PseudoTemplateViewController.swift; sourceTree = "<group>"; };
+		68E6D0782248E3B500BD0767 /* PseudoTemplateRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PseudoTemplateRootView.swift; sourceTree = "<group>"; };
+		68E6D07A2248E3FE00BD0767 /* PseudoTemplateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PseudoTemplateViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -351,6 +357,7 @@
 			children = (
 				685E55882243C9F200C5B0AD /* CreatePseudoPageViewController.swift */,
 				684E95FB22231DE9005B14CF /* PseudoCollectionViewController.swift */,
+				68E6D0762248E37500BD0767 /* PseudoTemplateViewController.swift */,
 			);
 			path = Pseudo;
 			sourceTree = "<group>";
@@ -359,6 +366,7 @@
 			isa = PBXGroup;
 			children = (
 				682754A6222D3DA800C6326D /* PseudoCollectionRootView.swift */,
+				68E6D0782248E3B500BD0767 /* PseudoTemplateRootView.swift */,
 			);
 			path = Pseudo;
 			sourceTree = "<group>";
@@ -368,6 +376,7 @@
 			children = (
 				682754A8222D3E2700C6326D /* PseudoCollectionViewModel.swift */,
 				68E6D0682244D9AD00BD0767 /* CreatePseudoPageViewModel.swift */,
+				68E6D07A2248E3FE00BD0767 /* PseudoTemplateViewModel.swift */,
 			);
 			path = Pseudo;
 			sourceTree = "<group>";
@@ -646,6 +655,7 @@
 				68B71695222ED10A0078F066 /* PseudoCollectionCountCell.swift in Sources */,
 				6884B903223A808C003ECE05 /* Database.swift in Sources */,
 				68E6D06C2244EBFC00BD0767 /* PseudoBuilder.swift in Sources */,
+				68E6D0792248E3B500BD0767 /* PseudoTemplateRootView.swift in Sources */,
 				685CC1C0223685830035C45F /* MessageViewCellConfigurator.swift in Sources */,
 				6884B905223A86F7003ECE05 /* Seeds.swift in Sources */,
 				68E6D0752244F19A00BD0767 /* TextFieldRootView.swift in Sources */,
@@ -657,7 +667,9 @@
 				68E6D06F2244F15D00BD0767 /* TextFieldViewController.swift in Sources */,
 				1C825B132227DA5D0075E3FB /* LoginRootView.swift in Sources */,
 				6884B90C223BE0BD003ECE05 /* MessageDetailViewModel.swift in Sources */,
+				68E6D07B2248E3FE00BD0767 /* PseudoTemplateViewModel.swift in Sources */,
 				6884B909223BD9B9003ECE05 /* NSArray+Additions.swift in Sources */,
+				68E6D0772248E37500BD0767 /* PseudoTemplateViewController.swift in Sources */,
 				687B40482225585800304B88 /* Message.swift in Sources */,
 				1C825B102227D9D90075E3FB /* LoginViewController.swift in Sources */,
 				687B404A22255C1600304B88 /* MojnInputBar.swift in Sources */,
