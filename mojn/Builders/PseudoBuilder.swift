@@ -15,25 +15,25 @@ class PseudoBuilder {
     private var emoji: String?
     
     @discardableResult
-    func withName(_ name: String) -> PseudoBuilder {
+    func withName(_ name: String?) -> PseudoBuilder {
         self.name = name
         return self
     }
     
     @discardableResult
-    func withTitle(_ title: String) -> PseudoBuilder {
+    func withTitle(_ title: String?) -> PseudoBuilder {
         self.title = title
         return self
     }
     
     @discardableResult
-    func withPhoneNumber(_ phoneNumber: String) -> PseudoBuilder {
+    func withPhoneNumber(_ phoneNumber: String?) -> PseudoBuilder {
         self.phoneNumber = phoneNumber
         return self
     }
     
     @discardableResult
-    func withEmoji(_ emoji: String) -> PseudoBuilder {
+    func withEmoji(_ emoji: String?) -> PseudoBuilder {
         self.emoji = emoji
         return self
     }

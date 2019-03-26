@@ -40,6 +40,14 @@ class PseudoCollectionViewController: GenericViewController<PseudoCollectionView
         let cellViewModel = section[indexPath.row]
         
         if let vm = cellViewModel as? PseudoCollectionDefaultCellViewModel {
+            // In the case of the "edit" state (shaking) we opt stop if we press
+            let cell = collectionView.cellForItem(at: indexPath) as! PseudoCollectionDefaultCell
+            if (cell.shaking) {
+                cell.stopShake()
+                return
+            }
+            
+            // If we are not in the shaking state, we proceed.
             guard let pseudo = vm.pseudo else { return }
             let vc = MessageViewController(viewModel: MessageViewModel(pseudo: pseudo))
             let nc = UINavigationController(rootViewController: vc)
@@ -47,7 +55,6 @@ class PseudoCollectionViewController: GenericViewController<PseudoCollectionView
         }
         
         if let _ = cellViewModel as? PseudoCollectionAddCellViewModel {
-//            let vc = NumberViewController(viewModel: NumberViewModel())
             let nc = UINavigationController(rootViewController: CreatePseudoPageViewController())
             present(nc, animated: true, completion: nil)
         }

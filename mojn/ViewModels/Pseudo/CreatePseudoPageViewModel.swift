@@ -12,24 +12,17 @@ import UIKit
 
 class CreatePseudoPageViewModel: ViewModel {
     let builder: PseudoBuilder = PseudoBuilder()
+    var phoneNumber: String?
+    var title: String?
+    var name: String?
+    var emoji: String?
 
-    func pseudoPhoneNumber(number: Number) {
-        builder.withPhoneNumber(number.number)
-    }
-    
-    func pseudoTitle(title: String) {
-        builder.withTitle(title)
-    }
-    
-    func pseudoName(name: String) {
-        builder.withName(name)
-    }
-    
-    func pseudoEmoji(emoji: String) {
-        builder.withEmoji(emoji)
-    }
-    
     func build() -> Pseudo {
-        return builder.build()
+        return builder
+            .withTitle(title)
+            .withEmoji(emoji)
+            .withName(name)
+            .withPhoneNumber(phoneNumber)
+            .build()
     }
 }

@@ -177,7 +177,7 @@ extension CreatePseudoPageViewController: NumberViewControllerDelegate {
         guard let nextVC = nextViewController() else { return }
         setViewControllers([nextVC], direction: .forward, animated: true, completion: nil)
         
-        viewModel.pseudoPhoneNumber(number: number)
+        viewModel.phoneNumber = number.number
     }
 }
 
@@ -188,11 +188,11 @@ extension CreatePseudoPageViewController: TextFieldViewControllerDelegate {
         
         switch currentVC {
         case titleViewController:
-            viewModel.pseudoTitle(title: text)
+            viewModel.title = text
         case nameViewController:
-            viewModel.pseudoName(name: text)
+            viewModel.name = text
         case emojiViewController:
-            viewModel.pseudoEmoji(emoji: text)
+            viewModel.emoji = text
         default: break
         }
         

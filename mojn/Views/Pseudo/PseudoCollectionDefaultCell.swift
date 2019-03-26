@@ -12,6 +12,9 @@ import Layoutless
 
 class PseudoCollectionDefaultCell: CollectionViewCell {
     static var identifier: String = "PseudoCollectionDefaultCell"
+    var longPress: UILongPressGestureRecognizer?
+    var shaking: Bool = false
+    
     lazy var containerView: View = View(style: Stylesheet.container)
     lazy var emojiContainer: View = View(style: Stylesheet.emojiContainer)
     lazy var descriptionLabel: Label = Label(style: Stylesheet.description)
@@ -45,10 +48,47 @@ class PseudoCollectionDefaultCell: CollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        longPress = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
+        longPress?.minimumPressDuration = 0.75
+        contentView.addGestureRecognizer(longPress!)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc func handleLongPress(gesture: UILongPressGestureRecognizer) {
+        if (gesture.state == .ended) {
+            return
+        }
+    
+        if(!shaking) {
+            shake()
+        }
+    }
+    
+    func shake() {
+        let startAngle: Float = (-1) * 3.14159/180
+        let stopAngle = -startAngle
+        let anim = CABasicAnimation(keyPath: "transform.rotation")
+        anim.duration = 0.025
+        anim.repeatCount = 2
+        anim.autoreverses = true
+        anim.fromValue = NSNumber(value: startAngle as Float)
+        anim.toValue = NSNumber(value: 3 * stopAngle as Float)
+        anim.autoreverses = true
+        anim.duration = 0.2
+        anim.repeatCount = 10000
+        anim.timeOffset = 290 * drand48()
+        
+        layer.add(anim, forKey:"shaking")
+        shaking = true
+    }
+    
+    func stopShake() {
+        layer.removeAnimation(forKey: "shaking")
+        shaking = false
     }
 }
 
@@ -57,6 +97,12 @@ extension PseudoCollectionDefaultCell {
         static let container = Style<UIView> {
             $0.backgroundColor = .white
             $0.layer.cornerRadius = 12
+            /*
+             $0.layer.shadowColor = UIColor.black.cgColor
+             $0.layer.shadowOpacity = 0.2
+             $0.layer.shadowOffset = CGSize.zero
+             $0.layer.shadowRadius = 4
+             */
         }
         static let name = Style<UILabel> {
             $0.font = UIFont(name: "OverpassMono-Light", size: 12)
