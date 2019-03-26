@@ -16,6 +16,7 @@ class PseudoCollectionDefaultCell: CollectionViewCell {
     var shaking: Bool = false
     
     lazy var containerView: View = View(style: Stylesheet.container)
+    lazy var deleteContainer: View = View(style: Stylesheet.deleteContainer)
     lazy var emojiContainer: View = View(style: Stylesheet.emojiContainer)
     lazy var descriptionLabel: Label = Label(style: Stylesheet.description)
     lazy var nameLabel: Label = Label(style: Stylesheet.name)
@@ -33,17 +34,22 @@ class PseudoCollectionDefaultCell: CollectionViewCell {
     }
 
     override var subviewsLayout: AnyLayout {
-        return containerView.addingLayout(
-            stack(.vertical, alignment: .center)(
-                emojiContainer.sizing(toWidth: 86, height: 86)
-                    .addingLayout(emojiLabel.centeringInParent()),
-                verticalSpacing(10),
-                descriptionLabel,
-                nameLabel,
-                phoneLabel
-                ).centeringInParent()
-            )
-        .fillingParent()
+        return View()
+            .addingLayout(
+                containerView.addingLayout(
+                    stack(.vertical, alignment: .center)(
+                        emojiContainer.sizing(toWidth: 86, height: 86)
+                            .addingLayout(emojiLabel.centeringInParent()),
+                        verticalSpacing(10),
+                        descriptionLabel,
+                        nameLabel,
+                        phoneLabel
+                        )
+                        .centeringInParent())
+                    .fillingParent())
+            .addingLayout(
+                deleteContainer.sizing(toWidth: 35, height: 35).stickingToParentEdges(left: -8, top: -8))
+            .fillingParent()
     }
     
     override init(frame: CGRect) {
@@ -67,9 +73,11 @@ class PseudoCollectionDefaultCell: CollectionViewCell {
             shake()
         }
     }
-    
+}
+
+extension PseudoCollectionDefaultCell {
     func shake() {
-        let startAngle: Float = (-1) * 3.14159/180
+        let startAngle: Float = (-1) * 3.14159 / 180
         let stopAngle = -startAngle
         let anim = CABasicAnimation(keyPath: "transform.rotation")
         anim.duration = 0.025
@@ -84,11 +92,41 @@ class PseudoCollectionDefaultCell: CollectionViewCell {
         
         layer.add(anim, forKey:"shaking")
         shaking = true
+        
+        presentDeleteContainer()
     }
     
     func stopShake() {
-        layer.removeAnimation(forKey: "shaking")
+        layer.removeAnimation(forKey:"shaking")
         shaking = false
+        
+        hideDeleteContainer()
+    }
+}
+
+extension PseudoCollectionDefaultCell {
+    func presentDeleteContainer() {
+        self.deleteContainer.alpha = 0
+        self.deleteContainer.transform = CGAffineTransform(scaleX: 0, y: 0)
+        
+        
+        UIView.animate(withDuration: 0.25, delay: 0.10, usingSpringWithDamping: 5, initialSpringVelocity: 0.1, options: .curveEaseInOut, animations: {
+            self.deleteContainer.transform = CGAffineTransform.identity
+            self.deleteContainer.alpha = 1
+        })
+    }
+    
+    func hideDeleteContainer() {
+        self.deleteContainer.alpha = 1
+        self.deleteContainer.transform = CGAffineTransform.identity
+        
+        
+        UIView.animate(withDuration: 0.15, delay: 0, usingSpringWithDamping: 5, initialSpringVelocity: 0.1, options: .curveEaseInOut, animations: {
+            self.deleteContainer.transform = CGAffineTransform(scaleX: 0.2, y: 0.2)
+            self.deleteContainer.alpha = 0
+        }, completion: { _ in
+            self.deleteContainer.transform = CGAffineTransform(scaleX: 0, y: 0)
+        })
     }
 }
 
@@ -97,12 +135,12 @@ extension PseudoCollectionDefaultCell {
         static let container = Style<UIView> {
             $0.backgroundColor = .white
             $0.layer.cornerRadius = 12
-            /*
-             $0.layer.shadowColor = UIColor.black.cgColor
-             $0.layer.shadowOpacity = 0.2
-             $0.layer.shadowOffset = CGSize.zero
-             $0.layer.shadowRadius = 4
-             */
+        }
+        static let deleteContainer = Style<View> {
+            $0.backgroundColor = .red
+            $0.layer.cornerRadius = 35/2
+            $0.transform = CGAffineTransform(scaleX: 0, y: 0)
+
         }
         static let name = Style<UILabel> {
             $0.font = UIFont(name: "OverpassMono-Light", size: 12)
